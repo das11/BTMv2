@@ -1,0 +1,9 @@
+Sitemap: https://www.viacomcbs.com/sitemap.xml
+User-agent: *
+Disallow: /program-practices
+Disallow: /calm-act-certifications
+Disallow: /cbs-research-survey-terms-of-use
+Disallow: /cbs-studios-facilities-terms
+Disallow: /cbs-studios-facilities-business-to-business-terms-of-use
+Disallow: /cbs-studios-facilities-business-to-business-privacy-policy
+Disallow: /project-mapleleaf
