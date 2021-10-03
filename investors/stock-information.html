@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" prefix="og: https://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8" /><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={licenseKey:"761e715901",applicationID:"35893545"};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var i=e[n]={exports:{}};t[n][0].call(i.exports,function(e){var i=t[n][1][e];return r(i||e)},i,i.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(t,e,n){function r(){}function i(t,e,n){return function(){return o(t,[u.now()].concat(f(arguments)),e?null:this,n),e?void 0:this}}var o=t("handle"),a=t(8),f=t(9),c=t("ee").get("tracer"),u=t("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(t,e){s[e]=i(p+e,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),e.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(t,e){var n={},r=this,i="function"==typeof e;return o(l+"tracer",[u.now(),t,n],r),function(){if(c.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return e.apply(this,arguments)}catch(t){throw c.emit("fn-err",[arguments,this,t],n),t}finally{c.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){m[e]=i(l+e)}),newrelic.noticeError=function(t,e){"string"==typeof t&&(t=new Error(t)),o("err",[t,u.now(),!1,e])}},{}],2:[function(t,e,n){function r(t){if(NREUM.init){for(var e=NREUM.init,n=t.split("."),r=0;r<n.length-1;r++)if(e=e[n[r]],"object"!=typeof e)return;return e=e[n[n.length-1]]}}e.exports={getConfiguration:r}},{}],3:[function(t,e,n){function r(){return f.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,f=t(10);e.exports=r,e.exports.offset=a,e.exports.getLastTimestamp=i},{}],4:[function(t,e,n){function r(t){return!(!t||!t.protocol||"file:"===t.protocol)}e.exports=r},{}],5:[function(t,e,n){function r(t,e){var n=t.getEntries();n.forEach(function(t){"first-paint"===t.name?d("timing",["fp",Math.floor(t.startTime)]):"first-contentful-paint"===t.name&&d("timing",["fcp",Math.floor(t.startTime)])})}function i(t,e){var n=t.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(t){t.getEntries().forEach(function(t){t.hadRecentInput||d("cls",[t])})}function a(t){if(t instanceof m&&!g){var e=Math.round(t.timeStamp),n={type:t.type};e<=p.now()?n.fid=p.now()-e:e>p.offset&&e<=Date.now()?(e-=p.offset,n.fid=p.now()-e):e=p.now(),g=!0,d("timing",["fi",e,n])}}function f(t){"hidden"===t&&d("pageHide",[p.now()])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var c,u,s,d=t("handle"),p=t("loader"),l=t(7),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){c=new PerformanceObserver(r);try{c.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,h=["click","keydown","mousedown","pointerdown","touchstart"];h.forEach(function(t){document.addEventListener(t,a,!1)})}l(f)}},{}],6:[function(t,e,n){function r(t,e){if(!i)return!1;if(t!==i)return!1;if(!e)return!0;if(!o)return!1;for(var n=o.split("."),r=e.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var f=navigator.userAgent,c=f.match(a);c&&f.indexOf("Chrome")===-1&&f.indexOf("Chromium")===-1&&(i="Safari",o=c[1])}e.exports={agent:i,version:o,match:r}},{}],7:[function(t,e,n){function r(t){function e(){t(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,e,!1)}e.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],8:[function(t,e,n){function r(t,e){var n=[],r="",o=0;for(r in t)i.call(t,r)&&(n[o]=e(r,t[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;e.exports=r},{}],9:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,i=n-e||0,o=Array(i<0?0:i);++r<i;)o[r]=t[e+r];return o}e.exports=r},{}],10:[function(t,e,n){e.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(t,e,n){function r(){}function i(t){function e(t){return t&&t instanceof r?t:t?u(t,c,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){t&&a&&t(n,r,i);for(var f=e(i),c=v(n),u=c.length,s=0;s<u;s++)c[s].apply(f,r);var p=d[w[n]];return p&&p.push([b,n,r,f]),f}}function o(t,e){y[t]=v(t).concat(e)}function m(t,e){var n=y[t];if(n)for(var r=0;r<n.length;r++)n[r]===e&&n.splice(r,1)}function v(t){return y[t]||[]}function g(t){return p[t]=p[t]||i(n)}function h(t,e){l.aborted||s(t,function(t,n){e=e||"feature",w[n]=e,e in d||(d[e]=[])})}var y={},w={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:e,buffer:h,abort:f,aborted:!1};return b}function o(t){return u(t,c,a)}function a(){return new r}function f(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var c="nr@context",u=t("gos"),s=t(8),d={},p={},l=e.exports=i();e.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(t,e,n){function r(t,e,n){if(i.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return t[e]=r,r}var i=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){i.buffer([t],r),i.emit(t,e,n)}var i=t("ee").get("handle");e.exports=r,r.ee=i},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,o,function(){return i++})}var i=1,o="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!R++){var t=M.info=NREUM.info,e=v.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&e))return u.abort();c(E,function(e,n){t[e]||(t[e]=n)});var n=a();f("mark",["onload",n+M.offset],null,"api"),f("timing",["load",n]);var r=v.createElement("script");0===t.agent.indexOf("http://")||0===t.agent.indexOf("https://")?r.src=t.agent:r.src=l+"://"+t.agent,e.parentNode.insertBefore(r,e)}}function i(){"complete"===v.readyState&&o()}function o(){f("mark",["domContent",a()+M.offset],null,"api")}var a=t(3),f=t("handle"),c=t(8),u=t("ee"),s=t(6),d=t(4),p=t(2),l=p.getConfiguration("ssl")===!1?"http":"https",m=window,v=m.document,g="addEventListener",h="attachEvent",y=m.XMLHttpRequest,w=y&&y.prototype,b=!d(m.location);NREUM.o={ST:setTimeout,SI:m.setImmediate,CT:clearTimeout,XHR:y,REQ:m.Request,EV:m.Event,PR:m.Promise,MO:m.MutationObserver};var x=""+location,E={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1210.min.js"},O=y&&w&&w[g]&&!/CriOS/.test(navigator.userAgent),M=e.exports={offset:a.getLastTimestamp(),now:a,origin:x,features:{},xhrWrappable:O,userAgent:s,disabled:b};if(!b){t(1),t(5),v[g]?(v[g]("DOMContentLoaded",o,!1),m[g]("load",r,!1)):(v[h]("onreadystatechange",i),m[h]("onload",r)),f("mark",["firstbyte",a.getLastTimestamp()],null,"api");var R=0}},{}],"wrap-function":[function(t,e,n){function r(t,e){function n(e,n,r,c,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,c],s],t)}f(n+"start",[o,a,c],s,u);try{return p=e.apply(a,o)}catch(m){throw f(n+"err",[o,a,m],s,u),m}finally{f(n+"end",[o,a,p],s,u)}}return a(e)?e:(n||(n=""),nrWrapper[p]=e,o(e,nrWrapper,t),nrWrapper)}function r(t,e,r,i,o){r||(r="");var f,c,u,s="-"===r.charAt(0);for(u=0;u<e.length;u++)c=e[u],f=t[c],a(f)||(t[c]=n(f,s?c+r:r,i,c,o))}function f(n,r,o,a){if(!m||e){var f=m;m=!0;try{t.emit(n,r,o,e,a)}catch(c){i([c,n,r,o],t)}m=f}}return t||(t=s),n.inPlace=r,n.flag=p,n}function i(t,e){e||(e=s);try{e.emit("internal-error",t)}catch(n){}}function o(t,e,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(t);return r.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(o){i([o],n)}for(var a in t)l.call(t,a)&&(e[a]=t[a]);return e}function a(t){return!(t&&t instanceof Function&&t.apply&&!t[p])}function f(t,e){var n=e(t);return n[p]=t,o(t,n,s),n}function c(t,e,n){var r=t[e];t[e]=f(r,n)}function u(){for(var t=arguments.length,e=new Array(t),n=0;n<t;++n)e[n]=arguments[n];return e}var s=t("ee"),d=t(9),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;e.exports=r,e.exports.wrapFunction=f,e.exports.wrapInPlace=c,e.exports.argsToArray=u},{}]},{},["loader"]);</script>
+<link rel="canonical" href="https://ir.viacomcbs.com/stock-information/" />
+<meta property="og:site_name" content="ViacomCBS Inc." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://ir.viacomcbs.com/stock-information" />
+<meta property="og:title" content="Stock Performance | ViacomCBS Inc." />
+<meta property="og:description" content="The Investor Relations website contains information about ViacomCBS Inc.&#039;s business for stockholders, potential investors, and financial analysts." />
+<meta name="google-site-verification" content="vi93GKimMTWR_C7xnoOZf7FMZotKZtACN6AhHjM5RnI" />
+<meta name="Generator" content="Drupal 9 (https://www.drupal.org)" />
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="sites/g/files/knoqqb55956/files/favicon_0.png" type="image/png" />
+<link rel="alternate" hreflang="en" href="stock-information.html" />
+<link rel="revision" href="stock-information.html" />
+
+    <title>Stock Performance - ViacomCBS Inc.</title>
+    <link rel="stylesheet" media="all" href="https://ir.viacomcbs.com/sites/g/files/knoqqb55956/files/css/css_OkD1wik6k2Ys4qApdloexccVnzsuJ9yAymLL-FaZ7Io.css" />
+<link rel="stylesheet" media="all" href="sites/g/files/knoqqb55956/files/css/css_Oy5Ket5LQbRVNutvnOS-no7RrrhH2dkaMPoVX261ylA.css" />
+<link rel="stylesheet" media="all" href="https://fonts.googleapis.com/css?family=Muli:400,700,800" />
+<link rel="stylesheet" media="all" href="sites/g/files/knoqqb55956/files/css/css_UCz0nlmjFwdQXJtm5P15ImLLjPHN2i7lFGNl6g_Hu7Y.css" />
+<link rel="stylesheet" media="print" href="sites/g/files/knoqqb55956/files/css/css_lRvuFtsDRRPvgUEE4vz-jMEWNGfaVDS4SsALDG4oqLc.css" />
+
+    <script src="/core/assets/vendor/modernizr/modernizr.min.js?v=3.11.7"></script>
+<script src="/core/misc/modernizr-additional-tests.js?v=3.11.7"></script>
+
+    <script>
+!function(n){var o=window,a="cbsoptanon",c="cmd",d="config";o[a]=o[a]?o[a]:{},o[a][c]=o[a][c]?o[a][c]:[],o[a][d]=o[a][d]?o[a][d]:[],["onIframesReady","onFormsReady","onScriptsReady","onAdsReady"].forEach(function(n){o[a][n]=o[a][n]||function(){var d=arguments;o[a][c].push(function(){o[a][n].apply(o[a],d)})}})}();
+</script>
+<script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js"  type="text/javascript" charset="UTF-8" data-domain-script="c3cfaf66-6112-466d-91c0-1624b742f7b4" ></script>
+<script src="https://production-cmp.isgprivacy.cbsi.com/dist/optanon-v1.1.0.js" type="text/javascript" async></script>
+<script src="https://assets.adobedtm.com/9e032218c8de/ac2e9f0f1166/launch-fbff9f9e3712.min.js" async></script>
+  </head>
+  <body class="body-sidebars-none nir-node nir-node--type-nir-landing-page nir-node--5916 path-node page-node-type-nir-landing-page">
+    <div id="skip">
+      <a class="visually-hidden focusable skip-link" href="stock-information.html#main-menu">
+        Skip to main navigation
+      </a>
+    </div>
+    
+          
+<div id="dataMode" data-mode="live"></div>
+
+<div id="app" data-theme="pink">
+
+  <div data-component="app-root">
+
+    
+    <div id="headerInsert"></div>
+
+    <div class="main-content">
+
+              <section data-component="secondary-header" class="secondary-header" data-scroll-component>
+          <div class="wrapper">
+            <h1 class="heading-02">
+                                                Stock Performance
+                                          </h1>
+                      </div>
+        </section>
+      
+      
+              
+
+              
+
+<section data-component="investors-menu" class="investors-menu" data-scroll-component>
+  <a id="menu"></a>
+  <div class="wrapper">
+        
+                              <ul data-block-uuid="e11227a4-144b-4eb6-9c7b-5cb5cfef77b1" class="list">
+                          <li class="item">
+          <div class="background">
+            <div class="theme-color"></div>
+          </div>
+          <a class="link copy-01" href="earnings-materials.html#menu" target="">
+            <span class="label">Earnings Materials</span>
+          </a>       
+                  </li>
+                      <li class="item">
+          <div class="background">
+            <div class="theme-color"></div>
+          </div>
+          <a class="link copy-01" href="events-webcasts-annual-meetings.html#menu" target="">
+            <span class="label">Events, Webcasts &amp; Annual Meetings</span>
+          </a>       
+                  </li>
+                      <li class="item">
+          <div class="background">
+            <div class="theme-color"></div>
+          </div>
+          <a class="link copy-01" href="press-releases-bc9f0a11_field_nir_news_category[value][0]=4101.html#menu" target="">
+            <span class="label">Press Releases</span>
+          </a>       
+                  </li>
+                      <li class="item">
+          <div class="background">
+            <div class="theme-color"></div>
+          </div>
+          <a class="link copy-01" href="sec-filings/viacomcbs.html#menu" target="">
+            <span class="label">SEC Filings</span>
+          </a>       
+                  </li>
+                      <li class="item">
+          <div class="background">
+            <div class="theme-color"></div>
+          </div>
+          <a class="link copy-01" href="viacomcbs-merger.html#menu" target="">
+            <span class="label">ViacomCBS Merger</span>
+          </a>       
+                  </li>
+                      <li class="item is-active">
+          <div class="background">
+            <div class="theme-color"></div>
+          </div>
+          <a class="link copy-01" href="stock-information.html#menu" target="">
+            <span class="label">Stock Performance</span>
+          </a>       
+                  </li>
+                      <li class="item">
+          <div class="background">
+            <div class="theme-color"></div>
+          </div>
+          <a class="link copy-01" href="dividend-history.html#menu" target="">
+            <span class="label">Dividend Information</span>
+          </a>       
+                  </li>
+                      <li class="item">
+          <div class="background">
+            <div class="theme-color"></div>
+          </div>
+          <a class="link copy-01" href="public-debt.html#menu" target="">
+            <span class="label">Public Debt</span>
+          </a>       
+                  </li>
+                      <li class="item">
+          <div class="background">
+            <div class="theme-color"></div>
+          </div>
+          <a class="link copy-01" href="shareholder-services.html#menu" target="">
+            <span class="label">Shareholder Services, Alerts, &amp; FAQs</span>
+          </a>       
+                  </li>
+                      <li class="item">
+          <div class="background">
+            <div class="theme-color"></div>
+          </div>
+          <a class="link copy-01" href="corporate-governance.html#menu" target="">
+            <span class="label">Corporate Governance &amp; ESG</span>
+          </a>       
+                  </li>
+         
+    </ul>
+  
+
+
+      </div>
+</section>
+      
+      
+      <section>
+        <div class="wrapper">
+          <div class="content-wrapper">
+            <div id="content-header"></div>
+            <div id="ndq-content" class="ndq-5916 copy-02 copy">
+                             <div class="content-block">
+                                    <div class="region region-content">
+    <div id="block-nir-pid2249-websitenoticeblock" class="block--website-notice-block block--website-notice-block--5916 block--content--website-notice-block block--content--website-notice-block--5916 block--fda90a4e-478b-400a-8c75-61214f8ba9b0 block--fda90a4e-478b-400a-8c75-61214f8ba9b0--5916 block block-nir-website-notices block-website-notice-block">
+  
+    
+      
+  </div>
+<div data-drupal-messages-fallback class="hidden"></div>
+<div id="block-nir-pid2249-content" class="block--system-main-block block--system-main-block--5916 block--content--system-main-block block--content--system-main-block--5916 block--fb4e7e4d-cc87-4c24-914d-ba5cbd3e2bf6 block--fb4e7e4d-cc87-4c24-914d-ba5cbd3e2bf6--5916 block block-system block-system-main-block">
+  
+    
+      <article class="node node--type-nir_landing_page node--view-mode-full clearfix">
+
+  <div>
+    
+<div  class="panel-display boxton clearfix">
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 radix-layouts-content panel-panel">
+        <div  class="panel-panel-inner">
+          <div class="block-region-contentmain"><div data-storage-id="node:5916:full:70636" data-uuid="c6b8b030-fc79-4484-9f58-ea23cc9910c2" class="block--market-data-block__stock-quote block--market-data-block__stock-quote--5916 block--contentmain--market-data-block__stock-quote block--contentmain--market-data-block__stock-quote--5916 block--c6b8b030-fc79-4484-9f58-ea23cc9910c2 block--c6b8b030-fc79-4484-9f58-ea23cc9910c2--5916 block block-nir-market-data-block block-market-data-block__stock-quote">
+  
+      <h2 data-component="primary-title" data-js-heading class="primary-title heading-06" data-scroll-component>
+      Stock Quote &amp; Chart
+      <span class="underline theme-color" data-js-underline></span>
+    </h2>
+    
+      
+<div class='quote-wrap user-toggle-on long-quote '>
+  <div class="quote-wrapper">
+
+                          <div class="stock-quote" data-exchange="">
+      <div class="left-stock">
+                  <select>
+                          <option value=""></option>
+                      </select>
+                <div class="exchange"></div>
+        <div class="quote-price theme-color"></div>
+        <time></time>
+      </div>
+      <div class="center-stock">
+        <dd>Change</dd><dt class=""></dt>
+        <dd>Volume</dd><dt></dt>
+        <dd>Today's Open</dd><dt></dt>
+        <dd>Previous Close</dd><dt></dt>
+      </div>
+      <div class="right-stock">
+        <dd>Today's High</dd><dt></dt>
+        <dd>Today's Low</dd><dt></dt>
+        <dd>52 Week High</dd><dt></dt>
+        <dd>52 Week Low</dd><dt></dt>
+      </div>
+    </div>
+      </div>
+</div>
+
+  </div>
+<div class="block--nir-stock-chart block--nir-stock-chart--5916 block--contentmain--nir-stock-chart block--contentmain--nir-stock-chart--5916 block--93143700-743b-4506-8ca6-754de00cae32 block--93143700-743b-4506-8ca6-754de00cae32--5916 block block-nir-stock-chart">
+  
+    
+      
+<iframe src="https://api.nasdaqomx.wallst.com/advancedchart?display=mountain&symbol=VIACA.O-VIACA%7CVIAC.O-VIAC&scale=linear&duration=1dy&frequency=15min&gridLine=b&bgColor=f5f5f5&lineColor=8380a5&fillcolor=8380a5%7Cf5f5f5&width=100%25&height=440&bdr=0&volume=1&volColorUpDown=21d380%7Cf24c36" width="100%" height="440" frameborder="0" scrolling="no" allowtransparency="true" class="nir-stock-chart"></iframe>
+
+  </div>
+<div class="block--attribution-block__stock-info-attribution__thomson-reuters block--attribution-block__stock-info-attribution__thomson-reuters--5916 block--contentmain--attribution-block__stock-info-attribution__thomson-reuters block--contentmain--attribution-block__stock-info-attribution__thomson-reuters--5916 block--c254c18f-b25f-4c8c-884a-864f0e0ed3e3 block--c254c18f-b25f-4c8c-884a-864f0e0ed3e3--5916 block block-nir-attribution-block block-attribution-block__stock-info-attribution__thomson-reuters">
+  
+    
+      <p>
+  Data Provided by Refinitiv. Minimum 15 minutes delayed.</p>
+
+  </div>
+<div class="block--market-data-block__historical-price-lookup block--market-data-block__historical-price-lookup--5916 block--contentmain--market-data-block__historical-price-lookup block--contentmain--market-data-block__historical-price-lookup--5916 block--db20682c-316c-40c9-95e7-7a21f1491360 block--db20682c-316c-40c9-95e7-7a21f1491360--5916 block block-nir-market-data-block block-market-data-block__historical-price-lookup">
+  
+      <h2 data-component="primary-title" data-js-heading class="primary-title heading-06" data-scroll-component>
+      Historical Lookup
+      <span class="underline theme-color" data-js-underline></span>
+    </h2>
+    
+      
+<form class="historical-lookup-form historical-price-lookup-form" data-drupal-selector="historical-lookup-form" action="/stock-information" method="post" id="historical-lookup-form" accept-charset="UTF-8">
+  <div data-drupal-selector="edit-db20682c-316c-40c9-95e7-7a21f1491360" id="edit-db20682c-316c-40c9-95e7-7a21f1491360" class="js-form-wrapper form-wrapper"><div class="js-form-item form-item js-form-type-select form-item-db20682c-316c-40c9-95e7-7a21f1491360-symbols-historical js-form-item-db20682c-316c-40c9-95e7-7a21f1491360-symbols-historical">
+      <label for="edit-db20682c-316c-40c9-95e7-7a21f1491360-symbols-historical">Symbol</label>
+        <select data-drupal-selector="edit-db20682c-316c-40c9-95e7-7a21f1491360-symbols-historical" id="edit-db20682c-316c-40c9-95e7-7a21f1491360-symbols-historical" name="db20682c-316c-40c9-95e7-7a21f1491360[symbols_historical]" class="form-select"><option value="VIACA.O">VIACA</option><option value="VIAC.O">VIAC</option></select>
+        </div>
+<div data-drupal-selector="edit-db20682c-316c-40c9-95e7-7a21f1491360-viaca-o" data-drupal-states="{&quot;visible&quot;:{&quot;:input[name=\u0022db20682c-316c-40c9-95e7-7a21f1491360[symbols_historical]\u0022]&quot;:{&quot;value&quot;:&quot;VIACA.O&quot;}}}" id="edit-db20682c-316c-40c9-95e7-7a21f1491360-viaca-o" class="js-form-wrapper form-wrapper"><div class="js-form-item form-item js-form-type-select form-item-db20682c-316c-40c9-95e7-7a21f1491360-viaca-o-date-month js-form-item-db20682c-316c-40c9-95e7-7a21f1491360-viaca-o-date-month">
+      <label for="edit-db20682c-316c-40c9-95e7-7a21f1491360-viaca-o-date-month">Lookup Month</label>
+        <select data-drupal-selector="edit-db20682c-316c-40c9-95e7-7a21f1491360-viaca-o-date-month" id="edit-db20682c-316c-40c9-95e7-7a21f1491360-viaca-o-date-month" name="db20682c-316c-40c9-95e7-7a21f1491360[VIACA_O][date_month]" class="form-select"><option value="01">January</option><option value="02">February</option><option value="03">March</option><option value="04">April</option><option value="05">May</option><option value="06">June</option><option value="07">July</option><option value="08">August</option><option value="09">September</option><option value="10" selected="selected">October</option><option value="11">November</option><option value="12">December</option></select>
+        </div>
+<div class="js-form-item form-item js-form-type-select form-item-db20682c-316c-40c9-95e7-7a21f1491360-viaca-o-date-day js-form-item-db20682c-316c-40c9-95e7-7a21f1491360-viaca-o-date-day">
+      <label for="edit-db20682c-316c-40c9-95e7-7a21f1491360-viaca-o-date-day">Lookup Day</label>
+        <select data-drupal-selector="edit-db20682c-316c-40c9-95e7-7a21f1491360-viaca-o-date-day" id="edit-db20682c-316c-40c9-95e7-7a21f1491360-viaca-o-date-day" name="db20682c-316c-40c9-95e7-7a21f1491360[VIACA_O][date_day]" class="form-select"><option value="1">1</option><option value="2">2</option><option value="3" selected="selected">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option></select>
+        </div>
+<div class="js-form-item form-item js-form-type-select form-item-db20682c-316c-40c9-95e7-7a21f1491360-viaca-o-date-year js-form-item-db20682c-316c-40c9-95e7-7a21f1491360-viaca-o-date-year">
+      <label for="edit-db20682c-316c-40c9-95e7-7a21f1491360-viaca-o-date-year">Lookup Year</label>
+        <select data-drupal-selector="edit-db20682c-316c-40c9-95e7-7a21f1491360-viaca-o-date-year" id="edit-db20682c-316c-40c9-95e7-7a21f1491360-viaca-o-date-year" name="db20682c-316c-40c9-95e7-7a21f1491360[VIACA_O][date_year]" class="form-select"><option value="2006">2006</option><option value="2007">2007</option><option value="2008">2008</option><option value="2009">2009</option><option value="2010">2010</option><option value="2011">2011</option><option value="2012">2012</option><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018">2018</option><option value="2019">2019</option><option value="2020">2020</option><option value="2021" selected="selected">2021</option></select>
+        </div>
+</div>
+<div data-drupal-selector="edit-db20682c-316c-40c9-95e7-7a21f1491360-viac-o" data-drupal-states="{&quot;visible&quot;:{&quot;:input[name=\u0022db20682c-316c-40c9-95e7-7a21f1491360[symbols_historical]\u0022]&quot;:{&quot;value&quot;:&quot;VIAC.O&quot;}}}" id="edit-db20682c-316c-40c9-95e7-7a21f1491360-viac-o" class="js-form-wrapper form-wrapper"><div class="js-form-item form-item js-form-type-select form-item-db20682c-316c-40c9-95e7-7a21f1491360-viac-o-date-month js-form-item-db20682c-316c-40c9-95e7-7a21f1491360-viac-o-date-month">
+      <label for="edit-db20682c-316c-40c9-95e7-7a21f1491360-viac-o-date-month">Lookup Month</label>
+        <select data-drupal-selector="edit-db20682c-316c-40c9-95e7-7a21f1491360-viac-o-date-month" id="edit-db20682c-316c-40c9-95e7-7a21f1491360-viac-o-date-month" name="db20682c-316c-40c9-95e7-7a21f1491360[VIAC_O][date_month]" class="form-select"><option value="01">January</option><option value="02">February</option><option value="03">March</option><option value="04">April</option><option value="05">May</option><option value="06">June</option><option value="07">July</option><option value="08">August</option><option value="09">September</option><option value="10" selected="selected">October</option><option value="11">November</option><option value="12">December</option></select>
+        </div>
+<div class="js-form-item form-item js-form-type-select form-item-db20682c-316c-40c9-95e7-7a21f1491360-viac-o-date-day js-form-item-db20682c-316c-40c9-95e7-7a21f1491360-viac-o-date-day">
+      <label for="edit-db20682c-316c-40c9-95e7-7a21f1491360-viac-o-date-day">Lookup Day</label>
+        <select data-drupal-selector="edit-db20682c-316c-40c9-95e7-7a21f1491360-viac-o-date-day" id="edit-db20682c-316c-40c9-95e7-7a21f1491360-viac-o-date-day" name="db20682c-316c-40c9-95e7-7a21f1491360[VIAC_O][date_day]" class="form-select"><option value="1">1</option><option value="2">2</option><option value="3" selected="selected">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option></select>
+        </div>
+<div class="js-form-item form-item js-form-type-select form-item-db20682c-316c-40c9-95e7-7a21f1491360-viac-o-date-year js-form-item-db20682c-316c-40c9-95e7-7a21f1491360-viac-o-date-year">
+      <label for="edit-db20682c-316c-40c9-95e7-7a21f1491360-viac-o-date-year">Lookup Year</label>
+        <select data-drupal-selector="edit-db20682c-316c-40c9-95e7-7a21f1491360-viac-o-date-year" id="edit-db20682c-316c-40c9-95e7-7a21f1491360-viac-o-date-year" name="db20682c-316c-40c9-95e7-7a21f1491360[VIAC_O][date_year]" class="form-select"><option value="2019">2019</option><option value="2020">2020</option><option value="2021" selected="selected">2021</option></select>
+        </div>
+</div>
+<button title="Submit"  data-drupal-selector="edit-db20682c-316c-40c9-95e7-7a21f1491360-submit" type="submit" id="edit-db20682c-316c-40c9-95e7-7a21f1491360-submit" name="op" class="button button--primary js-form-submit form-submit primary-button theme-color">
+    <span class="label">Submit</span>
+</button>
+
+</div>
+<input autocomplete="off" data-drupal-selector="form-evrujijcr-btnyjbruiufdjyx9wmmb8sljhkbk2emoq" type="hidden" name="form_build_id" value="form-EVRUjiJCR-bTNyJBRuIufdjyX9wmMb8SljHKBK2emOQ" />
+<input data-drupal-selector="edit-historical-lookup-form" type="hidden" name="form_id" value="historical_lookup_form" />
+<div class="url-textfield js-form-wrapper form-wrapper" style="display: none !important;"><div class="js-form-item form-item js-form-type-textfield form-item-url js-form-item-url">
+      <label for="edit-url">Leave this field blank</label>
+        <input autocomplete="off" data-drupal-selector="edit-url" type="text" id="edit-url" name="url" value="" size="20" maxlength="128" class="form-text" />
+
+        </div>
+</div>
+
+</form>
+
+<h3 class="copy-01 theme-color">Week of September 27, 2021</h3>
+<table class="nirtable historical-lookup collapse-table-wide">
+  <thead>
+    <tr>
+      <th>Date Requested</th>
+      <th>Closing Price</th>
+      <th>Volume</th>
+      <th>Split Adjustment Factor</th>
+      <th>Open Price</th>
+      <th>Day High</th>
+      <th>Day Low</th>
+    </tr>
+  </thead>
+  <tbody>
+          <tr>
+        <td>Sep 27, 2021</td>
+        <td>$44.08</td>
+        <td>58,042</td>
+        <td>1:1</td>
+        <td>$43.60</td>
+        <td>$44.59</td>
+        <td>$43.60</td>
+      </tr>
+          <tr>
+        <td>Sep 28, 2021</td>
+        <td>$43.71</td>
+        <td>35,010</td>
+        <td>1:1</td>
+        <td>$43.92</td>
+        <td>$44.29</td>
+        <td>$43.55</td>
+      </tr>
+          <tr>
+        <td>Sep 29, 2021</td>
+        <td>$43.53</td>
+        <td>67,355</td>
+        <td>1:1</td>
+        <td>$43.71</td>
+        <td>$43.93</td>
+        <td>$43.37</td>
+      </tr>
+          <tr>
+        <td>Sep 30, 2021</td>
+        <td>$42.07</td>
+        <td>172,584</td>
+        <td>1:1</td>
+        <td>$43.71</td>
+        <td>$43.71</td>
+        <td>$42.00</td>
+      </tr>
+          <tr>
+        <td>Oct 01, 2021</td>
+        <td>$42.49</td>
+        <td>117,268</td>
+        <td>1:1</td>
+        <td>$42.38</td>
+        <td>$42.85</td>
+        <td>$41.51</td>
+      </tr>
+      </tbody>
+</table>
+
+  </div>
+<div class="block--attribution-block__historical-price-lookup-disclaimer__nasdaq block--attribution-block__historical-price-lookup-disclaimer__nasdaq--5916 block--contentmain--attribution-block__historical-price-lookup-disclaimer__nasdaq block--contentmain--attribution-block__historical-price-lookup-disclaimer__nasdaq--5916 block--4553c77b-0d61-4387-a633-17bf15ee57f4 block--4553c77b-0d61-4387-a633-17bf15ee57f4--5916 block block-nir-attribution-block block-attribution-block__historical-price-lookup-disclaimer__nasdaq">
+  
+    
+      <p>
+  NOTE: The Closing Price, Day's High, Day's Low, and Day's Volume have been
+    adjusted to account for any stock splits and/or dividends which may have
+    occurred for this security since the date shown above. The Split Adjustment Factor is a
+    cumulative factor which encapsulates all splits since the date shown above.
+    The closing price above is not necessarily indicative of future price
+    performance.</p>
+
+  </div>
+<div class="block--market-data-block__stock-price-calculator block--market-data-block__stock-price-calculator--5916 block--contentmain--market-data-block__stock-price-calculator block--contentmain--market-data-block__stock-price-calculator--5916 block--4db75033-d4d4-4388-89a8-00a6b1d8a25a block--4db75033-d4d4-4388-89a8-00a6b1d8a25a--5916 block block-nir-market-data-block block-market-data-block__stock-price-calculator">
+  
+      <h2 data-component="primary-title" data-js-heading class="primary-title heading-06" data-scroll-component>
+      Investment Calculator
+      <span class="underline theme-color" data-js-underline></span>
+    </h2>
+    
+      <form class="stock-price-calculator-form" data-drupal-selector="stock-price-calculator-form" action="/stock-information" method="post" id="stock-price-calculator-form" accept-charset="UTF-8">
+  <div data-drupal-selector="edit-4db75033-d4d4-4388-89a8-00a6b1d8a25a" id="edit-4db75033-d4d4-4388-89a8-00a6b1d8a25a" class="js-form-wrapper form-wrapper"><div class="filter-row"><div class="js-form-item form-item js-form-type-select form-item-_db75033-d4d4-4388-89a8-00a6b1d8a25a-symbols-calculator js-form-item-_db75033-d4d4-4388-89a8-00a6b1d8a25a-symbols-calculator">
+      <label for="edit-4db75033-d4d4-4388-89a8-00a6b1d8a25a-symbols-calculator">Symbol</label>
+        <select data-drupal-selector="edit-4db75033-d4d4-4388-89a8-00a6b1d8a25a-symbols-calculator" id="edit-4db75033-d4d4-4388-89a8-00a6b1d8a25a-symbols-calculator" name="4db75033-d4d4-4388-89a8-00a6b1d8a25a[symbols_calculator]" class="form-select"><option value="VIACA.O">VIACA</option><option value="VIAC.O">VIAC</option></select>
+        </div>
+</div><div class="filter-row"><div class="js-form-item form-item js-form-type-select form-item-_db75033-d4d4-4388-89a8-00a6b1d8a25a-date-month js-form-item-_db75033-d4d4-4388-89a8-00a6b1d8a25a-date-month">
+      <label for="edit-4db75033-d4d4-4388-89a8-00a6b1d8a25a-date-month">Investment Month</label>
+        <select data-drupal-selector="edit-4db75033-d4d4-4388-89a8-00a6b1d8a25a-date-month" id="edit-4db75033-d4d4-4388-89a8-00a6b1d8a25a-date-month" name="4db75033-d4d4-4388-89a8-00a6b1d8a25a[date_month]" class="form-select"><option value="01">January</option><option value="02">February</option><option value="03">March</option><option value="04">April</option><option value="05">May</option><option value="06">June</option><option value="07">July</option><option value="08">August</option><option value="09">September</option><option value="10">October</option><option value="11" selected="selected">November</option><option value="12">December</option></select>
+        </div>
+<div class="js-form-item form-item js-form-type-select form-item-_db75033-d4d4-4388-89a8-00a6b1d8a25a-date-day js-form-item-_db75033-d4d4-4388-89a8-00a6b1d8a25a-date-day">
+      <label for="edit-4db75033-d4d4-4388-89a8-00a6b1d8a25a-date-day">Investment Day</label>
+        <select data-drupal-selector="edit-4db75033-d4d4-4388-89a8-00a6b1d8a25a-date-day" id="edit-4db75033-d4d4-4388-89a8-00a6b1d8a25a-date-day" name="4db75033-d4d4-4388-89a8-00a6b1d8a25a[date_day]" class="form-select"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26" selected="selected">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option></select>
+        </div>
+<div class="js-form-item form-item js-form-type-select form-item-_db75033-d4d4-4388-89a8-00a6b1d8a25a-date-year js-form-item-_db75033-d4d4-4388-89a8-00a6b1d8a25a-date-year">
+      <label for="edit-4db75033-d4d4-4388-89a8-00a6b1d8a25a-date-year">Investment Year</label>
+        <select data-drupal-selector="edit-4db75033-d4d4-4388-89a8-00a6b1d8a25a-date-year" id="edit-4db75033-d4d4-4388-89a8-00a6b1d8a25a-date-year" name="4db75033-d4d4-4388-89a8-00a6b1d8a25a[date_year]" class="form-select"><option value="2006">2006</option><option value="2007">2007</option><option value="2008">2008</option><option value="2009">2009</option><option value="2010">2010</option><option value="2011">2011</option><option value="2012">2012</option><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018">2018</option><option value="2019" selected="selected">2019</option><option value="2020">2020</option><option value="2021">2021</option></select>
+        </div>
+</div><div class="js-form-item form-item js-form-type-number form-item-_db75033-d4d4-4388-89a8-00a6b1d8a25a-number-invested js-form-item-_db75033-d4d4-4388-89a8-00a6b1d8a25a-number-invested">
+      <label for="edit-4db75033-d4d4-4388-89a8-00a6b1d8a25a-number-invested">Investment</label>
+        <input data-drupal-selector="edit-4db75033-d4d4-4388-89a8-00a6b1d8a25a-number-invested" type="number" id="edit-4db75033-d4d4-4388-89a8-00a6b1d8a25a-number-invested" name="4db75033-d4d4-4388-89a8-00a6b1d8a25a[number_invested]" value="1000" step="1" class="form-number" />
+
+        </div>
+<div class="js-form-item form-item js-form-type-select form-item-_db75033-d4d4-4388-89a8-00a6b1d8a25a-investment-type js-form-item-_db75033-d4d4-4388-89a8-00a6b1d8a25a-investment-type">
+      <label for="edit-4db75033-d4d4-4388-89a8-00a6b1d8a25a-investment-type">Units</label>
+        <select data-drupal-selector="edit-4db75033-d4d4-4388-89a8-00a6b1d8a25a-investment-type" id="edit-4db75033-d4d4-4388-89a8-00a6b1d8a25a-investment-type" name="4db75033-d4d4-4388-89a8-00a6b1d8a25a[investment_type]" class="form-select"><option value="shares" selected="selected">Shares</option><option value="dollars">Dollars (usd)</option></select>
+        </div>
+<button title="Submit"  data-drupal-selector="edit-4db75033-d4d4-4388-89a8-00a6b1d8a25a-submit" type="submit" id="edit-4db75033-d4d4-4388-89a8-00a6b1d8a25a-submit" name="op" class="button button--primary js-form-submit form-submit primary-button theme-color">
+    <span class="label">Submit</span>
+</button>
+
+</div>
+<input autocomplete="off" data-drupal-selector="form-x2nvlbloiu9bugh1dfjao-4p9r1jo0y4lcdugrllmpk" type="hidden" name="form_build_id" value="form-X2NVLBLOiU9BuGH1DFJaO-4P9r1jo0Y4LCDUgRLlMpk" />
+<input data-drupal-selector="edit-stock-price-calculator-form" type="hidden" name="form_id" value="stock_price_calculator_form" />
+<div class="url-textfield js-form-wrapper form-wrapper" style="display: none !important;"><div class="js-form-item form-item js-form-type-textfield form-item-url js-form-item-url">
+      <label for="edit-url--2">Leave this field blank</label>
+        <input autocomplete="off" data-drupal-selector="edit-url" type="text" id="edit-url--2" name="url" value="" size="20" maxlength="128" class="form-text" />
+
+        </div>
+</div>
+
+</form>
+
+<table class="nirtable VIACA.O collapse-table-wide">
+  <thead>
+    <tr>
+      <th>Investment Date</th>
+      <th>Original Shares</th>
+      <th>Original Value</th>
+      <th>Current Shares</th>
+      <th>Current Value</th>
+      <th>% Return</th>
+      <th>Split Adjustment</th>
+      <th>Current price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td >Nov 26, 2019</td>
+      <td >1,000.00</td>
+      <td >$43,670.00</td>
+      <td >1,000.00</td>
+      <td >$42,490.00</td>
+      <td >-2.7%</td>
+      <td >1</td>
+      <td >$42.49</td>
+    </tr>
+  </tbody>
+</table>
+
+  </div>
+<div class="block--attribution-block__investment-calculator-disclaimer__nasdaq block--attribution-block__investment-calculator-disclaimer__nasdaq--5916 block--contentmain--attribution-block__investment-calculator-disclaimer__nasdaq block--contentmain--attribution-block__investment-calculator-disclaimer__nasdaq--5916 block--598623fc-3cd3-444b-85e3-9b091b63cca8 block--598623fc-3cd3-444b-85e3-9b091b63cca8--5916 block block-nir-attribution-block block-attribution-block__investment-calculator-disclaimer__nasdaq">
+  
+    
+      <p>
+  Return calculations do not include reinvested cash dividends.</p>
+
+  </div>
+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /.boxton -->
+
+  </div>
+</article>
+
+  </div>
+
+  </div>
+</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
+      <div id="footerInsert"></div>
+
+      
+
+    </div>
+
+  </div>
+</div>
+
+  
+    
+        <script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/","scriptPath":null,"pathPrefix":"","currentPath":"node\/5916","currentPathIsAdmin":false,"isFront":false,"currentLanguage":"en"},"pluralDelimiter":"\u0003","suppressDeprecationErrors":true,"ajaxPageState":{"libraries":"core\/drupal.states,nir_base\/lib,nir_base\/nir_icons,nir_base\/nir_toolbar,nir_base\/sidr,nir_ckeditor_datatables\/datatables,nir_market_data_block\/nir_market_data_block.command,nir_market_data_block\/nir_market_data_block.stockQuote,nir_multimedia\/nir_multimedia,nir_pid2249\/override,nir_stock_chart\/nir_stock_chart.stockChartStyling,nir_website_notices\/nir_website_notices.notices,radix_layouts\/radix_layouts,system\/base","theme":"nir_pid2249","theme_token":null},"ajaxTrustedUrl":{"form_action_p_pvdeGsVG5zNF_XLGPTvYSKCf43t8qZYSwcfZl2uzM":true},"user":{"uid":0,"permissionsHash":"bf295fdab8890c2a7864f2ac2dc6d0b15971f6072cdc2a15116b8c777e0e77e0"}}</script>
+<script src="https://ir.viacomcbs.com/sites/g/files/knoqqb55956/files/js/js_YWTuYMI49G61TSMC8UPismu1g_ajJ4SiwxwqDWedNhc.js"></script>
+<script src="https://spt-branding-viacomcbs-prd-cdn-enp.azureedge.net/finalmarkupwithlocalreference/headerFooterMarkup.js"></script>
+<script src="sites/g/files/knoqqb55956/themes/site/nir_pid2249/dist/js/common-r0bwsa.js"></script>
+<script src="sites/g/files/knoqqb55956/themes/site/nir_pid2249/dist/js/bundle-r0bwsa.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://ir.viacomcbs.com/sites/g/files/knoqqb55956/files/js/js_m97Gu50gmBi17k-T88rTeX7T8FtLmYbotvzV6-NGYsc.js"></script>
+
+    
+  <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam-cell.nr-data.net","licenseKey":"761e715901","applicationID":"35893545,24276188","transactionName":"ZlVXYRcAW0ZRW0QKX18fdFYRCFpbH3xCFkBQXGlbCgVQaXNXXhdCXlxZUBc9e1pUXWYKVUZzWlsRE1pZXF1CTg5HWVBC","queueTime":0,"applicationTime":5395,"atts":"ShJUF18aSEg=","errorBeacon":"bam-cell.nr-data.net","agent":""}</script></body>
+</html>

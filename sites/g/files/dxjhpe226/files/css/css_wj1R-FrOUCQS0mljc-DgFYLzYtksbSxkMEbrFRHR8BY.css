@@ -21098,7 +21098,7 @@ button:focus {
 }
 
 .gradient-video-banner::before {
-	background-image: linear-gradient(180deg, #000A3C 0%, rgba(0, 10, 60, 0) 100%);
+	background-image: linear-gradient(180deg, #ffffff 0%, rgba(0, 10, 60, 0) 100%);
 	opacity: 0.5;
 	width: 100%;
 	height: 240px;

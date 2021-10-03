@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" prefix="og: https://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8" /><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={licenseKey:"761e715901",applicationID:"35893545"};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var i=e[n]={exports:{}};t[n][0].call(i.exports,function(e){var i=t[n][1][e];return r(i||e)},i,i.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(t,e,n){function r(){}function i(t,e,n){return function(){return o(t,[u.now()].concat(f(arguments)),e?null:this,n),e?void 0:this}}var o=t("handle"),a=t(8),f=t(9),c=t("ee").get("tracer"),u=t("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(t,e){s[e]=i(p+e,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),e.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(t,e){var n={},r=this,i="function"==typeof e;return o(l+"tracer",[u.now(),t,n],r),function(){if(c.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return e.apply(this,arguments)}catch(t){throw c.emit("fn-err",[arguments,this,t],n),t}finally{c.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){m[e]=i(l+e)}),newrelic.noticeError=function(t,e){"string"==typeof t&&(t=new Error(t)),o("err",[t,u.now(),!1,e])}},{}],2:[function(t,e,n){function r(t){if(NREUM.init){for(var e=NREUM.init,n=t.split("."),r=0;r<n.length-1;r++)if(e=e[n[r]],"object"!=typeof e)return;return e=e[n[n.length-1]]}}e.exports={getConfiguration:r}},{}],3:[function(t,e,n){function r(){return f.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,f=t(10);e.exports=r,e.exports.offset=a,e.exports.getLastTimestamp=i},{}],4:[function(t,e,n){function r(t){return!(!t||!t.protocol||"file:"===t.protocol)}e.exports=r},{}],5:[function(t,e,n){function r(t,e){var n=t.getEntries();n.forEach(function(t){"first-paint"===t.name?d("timing",["fp",Math.floor(t.startTime)]):"first-contentful-paint"===t.name&&d("timing",["fcp",Math.floor(t.startTime)])})}function i(t,e){var n=t.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(t){t.getEntries().forEach(function(t){t.hadRecentInput||d("cls",[t])})}function a(t){if(t instanceof m&&!g){var e=Math.round(t.timeStamp),n={type:t.type};e<=p.now()?n.fid=p.now()-e:e>p.offset&&e<=Date.now()?(e-=p.offset,n.fid=p.now()-e):e=p.now(),g=!0,d("timing",["fi",e,n])}}function f(t){"hidden"===t&&d("pageHide",[p.now()])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var c,u,s,d=t("handle"),p=t("loader"),l=t(7),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){c=new PerformanceObserver(r);try{c.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,h=["click","keydown","mousedown","pointerdown","touchstart"];h.forEach(function(t){document.addEventListener(t,a,!1)})}l(f)}},{}],6:[function(t,e,n){function r(t,e){if(!i)return!1;if(t!==i)return!1;if(!e)return!0;if(!o)return!1;for(var n=o.split("."),r=e.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var f=navigator.userAgent,c=f.match(a);c&&f.indexOf("Chrome")===-1&&f.indexOf("Chromium")===-1&&(i="Safari",o=c[1])}e.exports={agent:i,version:o,match:r}},{}],7:[function(t,e,n){function r(t){function e(){t(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,e,!1)}e.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],8:[function(t,e,n){function r(t,e){var n=[],r="",o=0;for(r in t)i.call(t,r)&&(n[o]=e(r,t[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;e.exports=r},{}],9:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,i=n-e||0,o=Array(i<0?0:i);++r<i;)o[r]=t[e+r];return o}e.exports=r},{}],10:[function(t,e,n){e.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(t,e,n){function r(){}function i(t){function e(t){return t&&t instanceof r?t:t?u(t,c,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){t&&a&&t(n,r,i);for(var f=e(i),c=v(n),u=c.length,s=0;s<u;s++)c[s].apply(f,r);var p=d[w[n]];return p&&p.push([b,n,r,f]),f}}function o(t,e){y[t]=v(t).concat(e)}function m(t,e){var n=y[t];if(n)for(var r=0;r<n.length;r++)n[r]===e&&n.splice(r,1)}function v(t){return y[t]||[]}function g(t){return p[t]=p[t]||i(n)}function h(t,e){l.aborted||s(t,function(t,n){e=e||"feature",w[n]=e,e in d||(d[e]=[])})}var y={},w={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:e,buffer:h,abort:f,aborted:!1};return b}function o(t){return u(t,c,a)}function a(){return new r}function f(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var c="nr@context",u=t("gos"),s=t(8),d={},p={},l=e.exports=i();e.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(t,e,n){function r(t,e,n){if(i.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return t[e]=r,r}var i=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){i.buffer([t],r),i.emit(t,e,n)}var i=t("ee").get("handle");e.exports=r,r.ee=i},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,o,function(){return i++})}var i=1,o="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!R++){var t=M.info=NREUM.info,e=v.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&e))return u.abort();c(E,function(e,n){t[e]||(t[e]=n)});var n=a();f("mark",["onload",n+M.offset],null,"api"),f("timing",["load",n]);var r=v.createElement("script");0===t.agent.indexOf("http://")||0===t.agent.indexOf("https://")?r.src=t.agent:r.src=l+"://"+t.agent,e.parentNode.insertBefore(r,e)}}function i(){"complete"===v.readyState&&o()}function o(){f("mark",["domContent",a()+M.offset],null,"api")}var a=t(3),f=t("handle"),c=t(8),u=t("ee"),s=t(6),d=t(4),p=t(2),l=p.getConfiguration("ssl")===!1?"http":"https",m=window,v=m.document,g="addEventListener",h="attachEvent",y=m.XMLHttpRequest,w=y&&y.prototype,b=!d(m.location);NREUM.o={ST:setTimeout,SI:m.setImmediate,CT:clearTimeout,XHR:y,REQ:m.Request,EV:m.Event,PR:m.Promise,MO:m.MutationObserver};var x=""+location,E={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1210.min.js"},O=y&&w&&w[g]&&!/CriOS/.test(navigator.userAgent),M=e.exports={offset:a.getLastTimestamp(),now:a,origin:x,features:{},xhrWrappable:O,userAgent:s,disabled:b};if(!b){t(1),t(5),v[g]?(v[g]("DOMContentLoaded",o,!1),m[g]("load",r,!1)):(v[h]("onreadystatechange",i),m[h]("onload",r)),f("mark",["firstbyte",a.getLastTimestamp()],null,"api");var R=0}},{}],"wrap-function":[function(t,e,n){function r(t,e){function n(e,n,r,c,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,c],s],t)}f(n+"start",[o,a,c],s,u);try{return p=e.apply(a,o)}catch(m){throw f(n+"err",[o,a,m],s,u),m}finally{f(n+"end",[o,a,p],s,u)}}return a(e)?e:(n||(n=""),nrWrapper[p]=e,o(e,nrWrapper,t),nrWrapper)}function r(t,e,r,i,o){r||(r="");var f,c,u,s="-"===r.charAt(0);for(u=0;u<e.length;u++)c=e[u],f=t[c],a(f)||(t[c]=n(f,s?c+r:r,i,c,o))}function f(n,r,o,a){if(!m||e){var f=m;m=!0;try{t.emit(n,r,o,e,a)}catch(c){i([c,n,r,o],t)}m=f}}return t||(t=s),n.inPlace=r,n.flag=p,n}function i(t,e){e||(e=s);try{e.emit("internal-error",t)}catch(n){}}function o(t,e,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(t);return r.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(o){i([o],n)}for(var a in t)l.call(t,a)&&(e[a]=t[a]);return e}function a(t){return!(t&&t instanceof Function&&t.apply&&!t[p])}function f(t,e){var n=e(t);return n[p]=t,o(t,n,s),n}function c(t,e,n){var r=t[e];t[e]=f(r,n)}function u(){for(var t=arguments.length,e=new Array(t),n=0;n<t;++n)e[n]=arguments[n];return e}var s=t("ee"),d=t(9),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;e.exports=r,e.exports.wrapFunction=f,e.exports.wrapInPlace=c,e.exports.argsToArray=u},{}]},{},["loader"]);</script>
+<link rel="canonical" href="https://ir.viacomcbs.com/sec-filings/viacomcbs/" />
+<meta property="og:site_name" content="ViacomCBS Inc." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://ir.viacomcbs.com/sec-filings/viacomcbs" />
+<meta property="og:title" content="SEC Filings | ViacomCBS Inc." />
+<meta property="og:description" content="The Investor Relations website contains information about ViacomCBS Inc.&#039;s business for stockholders, potential investors, and financial analysts." />
+<meta name="google-site-verification" content="vi93GKimMTWR_C7xnoOZf7FMZotKZtACN6AhHjM5RnI" />
+<meta name="Generator" content="Drupal 9 (https://www.drupal.org)" />
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="../sites/g/files/knoqqb55956/files/favicon_0.png" type="image/png" />
+<link rel="alternate" hreflang="en" href="viacomcbs.html" />
+<link rel="revision" href="viacomcbs.html" />
+
+    <title>SEC Filings - ViacomCBS Inc.</title>
+    <link rel="stylesheet" media="all" href="../sites/g/files/knoqqb55956/files/css/css_4ffzBScAcIj-YpAWRTJH9j-LrdlR0QWXP3PxM_gEjGM.css" />
+<link rel="stylesheet" media="all" href="../sites/g/files/knoqqb55956/files/css/css_Oy5Ket5LQbRVNutvnOS-no7RrrhH2dkaMPoVX261ylA.css" />
+<link rel="stylesheet" media="all" href="https://fonts.googleapis.com/css?family=Muli:400,700,800" />
+<link rel="stylesheet" media="all" href="../sites/g/files/knoqqb55956/files/css/css_UCz0nlmjFwdQXJtm5P15ImLLjPHN2i7lFGNl6g_Hu7Y.css" />
+<link rel="stylesheet" media="print" href="../sites/g/files/knoqqb55956/files/css/css_lRvuFtsDRRPvgUEE4vz-jMEWNGfaVDS4SsALDG4oqLc.css" />
+
+    <script src="/core/assets/vendor/modernizr/modernizr.min.js?v=3.11.7"></script>
+<script src="/core/misc/modernizr-additional-tests.js?v=3.11.7"></script>
+
+    <script>
+!function(n){var o=window,a="cbsoptanon",c="cmd",d="config";o[a]=o[a]?o[a]:{},o[a][c]=o[a][c]?o[a][c]:[],o[a][d]=o[a][d]?o[a][d]:[],["onIframesReady","onFormsReady","onScriptsReady","onAdsReady"].forEach(function(n){o[a][n]=o[a][n]||function(){var d=arguments;o[a][c].push(function(){o[a][n].apply(o[a],d)})}})}();
+</script>
+<script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js"  type="text/javascript" charset="UTF-8" data-domain-script="c3cfaf66-6112-466d-91c0-1624b742f7b4" ></script>
+<script src="https://production-cmp.isgprivacy.cbsi.com/dist/optanon-v1.1.0.js" type="text/javascript" async></script>
+<script src="https://assets.adobedtm.com/9e032218c8de/ac2e9f0f1166/launch-fbff9f9e3712.min.js" async></script>
+  </head>
+  <body class="body-sidebars-none nir-node nir-node--type-nir-landing-page nir-node--5876 path-node page-node-type-nir-landing-page">
+    <div id="skip">
+      <a class="visually-hidden focusable skip-link" href="viacomcbs.html#main-menu">
+        Skip to main navigation
+      </a>
+    </div>
+    
+          
+<div id="dataMode" data-mode="live"></div>
+
+<div id="app" data-theme="pink">
+
+  <div data-component="app-root">
+
+    
+    <div id="headerInsert"></div>
+
+    <div class="main-content">
+
+              <section data-component="secondary-header" class="secondary-header" data-scroll-component>
+          <div class="wrapper">
+            <h1 class="heading-02">
+                                                SEC Filings
+                                          </h1>
+                      </div>
+        </section>
+      
+      
+              
+
+              
+
+<section data-component="investors-menu" class="investors-menu" data-scroll-component>
+  <a id="menu"></a>
+  <div class="wrapper">
+        
+                              <ul data-block-uuid="e11227a4-144b-4eb6-9c7b-5cb5cfef77b1" class="list">
+                          <li class="item">
+          <div class="background">
+            <div class="theme-color"></div>
+          </div>
+          <a class="link copy-01" href="../earnings-materials.html#menu" target="">
+            <span class="label">Earnings Materials</span>
+          </a>       
+                  </li>
+                      <li class="item">
+          <div class="background">
+            <div class="theme-color"></div>
+          </div>
+          <a class="link copy-01" href="../events-webcasts-annual-meetings.html#menu" target="">
+            <span class="label">Events, Webcasts &amp; Annual Meetings</span>
+          </a>       
+                  </li>
+                      <li class="item">
+          <div class="background">
+            <div class="theme-color"></div>
+          </div>
+          <a class="link copy-01" href="../press-releases-bc9f0a11_field_nir_news_category%5Bvalue%5D%5B0%5D=4101.html#menu" target="">
+            <span class="label">Press Releases</span>
+          </a>       
+                  </li>
+                      <li class="item is-active">
+          <div class="background">
+            <div class="theme-color"></div>
+          </div>
+          <a class="link copy-01" href="viacomcbs.html#menu" target="">
+            <span class="label">SEC Filings</span>
+          </a>       
+                  </li>
+                      <li class="item">
+          <div class="background">
+            <div class="theme-color"></div>
+          </div>
+          <a class="link copy-01" href="../viacomcbs-merger.html#menu" target="">
+            <span class="label">ViacomCBS Merger</span>
+          </a>       
+                  </li>
+                      <li class="item">
+          <div class="background">
+            <div class="theme-color"></div>
+          </div>
+          <a class="link copy-01" href="../stock-information.html#menu" target="">
+            <span class="label">Stock Performance</span>
+          </a>       
+                  </li>
+                      <li class="item">
+          <div class="background">
+            <div class="theme-color"></div>
+          </div>
+          <a class="link copy-01" href="../dividend-history.html#menu" target="">
+            <span class="label">Dividend Information</span>
+          </a>       
+                  </li>
+                      <li class="item">
+          <div class="background">
+            <div class="theme-color"></div>
+          </div>
+          <a class="link copy-01" href="../public-debt.html#menu" target="">
+            <span class="label">Public Debt</span>
+          </a>       
+                  </li>
+                      <li class="item">
+          <div class="background">
+            <div class="theme-color"></div>
+          </div>
+          <a class="link copy-01" href="../shareholder-services.html#menu" target="">
+            <span class="label">Shareholder Services, Alerts, &amp; FAQs</span>
+          </a>       
+                  </li>
+                      <li class="item">
+          <div class="background">
+            <div class="theme-color"></div>
+          </div>
+          <a class="link copy-01" href="../corporate-governance.html#menu" target="">
+            <span class="label">Corporate Governance &amp; ESG</span>
+          </a>       
+                  </li>
+         
+    </ul>
+  
+
+
+      </div>
+</section>
+      
+      
+      <section>
+        <div class="wrapper">
+          <div class="content-wrapper">
+            <div id="content-header"></div>
+            <div id="ndq-content" class="ndq-5876 copy-02 copy">
+                             <div class="content-block">
+                                    <div class="region region-content">
+    <div id="block-nir-pid2249-websitenoticeblock" class="block--website-notice-block block--website-notice-block--5876 block--content--website-notice-block block--content--website-notice-block--5876 block--fda90a4e-478b-400a-8c75-61214f8ba9b0 block--fda90a4e-478b-400a-8c75-61214f8ba9b0--5876 block block-nir-website-notices block-website-notice-block">
+  
+    
+      
+  </div>
+<div data-drupal-messages-fallback class="hidden"></div>
+<div id="block-nir-pid2249-content" class="block--system-main-block block--system-main-block--5876 block--content--system-main-block block--content--system-main-block--5876 block--fb4e7e4d-cc87-4c24-914d-ba5cbd3e2bf6 block--fb4e7e4d-cc87-4c24-914d-ba5cbd3e2bf6--5876 block block-system block-system-main-block">
+  
+    
+      <article class="node node--type-nir_landing_page node--view-mode-full clearfix node--sticky">
+
+  <div>
+    
+<div  class="panel-display boxton clearfix">
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 radix-layouts-content panel-panel">
+        <div  class="panel-panel-inner">
+          <div class="block-region-contentmain"><div class="block--search-form block--search-form--5876 block--contentmain--search-form block--contentmain--search-form--5876 block--921a36f2-4848-4ae6-b6e0-a274d3817f01 block--921a36f2-4848-4ae6-b6e0-a274d3817f01--5876 block block-nir-search block-search-form">
+  
+    
+      <form data-block-uuid="921a36f2-4848-4ae6-b6e0-a274d3817f01" action="/search" method="get" accept-charset="UTF-8">
+  <div class="js-form-item form-item js-form-type-search form-item-query js-form-item-query form-no-label">
+        <input type="search" name="query" size="60" maxlength="128" placeholder="keyword(s)" class="form-search required" required="required" aria-required="true" />
+
+        </div>
+<input type="hidden" name="f[0]" value="type:nir_sec_filing" />
+<button title="Search"  type="submit" name="op" class="button button--primary js-form-submit form-submit primary-button theme-color">
+    <span class="label">Search</span>
+</button>
+
+
+</form>
+
+  </div>
+<div class="views-element-container block--views-blockwidget-sec-filings-table block--views-blockwidget-sec-filings-table--5876 block--contentmain--views-block--widget-sec-filings-table block--contentmain--views-block--widget-sec-filings-table--5876 block--126b0bea-e8cf-49a5-851d-b911312e8d95 block--126b0bea-e8cf-49a5-851d-b911312e8d95--5876 block block-views block-views-blockwidget-sec-filings-table">
+  
+    
+      <div data-block-uuid="126b0bea-e8cf-49a5-851d-b911312e8d95"><div class="view view-widget-sec-filings view-id-widget_sec_filings view-display-id-table js-view-dom-id-2ca1dc98d5d4d33536e853b4f0d23c8b83ad32f36c0d80aefab378e587158452">
+  
+    
+        <div class="view-filters">
+      <div class="form-item js-form-item js-form-type-select form-type-select form-item-field-nir-sec-form-group-target-id sec-company-name">
+        <label for="sec-company-name">Entity</label>
+        <select name="sec-company-name" id="sec-company-name" class="form-select">
+          <option value="/sec-filings/viacomcbs">ViacomCBS</option>
+          <option value="/sec-filings/viacom">Viacom</option>
+        </select>
+      </div>
+      <form class="views-exposed-form" data-drupal-selector="views-exposed-form-widget-sec-filings-table" action="/sec-filings/viacomcbs" method="get" id="views-exposed-form-widget-sec-filings-table" accept-charset="UTF-8">
+  <div class="form--inline clearfix">
+  <div class="js-form-item form-item js-form-type-select form-item-field-nir-sec-form-group-target-id js-form-item-field-nir-sec-form-group-target-id">
+      <label for="edit-field-nir-sec-form-group-target-id">Group</label>
+        <select data-drupal-selector="edit-field-nir-sec-form-group-target-id" multiple="multiple" name="field_nir_sec_form_group_target_id[]" id="edit-field-nir-sec-form-group-target-id" size="8" class="form-select"><option value="466">3,4,5</option><option value="471">Annual Filings</option><option value="476">Current Reports</option><option value="481">Mergers &amp; Acquisitions</option><option value="486">Other</option><option value="491">Proxy Filings</option><option value="496">Quarterly Filings</option><option value="501">Registration Statements</option></select>
+        </div>
+<div class="js-form-item form-item js-form-type-select form-item-field-nir-sec-date-filed-value js-form-item-field-nir-sec-date-filed-value">
+      <label for="edit-field-nir-sec-date-filed-value">Filing year</label>
+        <select data-drupal-selector="edit-field-nir-sec-date-filed-value" id="edit-field-nir-sec-date-filed-value" name="field_nir_sec_date_filed_value" size="1" class="form-select"><option value="" selected="selected">- Any -</option><option value="2021">2021</option><option value="2020">2020</option><option value="2019">2019</option><option value="2018">2018</option><option value="2017">2017</option><option value="2016">2016</option><option value="2015">2015</option><option value="2014">2014</option><option value="2013">2013</option><option value="2012">2012</option><option value="2011">2011</option><option value="2010">2010</option><option value="2009">2009</option><option value="2008">2008</option><option value="2007">2007</option><option value="2006">2006</option><option value="2005">2005</option><option value="2004">2004</option><option value="2003">2003</option><option value="2002">2002</option><option value="2001">2001</option><option value="2000">2000</option><option value="1999">1999</option><option value="1998">1998</option><option value="1997">1997</option><option value="1996">1996</option><option value="1995">1995</option><option value="1994">1994</option></select>
+        </div>
+<div data-drupal-selector="edit-actions" class="form-actions js-form-wrapper form-wrapper" id="edit-actions"><button title="Filter"  data-drupal-selector="edit-submit-widget-sec-filings" type="submit" id="edit-submit-widget-sec-filings" class="button js-form-submit form-submit primary-button theme-color">
+    <span class="label">Filter</span>
+</button>
+
+<button title="Reset"  data-drupal-selector="edit-reset" type="submit" id="edit-reset" name="op" class="button js-form-submit form-submit primary-button theme-color">
+    <span class="label">Reset</span>
+</button>
+
+</div>
+
+</div>
+
+</form>
+
+    </div>
+    
+      <div class="view-content">
+      <table class="nirtable views-table views-view-table cols-4 collapse-table-wide">
+        <thead>
+      <tr>
+                                                  <th id="view-field-nir-sec-date-filed-table-column" class="views-field views-field-field-nir-sec-date-filed is-active" scope="col"><a href="https://ir.viacomcbs.com/sec-filings/viacomcbs?field_nir_sec_cik_target_id=0000813828&items_per_page=10&order=field_nir_sec_date_filed&sort=asc" title="sort by Filing date">Filing date<span class="tablesort tablesort--asc"></span>
+</a></th>
+                                                  <th id="view-field-nir-sec-description-table-column" class="views-field views-field-field-nir-sec-description" scope="col"><a href="https://ir.viacomcbs.com/sec-filings/viacomcbs?field_nir_sec_cik_target_id=0000813828&items_per_page=10&order=field_nir_sec_description&sort=asc" title="sort by Description">Description</a></th>
+                                                  <th id="view-field-nir-sec-form-table-column" class="views-field views-field-field-nir-sec-form" scope="col"><a href="https://ir.viacomcbs.com/sec-filings/viacomcbs?field_nir_sec_cik_target_id=0000813828&items_per_page=10&order=field_nir_sec_form&sort=asc" title="sort by Form">Form</a></th>
+                                                  <th id="view-nothing-1-table-column" class="views-field views-field-nothing-1" scope="col">View</th>
+              </tr>
+    </thead>
+    <tbody>
+          <tr>
+                                                                                        <td headers="view-field-nir-sec-date-filed-table-column" class="views-field views-field-field-nir-sec-date-filed is-active"><time datetime="2021-09-17T04:00:00Z" timezone="America/New_York" class="datetime">Sep 17, 2021</time>
+          </td>
+                                                                                        <td headers="view-field-nir-sec-description-table-column" class="views-field views-field-field-nir-sec-description"><p>Filed by &quot;insiders&quot; prior intended sale of restricted stock. Non-EDGAR filing</p>
+          </td>
+                                                                                        <td headers="view-field-nir-sec-form-table-column" class="views-field views-field-field-nir-sec-form"><a href="https://ir.viacomcbs.com/sec-filings/sec-filing/144/0001193125-21-275405" hreflang="en">144</a>          </td>
+                                                                                                                                                                                                <td headers="view-nothing-1-table-column" class="views-field views-field-nothing-1 views-field-nothing-2 views-field-field-nir-sec-pdf views-field-field-nir-sec-xls views-field-field-nir-sec-xbrl"><span class="html-link"><a href="https://ir.viacomcbs.com/node/66001/html" target="_blank">View HTML</a></span>  <div class="file-link">
+  <span class="file file--mime-application-pdf file--application-pdf"> <a href="https://ir.viacomcbs.com/static-files/9bff2684-2266-4838-9d81-7264c2688bab" type="application/pdf">0001193125-21-275405.pdf</a></span><span class="filesize"> </span>
+</div>
+  <div class="file-link">
+  <span class="file file--mime-application-vnd-ms-excel file--x-office-spreadsheet"> <a href="https://ir.viacomcbs.com/static-files/61316791-ba58-4a7a-834f-15c70dcc509f" type="application/vnd.ms-excel">0001193125-21-275405.xls</a></span><span class="filesize"> </span>
+</div>
+          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-sec-date-filed-table-column" class="views-field views-field-field-nir-sec-date-filed is-active"><time datetime="2021-09-17T04:00:00Z" timezone="America/New_York" class="datetime">Sep 17, 2021</time>
+          </td>
+                                                                                        <td headers="view-field-nir-sec-description-table-column" class="views-field views-field-field-nir-sec-description"><p>Statement of changes in beneficial ownership of securities</p>
+          </td>
+                                                                                        <td headers="view-field-nir-sec-form-table-column" class="views-field views-field-field-nir-sec-form"><a href="https://ir.viacomcbs.com/sec-filings/sec-filing/4/0001225208-21-012463" hreflang="en">4</a>          </td>
+                                                                                                                                                                                                <td headers="view-nothing-1-table-column" class="views-field views-field-nothing-1 views-field-nothing-2 views-field-field-nir-sec-pdf views-field-field-nir-sec-xls views-field-field-nir-sec-xbrl"><span class="html-link"><a href="https://ir.viacomcbs.com/node/66006/html" target="_blank">View HTML</a></span>  <div class="file-link">
+  <span class="file file--mime-application-pdf file--application-pdf"> <a href="https://ir.viacomcbs.com/static-files/01436aed-98e8-476c-8f9b-0621d74486aa" type="application/pdf">0001225208-21-012463.pdf</a></span><span class="filesize"> </span>
+</div>
+  <div class="file-link">
+  <span class="file file--mime-application-vnd-ms-excel file--x-office-spreadsheet"> <a href="https://ir.viacomcbs.com/static-files/491229b8-89b4-4951-b358-6fb40d957c55" type="application/vnd.ms-excel">0001225208-21-012463.xls</a></span><span class="filesize"> </span>
+</div>
+          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-sec-date-filed-table-column" class="views-field views-field-field-nir-sec-date-filed is-active"><time datetime="2021-08-26T04:00:00Z" timezone="America/New_York" class="datetime">Aug 26, 2021</time>
+          </td>
+                                                                                        <td headers="view-field-nir-sec-description-table-column" class="views-field views-field-field-nir-sec-description"><p>Statement of changes in beneficial ownership of securities</p>
+          </td>
+                                                                                        <td headers="view-field-nir-sec-form-table-column" class="views-field views-field-field-nir-sec-form"><a href="https://ir.viacomcbs.com/sec-filings/sec-filing/4/0001225208-21-011758" hreflang="en">4</a>          </td>
+                                                                                                                                                                                                <td headers="view-nothing-1-table-column" class="views-field views-field-nothing-1 views-field-nothing-2 views-field-field-nir-sec-pdf views-field-field-nir-sec-xls views-field-field-nir-sec-xbrl"><span class="html-link"><a href="https://ir.viacomcbs.com/node/65966/html" target="_blank">View HTML</a></span>  <div class="file-link">
+  <span class="file file--mime-application-pdf file--application-pdf"> <a href="https://ir.viacomcbs.com/static-files/2e90efaa-a547-4708-b03a-5a2f835c3ab7" type="application/pdf">0001225208-21-011758.pdf</a></span><span class="filesize"> </span>
+</div>
+  <div class="file-link">
+  <span class="file file--mime-application-vnd-ms-excel file--x-office-spreadsheet"> <a href="https://ir.viacomcbs.com/static-files/65f91b82-d5a2-4baf-a4f0-285bdd7d8e12" type="application/vnd.ms-excel">0001225208-21-011758.xls</a></span><span class="filesize"> </span>
+</div>
+          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-sec-date-filed-table-column" class="views-field views-field-field-nir-sec-date-filed is-active"><time datetime="2021-08-20T04:00:00Z" timezone="America/New_York" class="datetime">Aug 20, 2021</time>
+          </td>
+                                                                                        <td headers="view-field-nir-sec-description-table-column" class="views-field views-field-field-nir-sec-description"><p>Report of unscheduled material events or corporate event</p>
+          </td>
+                                                                                        <td headers="view-field-nir-sec-form-table-column" class="views-field views-field-field-nir-sec-form"><a href="https://ir.viacomcbs.com/sec-filings/sec-filing/8-k/0001193125-21-252746" hreflang="en">8-K</a>          </td>
+                                                                                                                                                                                                <td headers="view-nothing-1-table-column" class="views-field views-field-nothing-1 views-field-nothing-2 views-field-field-nir-sec-pdf views-field-field-nir-sec-xls views-field-field-nir-sec-xbrl"><span class="html-link"><a href="https://ir.viacomcbs.com/node/65956/html" target="_blank">View HTML</a></span>  <div class="file-link">
+  <span class="file file--mime-application-pdf file--application-pdf"> <a href="https://ir.viacomcbs.com/static-files/64398bec-84b7-4a31-9fc1-3f2445756a79" type="application/pdf">0001193125-21-252746.pdf</a></span><span class="filesize"> </span>
+</div>
+  <div class="file-link">
+  <span class="file file--mime-application-vnd-ms-excel file--x-office-spreadsheet"> <a href="https://ir.viacomcbs.com/static-files/f434ae65-05b5-4250-967c-7bb73dea6097" type="application/vnd.ms-excel">0001193125-21-252746.xls</a></span><span class="filesize"> </span>
+</div>
+<span class="file file--mime-application-octet-stream file--general"><a href="https://ir.viacomcbs.com/sec-filings/sec-filing/8-k/0001193125-21-252746" hreflang="en">EX-101.SCH - XBRL TAXONOMY EXTENSION SCHEMA</a></span>
+          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-sec-date-filed-table-column" class="views-field views-field-field-nir-sec-date-filed is-active"><time datetime="2021-08-16T04:00:00Z" timezone="America/New_York" class="datetime">Aug 16, 2021</time>
+          </td>
+                                                                                        <td headers="view-field-nir-sec-description-table-column" class="views-field views-field-field-nir-sec-description"><p>Report of unscheduled material events or corporate event</p>
+          </td>
+                                                                                        <td headers="view-field-nir-sec-form-table-column" class="views-field views-field-field-nir-sec-form"><a href="https://ir.viacomcbs.com/sec-filings/sec-filing/8-k/0000813828-21-000032" hreflang="en">8-K</a>          </td>
+                                                                                                                                                                                                <td headers="view-nothing-1-table-column" class="views-field views-field-nothing-1 views-field-nothing-2 views-field-field-nir-sec-pdf views-field-field-nir-sec-xls views-field-field-nir-sec-xbrl"><span class="html-link"><a href="https://ir.viacomcbs.com/node/65946/html" target="_blank">View HTML</a></span>  <div class="file-link">
+  <span class="file file--mime-application-pdf file--application-pdf"> <a href="https://ir.viacomcbs.com/static-files/48eb58d4-351f-4641-9cb9-0e7ab5bc7836" type="application/pdf">0000813828-21-000032.pdf</a></span><span class="filesize"> </span>
+</div>
+  <div class="file-link">
+  <span class="file file--mime-application-vnd-ms-excel file--x-office-spreadsheet"> <a href="https://ir.viacomcbs.com/static-files/d6213a94-7d48-4fc4-8808-55f8f1b8f2eb" type="application/vnd.ms-excel">0000813828-21-000032.xls</a></span><span class="filesize"> </span>
+</div>
+<span class="file file--mime-application-octet-stream file--general"><a href="https://ir.viacomcbs.com/sec-filings/sec-filing/8-k/0000813828-21-000032" hreflang="en">EX-101.SCH - XBRL TAXONOMY EXTENSION SCHEMA</a></span>
+          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-sec-date-filed-table-column" class="views-field views-field-field-nir-sec-date-filed is-active"><time datetime="2021-08-09T04:00:00Z" timezone="America/New_York" class="datetime">Aug 09, 2021</time>
+          </td>
+                                                                                        <td headers="view-field-nir-sec-description-table-column" class="views-field views-field-field-nir-sec-description"><p>Securities offered to employees pursuant to employee benefit plans</p>
+          </td>
+                                                                                        <td headers="view-field-nir-sec-form-table-column" class="views-field views-field-field-nir-sec-form"><a href="https://ir.viacomcbs.com/sec-filings/sec-filing/s-8/0000947871-21-000890" hreflang="en">S-8</a>          </td>
+                                                                                                                                                                                                <td headers="view-nothing-1-table-column" class="views-field views-field-nothing-1 views-field-nothing-2 views-field-field-nir-sec-pdf views-field-field-nir-sec-xls views-field-field-nir-sec-xbrl"><span class="html-link"><a href="https://ir.viacomcbs.com/node/65926/html" target="_blank">View HTML</a></span>  <div class="file-link">
+  <span class="file file--mime-application-pdf file--application-pdf"> <a href="https://ir.viacomcbs.com/static-files/6a1ce7b8-0107-4c39-b06e-674569adc5d1" type="application/pdf">0000947871-21-000890.pdf</a></span><span class="filesize"> </span>
+</div>
+  <div class="file-link">
+  <span class="file file--mime-application-vnd-ms-excel file--x-office-spreadsheet"> <a href="https://ir.viacomcbs.com/static-files/f9951df0-8658-433c-945f-d4a5526ccd3a" type="application/vnd.ms-excel">0000947871-21-000890.xls</a></span><span class="filesize"> </span>
+</div>
+          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-sec-date-filed-table-column" class="views-field views-field-field-nir-sec-date-filed is-active"><time datetime="2021-08-05T04:00:00Z" timezone="America/New_York" class="datetime">Aug 05, 2021</time>
+          </td>
+                                                                                        <td headers="view-field-nir-sec-description-table-column" class="views-field views-field-field-nir-sec-description"><p>Report of unscheduled material events or corporate event</p>
+          </td>
+                                                                                        <td headers="view-field-nir-sec-form-table-column" class="views-field views-field-field-nir-sec-form"><a href="https://ir.viacomcbs.com/sec-filings/sec-filing/8-k/0001193125-21-236954" hreflang="en">8-K</a>          </td>
+                                                                                                                                                                                                <td headers="view-nothing-1-table-column" class="views-field views-field-nothing-1 views-field-nothing-2 views-field-field-nir-sec-pdf views-field-field-nir-sec-xls views-field-field-nir-sec-xbrl"><span class="html-link"><a href="https://ir.viacomcbs.com/node/65906/html" target="_blank">View HTML</a></span>  <div class="file-link">
+  <span class="file file--mime-application-pdf file--application-pdf"> <a href="https://ir.viacomcbs.com/static-files/939cd84b-39f9-4e62-88bc-02f147ce817a" type="application/pdf">0001193125-21-236954.pdf</a></span><span class="filesize"> </span>
+</div>
+  <div class="file-link">
+  <span class="file file--mime-application-vnd-ms-excel file--x-office-spreadsheet"> <a href="https://ir.viacomcbs.com/static-files/bc70a476-f869-4ce2-8a4c-a5b30f34a6e2" type="application/vnd.ms-excel">0001193125-21-236954.xls</a></span><span class="filesize"> </span>
+</div>
+<span class="file file--mime-application-octet-stream file--general"><a href="https://ir.viacomcbs.com/sec-filings/sec-filing/8-k/0001193125-21-236954" hreflang="en">EX-101.SCH - XBRL TAXONOMY EXTENSION SCHEMA</a></span>
+          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-sec-date-filed-table-column" class="views-field views-field-field-nir-sec-date-filed is-active"><time datetime="2021-08-05T04:00:00Z" timezone="America/New_York" class="datetime">Aug 05, 2021</time>
+          </td>
+                                                                                        <td headers="view-field-nir-sec-description-table-column" class="views-field views-field-field-nir-sec-description"><p>Quarterly report which provides a continuing view of a company&#039;s financial position</p>
+          </td>
+                                                                                        <td headers="view-field-nir-sec-form-table-column" class="views-field views-field-field-nir-sec-form"><a href="https://ir.viacomcbs.com/sec-filings/sec-filing/10-q/0000813828-21-000026" hreflang="en">10-Q</a>          </td>
+                                                                                                                                                                                                <td headers="view-nothing-1-table-column" class="views-field views-field-nothing-1 views-field-nothing-2 views-field-field-nir-sec-pdf views-field-field-nir-sec-xls views-field-field-nir-sec-xbrl"><span class="html-link"><a href="https://ir.viacomcbs.com/node/65911/html" target="_blank">View HTML</a></span>  <div class="file-link">
+  <span class="file file--mime-application-pdf file--application-pdf"> <a href="https://ir.viacomcbs.com/static-files/fc7004e7-ccb8-4405-84d9-cfe33619d1ad" type="application/pdf">0000813828-21-000026.pdf</a></span><span class="filesize"> </span>
+</div>
+  <div class="file-link">
+  <span class="file file--mime-application-vnd-ms-excel file--x-office-spreadsheet"> <a href="https://ir.viacomcbs.com/static-files/cbbbf423-3c5d-4ef6-bbf9-b4b9eda4e0a5" type="application/vnd.ms-excel">0000813828-21-000026.xls</a></span><span class="filesize"> </span>
+</div>
+<span class="file file--mime-application-octet-stream file--general"><a href="https://ir.viacomcbs.com/sec-filings/sec-filing/10-q/0000813828-21-000026" hreflang="en">EX-101.SCH - XBRL TAXONOMY EXTENSION SCHEMA</a></span>
+          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-sec-date-filed-table-column" class="views-field views-field-field-nir-sec-date-filed is-active"><time datetime="2021-07-06T04:00:00Z" timezone="America/New_York" class="datetime">Jul 06, 2021</time>
+          </td>
+                                                                                        <td headers="view-field-nir-sec-description-table-column" class="views-field views-field-field-nir-sec-description"><p>Statement of changes in beneficial ownership of securities</p>
+          </td>
+                                                                                        <td headers="view-field-nir-sec-form-table-column" class="views-field views-field-field-nir-sec-form"><a href="https://ir.viacomcbs.com/sec-filings/sec-filing/4/0001225208-21-010312" hreflang="en">4</a>          </td>
+                                                                                                                                                                                                <td headers="view-nothing-1-table-column" class="views-field views-field-nothing-1 views-field-nothing-2 views-field-field-nir-sec-pdf views-field-field-nir-sec-xls views-field-field-nir-sec-xbrl"><span class="html-link"><a href="https://ir.viacomcbs.com/node/51416/html" target="_blank">View HTML</a></span>  <div class="file-link">
+  <span class="file file--mime-application-pdf file--application-pdf"> <a href="https://ir.viacomcbs.com/static-files/82072cd3-6c01-427c-9504-22042ffedd43" type="application/pdf">0001225208-21-010312.pdf</a></span><span class="filesize"> </span>
+</div>
+  <div class="file-link">
+  <span class="file file--mime-application-vnd-ms-excel file--x-office-spreadsheet"> <a href="https://ir.viacomcbs.com/static-files/9c29a39d-c9cf-45b0-953a-4abd2901c243" type="application/vnd.ms-excel">0001225208-21-010312.xls</a></span><span class="filesize"> </span>
+</div>
+          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-sec-date-filed-table-column" class="views-field views-field-field-nir-sec-date-filed is-active"><time datetime="2021-07-06T04:00:00Z" timezone="America/New_York" class="datetime">Jul 06, 2021</time>
+          </td>
+                                                                                        <td headers="view-field-nir-sec-description-table-column" class="views-field views-field-field-nir-sec-description"><p>Statement of changes in beneficial ownership of securities</p>
+          </td>
+                                                                                        <td headers="view-field-nir-sec-form-table-column" class="views-field views-field-field-nir-sec-form"><a href="https://ir.viacomcbs.com/sec-filings/sec-filing/4/0001225208-21-010311" hreflang="en">4</a>          </td>
+                                                                                                                                                                                                <td headers="view-nothing-1-table-column" class="views-field views-field-nothing-1 views-field-nothing-2 views-field-field-nir-sec-pdf views-field-field-nir-sec-xls views-field-field-nir-sec-xbrl"><span class="html-link"><a href="https://ir.viacomcbs.com/node/51421/html" target="_blank">View HTML</a></span>  <div class="file-link">
+  <span class="file file--mime-application-pdf file--application-pdf"> <a href="https://ir.viacomcbs.com/static-files/3279481b-027c-4f16-a7e3-50f9ed66817b" type="application/pdf">0001225208-21-010311.pdf</a></span><span class="filesize"> </span>
+</div>
+  <div class="file-link">
+  <span class="file file--mime-application-vnd-ms-excel file--x-office-spreadsheet"> <a href="https://ir.viacomcbs.com/static-files/793cc8d0-7b54-4126-82a4-b3e6639046c8" type="application/vnd.ms-excel">0001225208-21-010311.xls</a></span><span class="filesize"> </span>
+</div>
+          </td>
+              </tr>
+      </tbody>
+</table>
+
+    </div>
+  
+        <nav class="pager" role="navigation" aria-labelledby="pagination-heading">
+    <h4 id="pagination-heading" class="visually-hidden">Pagination</h4>
+    <ul class="pager__items js-pager__items">
+                                                        <li class="pager__item is-active">
+                                          <a href="https://ir.viacomcbs.com/sec-filings/viacomcbs?field_nir_sec_cik_target_id=0000813828&items_per_page=10&page=0" title="Current page">
+            <span class="visually-hidden">
+              Current page
+            </span>1</a>
+        </li>
+              <li class="pager__item">
+                                          <a href="https://ir.viacomcbs.com/sec-filings/viacomcbs?field_nir_sec_cik_target_id=0000813828&items_per_page=10&page=1" title="Go to page 2">
+            <span class="visually-hidden">
+              Page
+            </span>2</a>
+        </li>
+              <li class="pager__item">
+                                          <a href="https://ir.viacomcbs.com/sec-filings/viacomcbs?field_nir_sec_cik_target_id=0000813828&items_per_page=10&page=2" title="Go to page 3">
+            <span class="visually-hidden">
+              Page
+            </span>3</a>
+        </li>
+              <li class="pager__item">
+                                          <a href="https://ir.viacomcbs.com/sec-filings/viacomcbs?field_nir_sec_cik_target_id=0000813828&items_per_page=10&page=3" title="Go to page 4">
+            <span class="visually-hidden">
+              Page
+            </span>4</a>
+        </li>
+              <li class="pager__item">
+                                          <a href="https://ir.viacomcbs.com/sec-filings/viacomcbs?field_nir_sec_cik_target_id=0000813828&items_per_page=10&page=4" title="Go to page 5">
+            <span class="visually-hidden">
+              Page
+            </span>5</a>
+        </li>
+              <li class="pager__item">
+                                          <a href="https://ir.viacomcbs.com/sec-filings/viacomcbs?field_nir_sec_cik_target_id=0000813828&items_per_page=10&page=5" title="Go to page 6">
+            <span class="visually-hidden">
+              Page
+            </span>6</a>
+        </li>
+              <li class="pager__item">
+                                          <a href="https://ir.viacomcbs.com/sec-filings/viacomcbs?field_nir_sec_cik_target_id=0000813828&items_per_page=10&page=6" title="Go to page 7">
+            <span class="visually-hidden">
+              Page
+            </span>7</a>
+        </li>
+              <li class="pager__item">
+                                          <a href="https://ir.viacomcbs.com/sec-filings/viacomcbs?field_nir_sec_cik_target_id=0000813828&items_per_page=10&page=7" title="Go to page 8">
+            <span class="visually-hidden">
+              Page
+            </span>8</a>
+        </li>
+              <li class="pager__item">
+                                          <a href="https://ir.viacomcbs.com/sec-filings/viacomcbs?field_nir_sec_cik_target_id=0000813828&items_per_page=10&page=8" title="Go to page 9">
+            <span class="visually-hidden">
+              Page
+            </span>9</a>
+        </li>
+                          <li class="pager__item pager__item--ellipsis" role="presentation">&hellip;</li>
+                          <li class="pager__item pager__item--next">
+          <a href="https://ir.viacomcbs.com/sec-filings/viacomcbs?field_nir_sec_cik_target_id=0000813828&items_per_page=10&page=1" title="Go to next page" rel="next">
+            <span class="visually-hidden">Next page</span>
+            <span aria-hidden="true">Next ›</span>
+          </a>
+        </li>
+                          <li class="pager__item pager__item--last">
+          <a href="https://ir.viacomcbs.com/sec-filings/viacomcbs?field_nir_sec_cik_target_id=0000813828&items_per_page=10&page=333" title="Go to last page">
+            <span class="visually-hidden">Last page</span>
+            <span aria-hidden="true">Last »</span>
+          </a>
+        </li>
+          </ul>
+  </nav>
+
+  
+          <div class="view-footer">
+          <div class="results-summary">Displaying 1 - 10 of 3332 results</div>
+        </div>
+    </div>
+</div>
+
+  </div>
+<div class="block--attribution-block__attribution__morningstar block--attribution-block__attribution__morningstar--5876 block--contentmain--attribution-block__attribution__morningstar block--contentmain--attribution-block__attribution__morningstar--5876 block--38f27b2b-086b-4541-999c-328cce9f01b8 block--38f27b2b-086b-4541-999c-328cce9f01b8--5876 block block-nir-attribution-block block-attribution-block__attribution__morningstar">
+  
+    
+      <p>
+  Data provided by <a href="https://www.kscope.io" target="_blank">Kaleidoscope</a>.</p>
+
+  </div>
+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /.boxton -->
+
+  </div>
+</article>
+
+  </div>
+<div id="block-globalsecfootnote" class="block-content--nir-global-block block-content--nir-global-block--6086 block--block-content7e4308d4-78f7-4fb8-b231-69335eedad33 block--block-content7e4308d4-78f7-4fb8-b231-69335eedad33--5876 block--content--block-content--7e4308d4-78f7-4fb8-b231-69335eedad33 block--content--block-content--7e4308d4-78f7-4fb8-b231-69335eedad33--5876 block--cf1428b7-c151-456d-a6c2-9c1632702203 block--cf1428b7-c151-456d-a6c2-9c1632702203--5876 block block-block-content block-block-content7e4308d4-78f7-4fb8-b231-69335eedad33">
+  
+    
+      
+            <div class="field field--name-field-nir-global-block-node field--type-entity-reference field--label-hidden field__item">  
+            <div class="clearfix text-formatted field field--name-field-nir-global-block-body field--type-text-long field--label-hidden field__item"><p>Filings for historical Viacom and CBS can be found at <a href="https://www.sec.gov/" target="_blank">SEC.gov</a>.</p></div>
+      
+</div>
+      
+  </div>
+
+  </div>
+</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
+      <div id="footerInsert"></div>
+
+      
+
+    </div>
+
+  </div>
+</div>
+
+  
+    
+        <script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/","scriptPath":null,"pathPrefix":"","currentPath":"node\/5876","currentPathIsAdmin":false,"isFront":false,"currentLanguage":"en"},"pluralDelimiter":"\u0003","suppressDeprecationErrors":true,"ajaxPageState":{"libraries":"nir_base\/lib,nir_base\/nir_icons,nir_base\/nir_toolbar,nir_base\/sidr,nir_ckeditor_datatables\/datatables,nir_multimedia\/nir_multimedia,nir_pid2249\/override,nir_website_notices\/nir_website_notices.notices,radix_layouts\/radix_layouts,system\/base,views\/views.module","theme":"nir_pid2249","theme_token":null},"ajaxTrustedUrl":{"\/sec-filings\/viacomcbs":true},"user":{"uid":0,"permissionsHash":"bf295fdab8890c2a7864f2ac2dc6d0b15971f6072cdc2a15116b8c777e0e77e0"}}</script>
+<script src="https://ir.viacomcbs.com/sites/g/files/knoqqb55956/files/js/js_jJJmNY9EK_UViBN3pG8BW-wnjj_x5Udc7pWGfbhQoBA.js"></script>
+<script src="https://spt-branding-viacomcbs-prd-cdn-enp.azureedge.net/finalmarkupwithlocalreference/headerFooterMarkup.js"></script>
+<script src="../sites/g/files/knoqqb55956/themes/site/nir_pid2249/dist/js/common-r0bwsa.js"></script>
+<script src="../sites/g/files/knoqqb55956/themes/site/nir_pid2249/dist/js/bundle-r0bwsa.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://ir.viacomcbs.com/sites/g/files/knoqqb55956/files/js/js_C4xKdmpZ9zrlzNDOoGggVMQ12FtGqAHFL-h4O6HK9bE.js"></script>
+
+    
+  <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam-cell.nr-data.net","licenseKey":"761e715901","applicationID":"35893545,24276188","transactionName":"ZlVXYRcAW0ZRW0QKX18fdFYRCFpbH3xCFkBQXGl2ChNQaX1dXhZsdVVTVBANQXhVVkUvWV9bYUcABHhUXlFAFlxQRFpHFkwLVlhdUwhxUlNQRhY=","queueTime":0,"applicationTime":203,"atts":"ShJUF18aSEg=","errorBeacon":"bam-cell.nr-data.net","agent":""}</script></body>
+</html>

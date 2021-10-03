@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" prefix="og: https://ogp.me/ns#">
+
+<head>
+	<meta charset="utf-8" />
+	<script type="text/javascript">
+	(window.NREUM || (NREUM = {})).loader_config = {
+		licenseKey: "761e715901",
+		applicationID: "35893545"
+	};
+	window.NREUM || (NREUM = {}), __nr_require = function(t, e, n) {
+		function r(n) {
+			if(!e[n]) {
+				var i = e[n] = {
+					exports: {}
+				};
+				t[n][0].call(i.exports, function(e) {
+					var i = t[n][1][e];
+					return r(i || e)
+				}, i, i.exports)
+			}
+			return e[n].exports
+		}
+		if("function" == typeof __nr_require) return __nr_require;
+		for(var i = 0; i < n.length; i++) r(n[i]);
+		return r
+	}({
+		1: [function(t, e, n) {
+			function r() {}
+
+			function i(t, e, n) {
+				return function() {
+					return o(t, [u.now()].concat(f(arguments)), e ? null : this, n), e ? void 0 : this
+				}
+			}
+			var o = t("handle"),
+				a = t(8),
+				f = t(9),
+				c = t("ee").get("tracer"),
+				u = t("loader"),
+				s = NREUM;
+			"undefined" == typeof window.newrelic && (newrelic = s);
+			var d = ["setPageViewName", "setCustomAttribute", "setErrorHandler", "finished", "addToTrace", "inlineHit", "addRelease"],
+				p = "api-",
+				l = p + "ixn-";
+			a(d, function(t, e) {
+				s[e] = i(p + e, !0, "api")
+			}), s.addPageAction = i(p + "addPageAction", !0), s.setCurrentRouteName = i(p + "routeName", !0), e.exports = newrelic, s.interaction = function() {
+				return(new r).get()
+			};
+			var m = r.prototype = {
+				createTracer: function(t, e) {
+					var n = {},
+						r = this,
+						i = "function" == typeof e;
+					return o(l + "tracer", [u.now(), t, n], r),
+						function() {
+							if(c.emit((i ? "" : "no-") + "fn-start", [u.now(), r, i], n), i) try {
+								return e.apply(this, arguments)
+							} catch(t) {
+								throw c.emit("fn-err", [arguments, this, t], n), t
+							} finally {
+								c.emit("fn-end", [u.now()], n)
+							}
+						}
+				}
+			};
+			a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","), function(t, e) {
+				m[e] = i(l + e)
+			}), newrelic.noticeError = function(t, e) {
+				"string" == typeof t && (t = new Error(t)), o("err", [t, u.now(), !1, e])
+			}
+		}, {}],
+		2: [function(t, e, n) {
+			function r(t) {
+				if(NREUM.init) {
+					for(var e = NREUM.init, n = t.split("."), r = 0; r < n.length - 1; r++)
+						if(e = e[n[r]], "object" != typeof e) return;
+					return e = e[n[n.length - 1]]
+				}
+			}
+			e.exports = {
+				getConfiguration: r
+			}
+		}, {}],
+		3: [function(t, e, n) {
+			function r() {
+				return f.exists && performance.now ? Math.round(performance.now()) : (o = Math.max((new Date).getTime(), o)) - a
+			}
+
+			function i() {
+				return o
+			}
+			var o = (new Date).getTime(),
+				a = o,
+				f = t(10);
+			e.exports = r, e.exports.offset = a, e.exports.getLastTimestamp = i
+		}, {}],
+		4: [function(t, e, n) {
+			function r(t) {
+				return !(!t || !t.protocol || "file:" === t.protocol)
+			}
+			e.exports = r
+		}, {}],
+		5: [function(t, e, n) {
+			function r(t, e) {
+				var n = t.getEntries();
+				n.forEach(function(t) {
+					"first-paint" === t.name ? d("timing", ["fp", Math.floor(t.startTime)]) : "first-contentful-paint" === t.name && d("timing", ["fcp", Math.floor(t.startTime)])
+				})
+			}
+
+			function i(t, e) {
+				var n = t.getEntries();
+				n.length > 0 && d("lcp", [n[n.length - 1]])
+			}
+
+			function o(t) {
+				t.getEntries().forEach(function(t) {
+					t.hadRecentInput || d("cls", [t])
+				})
+			}
+
+			function a(t) {
+				if(t instanceof m && !g) {
+					var e = Math.round(t.timeStamp),
+						n = {
+							type: t.type
+						};
+					e <= p.now() ? n.fid = p.now() - e : e > p.offset && e <= Date.now() ? (e -= p.offset, n.fid = p.now() - e) : e = p.now(), g = !0, d("timing", ["fi", e, n])
+				}
+			}
+
+			function f(t) {
+				"hidden" === t && d("pageHide", [p.now()])
+			}
+			if(!("init" in NREUM && "page_view_timing" in NREUM.init && "enabled" in NREUM.init.page_view_timing && NREUM.init.page_view_timing.enabled === !1)) {
+				var c, u, s, d = t("handle"),
+					p = t("loader"),
+					l = t(7),
+					m = NREUM.o.EV;
+				if("PerformanceObserver" in window && "function" == typeof window.PerformanceObserver) {
+					c = new PerformanceObserver(r);
+					try {
+						c.observe({
+							entryTypes: ["paint"]
+						})
+					} catch(v) {}
+					u = new PerformanceObserver(i);
+					try {
+						u.observe({
+							entryTypes: ["largest-contentful-paint"]
+						})
+					} catch(v) {}
+					s = new PerformanceObserver(o);
+					try {
+						s.observe({
+							type: "layout-shift",
+							buffered: !0
+						})
+					} catch(v) {}
+				}
+				if("addEventListener" in document) {
+					var g = !1,
+						h = ["click", "keydown", "mousedown", "pointerdown", "touchstart"];
+					h.forEach(function(t) {
+						document.addEventListener(t, a, !1)
+					})
+				}
+				l(f)
+			}
+		}, {}],
+		6: [function(t, e, n) {
+			function r(t, e) {
+				if(!i) return !1;
+				if(t !== i) return !1;
+				if(!e) return !0;
+				if(!o) return !1;
+				for(var n = o.split("."), r = e.split("."), a = 0; a < r.length; a++)
+					if(r[a] !== n[a]) return !1;
+				return !0
+			}
+			var i = null,
+				o = null,
+				a = /Version\/(\S+)\s+Safari/;
+			if(navigator.userAgent) {
+				var f = navigator.userAgent,
+					c = f.match(a);
+				c && f.indexOf("Chrome") === -1 && f.indexOf("Chromium") === -1 && (i = "Safari", o = c[1])
+			}
+			e.exports = {
+				agent: i,
+				version: o,
+				match: r
+			}
+		}, {}],
+		7: [function(t, e, n) {
+			function r(t) {
+				function e() {
+					t(a && document[a] ? document[a] : document[i] ? "hidden" : "visible")
+				}
+				"addEventListener" in document && o && document.addEventListener(o, e, !1)
+			}
+			e.exports = r;
+			var i, o, a;
+			"undefined" != typeof document.hidden ? (i = "hidden", o = "visibilitychange", a = "visibilityState") : "undefined" != typeof document.msHidden ? (i = "msHidden", o = "msvisibilitychange") : "undefined" != typeof document.webkitHidden && (i = "webkitHidden", o = "webkitvisibilitychange", a = "webkitVisibilityState")
+		}, {}],
+		8: [function(t, e, n) {
+			function r(t, e) {
+				var n = [],
+					r = "",
+					o = 0;
+				for(r in t) i.call(t, r) && (n[o] = e(r, t[r]), o += 1);
+				return n
+			}
+			var i = Object.prototype.hasOwnProperty;
+			e.exports = r
+		}, {}],
+		9: [function(t, e, n) {
+			function r(t, e, n) {
+				e || (e = 0), "undefined" == typeof n && (n = t ? t.length : 0);
+				for(var r = -1, i = n - e || 0, o = Array(i < 0 ? 0 : i); ++r < i;) o[r] = t[e + r];
+				return o
+			}
+			e.exports = r
+		}, {}],
+		10: [function(t, e, n) {
+			e.exports = {
+				exists: "undefined" != typeof window.performance && window.performance.timing && "undefined" != typeof window.performance.timing.navigationStart
+			}
+		}, {}],
+		ee: [function(t, e, n) {
+			function r() {}
+
+			function i(t) {
+				function e(t) {
+					return t && t instanceof r ? t : t ? u(t, c, a) : a()
+				}
+
+				function n(n, r, i, o, a) {
+					if(a !== !1 && (a = !0), !l.aborted || o) {
+						t && a && t(n, r, i);
+						for(var f = e(i), c = v(n), u = c.length, s = 0; s < u; s++) c[s].apply(f, r);
+						var p = d[w[n]];
+						return p && p.push([b, n, r, f]), f
+					}
+				}
+
+				function o(t, e) {
+					y[t] = v(t).concat(e)
+				}
+
+				function m(t, e) {
+					var n = y[t];
+					if(n)
+						for(var r = 0; r < n.length; r++) n[r] === e && n.splice(r, 1)
+				}
+
+				function v(t) {
+					return y[t] || []
+				}
+
+				function g(t) {
+					return p[t] = p[t] || i(n)
+				}
+
+				function h(t, e) {
+					l.aborted || s(t, function(t, n) {
+						e = e || "feature", w[n] = e, e in d || (d[e] = [])
+					})
+				}
+				var y = {},
+					w = {},
+					b = {
+						on: o,
+						addEventListener: o,
+						removeEventListener: m,
+						emit: n,
+						get: g,
+						listeners: v,
+						context: e,
+						buffer: h,
+						abort: f,
+						aborted: !1
+					};
+				return b
+			}
+
+			function o(t) {
+				return u(t, c, a)
+			}
+
+			function a() {
+				return new r
+			}
+
+			function f() {
+				(d.api || d.feature) && (l.aborted = !0, d = l.backlog = {})
+			}
+			var c = "nr@context",
+				u = t("gos"),
+				s = t(8),
+				d = {},
+				p = {},
+				l = e.exports = i();
+			e.exports.getOrSetContext = o, l.backlog = d
+		}, {}],
+		gos: [function(t, e, n) {
+			function r(t, e, n) {
+				if(i.call(t, e)) return t[e];
+				var r = n();
+				if(Object.defineProperty && Object.keys) try {
+					return Object.defineProperty(t, e, {
+						value: r,
+						writable: !0,
+						enumerable: !1
+					}), r
+				} catch(o) {}
+				return t[e] = r, r
+			}
+			var i = Object.prototype.hasOwnProperty;
+			e.exports = r
+		}, {}],
+		handle: [function(t, e, n) {
+			function r(t, e, n, r) {
+				i.buffer([t], r), i.emit(t, e, n)
+			}
+			var i = t("ee").get("handle");
+			e.exports = r, r.ee = i
+		}, {}],
+		id: [function(t, e, n) {
+			function r(t) {
+				var e = typeof t;
+				return !t || "object" !== e && "function" !== e ? -1 : t === window ? 0 : a(t, o, function() {
+					return i++
+				})
+			}
+			var i = 1,
+				o = "nr@id",
+				a = t("gos");
+			e.exports = r
+		}, {}],
+		loader: [function(t, e, n) {
+			function r() {
+				if(!R++) {
+					var t = M.info = NREUM.info,
+						e = v.getElementsByTagName("script")[0];
+					if(setTimeout(u.abort, 3e4), !(t && t.licenseKey && t.applicationID && e)) return u.abort();
+					c(E, function(e, n) {
+						t[e] || (t[e] = n)
+					});
+					var n = a();
+					f("mark", ["onload", n + M.offset], null, "api"), f("timing", ["load", n]);
+					var r = v.createElement("script");
+					0 === t.agent.indexOf("http://") || 0 === t.agent.indexOf("https://") ? r.src = t.agent : r.src = l + "://" + t.agent, e.parentNode.insertBefore(r, e)
+				}
+			}
+
+			function i() {
+				"complete" === v.readyState && o()
+			}
+
+			function o() {
+				f("mark", ["domContent", a() + M.offset], null, "api")
+			}
+			var a = t(3),
+				f = t("handle"),
+				c = t(8),
+				u = t("ee"),
+				s = t(6),
+				d = t(4),
+				p = t(2),
+				l = p.getConfiguration("ssl") === !1 ? "http" : "https",
+				m = window,
+				v = m.document,
+				g = "addEventListener",
+				h = "attachEvent",
+				y = m.XMLHttpRequest,
+				w = y && y.prototype,
+				b = !d(m.location);
+			NREUM.o = {
+				ST: setTimeout,
+				SI: m.setImmediate,
+				CT: clearTimeout,
+				XHR: y,
+				REQ: m.Request,
+				EV: m.Event,
+				PR: m.Promise,
+				MO: m.MutationObserver
+			};
+			var x = "" + location,
+				E = {
+					beacon: "bam.nr-data.net",
+					errorBeacon: "bam.nr-data.net",
+					agent: "js-agent.newrelic.com/nr-1210.min.js"
+				},
+				O = y && w && w[g] && !/CriOS/.test(navigator.userAgent),
+				M = e.exports = {
+					offset: a.getLastTimestamp(),
+					now: a,
+					origin: x,
+					features: {},
+					xhrWrappable: O,
+					userAgent: s,
+					disabled: b
+				};
+			if(!b) {
+				t(1), t(5), v[g] ? (v[g]("DOMContentLoaded", o, !1), m[g]("load", r, !1)) : (v[h]("onreadystatechange", i), m[h]("onload", r)), f("mark", ["firstbyte", a.getLastTimestamp()], null, "api");
+				var R = 0
+			}
+		}, {}],
+		"wrap-function": [function(t, e, n) {
+			function r(t, e) {
+				function n(e, n, r, c, u) {
+					function nrWrapper() {
+						var o, a, s, p;
+						try {
+							a = this, o = d(arguments), s = "function" == typeof r ? r(o, a) : r || {}
+						} catch(l) {
+							i([l, "", [o, a, c], s], t)
+						}
+						f(n + "start", [o, a, c], s, u);
+						try {
+							return p = e.apply(a, o)
+						} catch(m) {
+							throw f(n + "err", [o, a, m], s, u), m
+						} finally {
+							f(n + "end", [o, a, p], s, u)
+						}
+					}
+					return a(e) ? e : (n || (n = ""), nrWrapper[p] = e, o(e, nrWrapper, t), nrWrapper)
+				}
+
+				function r(t, e, r, i, o) {
+					r || (r = "");
+					var f, c, u, s = "-" === r.charAt(0);
+					for(u = 0; u < e.length; u++) c = e[u], f = t[c], a(f) || (t[c] = n(f, s ? c + r : r, i, c, o))
+				}
+
+				function f(n, r, o, a) {
+					if(!m || e) {
+						var f = m;
+						m = !0;
+						try {
+							t.emit(n, r, o, e, a)
+						} catch(c) {
+							i([c, n, r, o], t)
+						}
+						m = f
+					}
+				}
+				return t || (t = s), n.inPlace = r, n.flag = p, n
+			}
+
+			function i(t, e) {
+				e || (e = s);
+				try {
+					e.emit("internal-error", t)
+				} catch(n) {}
+			}
+
+			function o(t, e, n) {
+				if(Object.defineProperty && Object.keys) try {
+					var r = Object.keys(t);
+					return r.forEach(function(n) {
+						Object.defineProperty(e, n, {
+							get: function() {
+								return t[n]
+							},
+							set: function(e) {
+								return t[n] = e, e
+							}
+						})
+					}), e
+				} catch(o) {
+					i([o], n)
+				}
+				for(var a in t) l.call(t, a) && (e[a] = t[a]);
+				return e
+			}
+
+			function a(t) {
+				return !(t && t instanceof Function && t.apply && !t[p])
+			}
+
+			function f(t, e) {
+				var n = e(t);
+				return n[p] = t, o(t, n, s), n
+			}
+
+			function c(t, e, n) {
+				var r = t[e];
+				t[e] = f(r, n)
+			}
+
+			function u() {
+				for(var t = arguments.length, e = new Array(t), n = 0; n < t; ++n) e[n] = arguments[n];
+				return e
+			}
+			var s = t("ee"),
+				d = t(9),
+				p = "nr@original",
+				l = Object.prototype.hasOwnProperty,
+				m = !1;
+			e.exports = r, e.exports.wrapFunction = f, e.exports.wrapInPlace = c, e.exports.argsToArray = u
+		}, {}]
+	}, {}, ["loader"]);
+	</script>
+	<link rel="canonical" href="investor-relations/index.html" />
+	<link rel="shortlink" href="index.html" />
+	<meta name="referrer" content="no-referrer" />
+	<meta name="description" content="The ViacomCBS Inc. Investor Relations website contains information about ViacomCBS Inc.&#039;s business for stockholders, potential investors, and financial analysts." />
+	<meta property="og:site_name" content="ViacomCBS Inc." />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="investor-relations.html" />
+	<meta property="og:title" content="Investor Relations | ViacomCBS Inc." />
+	<meta property="og:description" content="The Investor Relations website contains information about ViacomCBS Inc.&#039;s business for stockholders, potential investors, and financial analysts." />
+	<meta name="google-site-verification" content="vi93GKimMTWR_C7xnoOZf7FMZotKZtACN6AhHjM5RnI" />
+	<meta name="Generator" content="Drupal 9 (https://www.drupal.org)" />
+	<meta name="MobileOptimized" content="width" />
+	<meta name="HandheldFriendly" content="true" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="shortcut icon" href="sites/g/files/knoqqb55956/files/favicon_0.png" type="image/png" />
+	<link rel="alternate" hreflang="en" href="index.html" />
+	<link rel="revision" href="investor-relations.html" />
+	<title>Investor Relations - ViacomCBS Inc.</title>
+	<link rel="stylesheet" media="all" href="sites/g/files/knoqqb55956/files/css/css_4ffzBScAcIj-YpAWRTJH9j-LrdlR0QWXP3PxM_gEjGM.css" />
+	<link rel="stylesheet" media="all" href="sites/g/files/knoqqb55956/files/css/css_Oy5Ket5LQbRVNutvnOS-no7RrrhH2dkaMPoVX261ylA.css" />
+	<link rel="stylesheet" media="all" href="https://fonts.googleapis.com/css?family=Muli:400,700,800" />
+	<link rel="stylesheet" media="all" href="sites/g/files/knoqqb55956/files/css/css_UCz0nlmjFwdQXJtm5P15ImLLjPHN2i7lFGNl6g_Hu7Y.css" />
+	<link rel="stylesheet" media="print" href="sites/g/files/knoqqb55956/files/css/css_lRvuFtsDRRPvgUEE4vz-jMEWNGfaVDS4SsALDG4oqLc.css" />
+	<script src="https://ir.viacomcbs.com/core/assets/vendor/modernizr/modernizr.min.js?v=3.11.7"></script>
+	<script src="https://ir.viacomcbs.com/core/misc/modernizr-additional-tests.js?v=3.11.7"></script>
+	<script>
+	! function(n) {
+		var o = window,
+			a = "cbsoptanon",
+			c = "cmd",
+			d = "config";
+		o[a] = o[a] ? o[a] : {}, o[a][c] = o[a][c] ? o[a][c] : [], o[a][d] = o[a][d] ? o[a][d] : [], ["onIframesReady", "onFormsReady", "onScriptsReady", "onAdsReady"].forEach(function(n) {
+			o[a][n] = o[a][n] || function() {
+				var d = arguments;
+				o[a][c].push(function() {
+					o[a][n].apply(o[a], d)
+				})
+			}
+		})
+	}();
+	</script>
+	<script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" type="text/javascript" charset="UTF-8" data-domain-script="c3cfaf66-6112-466d-91c0-1624b742f7b4"></script>
+	<script src="https://production-cmp.isgprivacy.cbsi.com/dist/optanon-v1.1.0.js" type="text/javascript" async></script>
+	<script src="https://assets.adobedtm.com/9e032218c8de/ac2e9f0f1166/launch-fbff9f9e3712.min.js" async></script>
+</head>
+
+<body class="body-sidebars-none nir-node nir-node--type-nir-landing-page nir-node--5806 path-frontpage page-node-type-nir-landing-page">
+	<div id="skip"> <a class="visually-hidden focusable skip-link" href="index.html#main-menu">
+        Skip to main navigation
+      </a> </div>
+	<div id="dataMode" data-mode="live"></div>
+	<div id="app" data-theme="pink">
+		<div data-component="app-root">
+			<div id="headerInsert"></div>
+			<div class="main-content">
+				<section data-component="primary-header" class="primary-header" data-scroll-component>
+					<div class="header-wrapper">
+						<div class="loop-video-wrapper">
+							<div class="responsive-video background bg-cover abs-fill js-image" data-component="responsive-video" data-normal="https://media.corporate-ir.net/media_files/IROL/55/5561367/viacbsQ12020/ViacomCBS_Sizzle_200504_1080p_veryslow_crf_33_96k.mp4" data-small="https://media.corporate-ir.net/media_files/IROL/55/5561367/viacbsQ12020/ViacomCBS_Sizzle_200504_720p_veryslow_crf_33_96k.mp4" data-muted data-loop data-autoplay> </div>
+						</div>
+						<div class="wrapper">
+							<div class="content-wrapper">
+								<button data-component="icon-button" class="icon-button button theme-color has-border is-solid size-large start-video hide-element" title="" data-scroll-component> <span data-component="icon" data-icon="chevron-right" class="icon chevron-right"></span> </button>
+								<h1 class="heading-02 hide-element">Investors</h1> </div>
+						</div>
+						<div class="video-wrapper">
+							<div data-component="video-player" class="video-player" data-scroll-component>
+								<video src="/sites/g/files/knoqqb55956/themes/site/nir_pid2249/dist/videos/PLAYBUTTON_FULL_LENGTH_DESKTOP_Q32019_EARNINGS_FINAL_MIXED_DIGITAL_4271776_1080p_veryslow_crf_33_96k.mp4"></video>
+								<div class="controls">
+									<div class="play-controls">
+										<button data-component="icon-button" class="icon-button button theme-color size-small play" title="Play" data-scroll-component> <span data-component="icon" data-icon="play" class="icon play"></span> </button>
+										<button data-component="icon-button" class="icon-button button theme-color size-small pause" title="Pause" data-scroll-component> <span data-component="icon" data-icon="pause" class="icon pause"></span> </button>
+									</div>
+									<div class="progress-bar">
+										<div class="theme-color bar"></div>
+									</div>
+									<div class="volume">
+										<button data-component="icon-button" class="icon-button button theme-color size-small sound-on" title="Close" data-scroll-component> <span data-component="icon" data-icon="sound-on-variant-1" class="icon sound-on-variant-1"></span> </button>
+										<button data-component="icon-button" class="icon-button button theme-color size-small sound-off" title="Close" data-scroll-component> <span data-component="icon" data-icon="sound-off-variant-1" class="icon sound-off-variant-1"></span> </button>
+									</div>
+									<div class="volume-bar">
+										<div class="theme-color bar"></div>
+									</div>
+									<div class="close-button">
+										<button data-component="icon-button" class="icon-button button theme-color size-small close show" title="Close" data-scroll-component> <span data-component="icon" data-icon="close" class="icon close"></span> </button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section data-component="stock-performance" class="stock-performance" data-scroll-component>
+					<div class="wrapper">
+						<div class="component-wrapper">
+							<div class="description">
+								<h2 class="copy-01 heading">Stock Performance</h2>
+								<h3 class="copy-02 subheading">NASDAQ</h3>
+								<div id="block-stockinfoattributionthomsonreuters" class="block--attribution-block__stock-info-attribution__thomson-reuters block--attribution-block__stock-info-attribution__thomson-reuters--5806 block--home-stock-attr--attribution-block__stock-info-attribution__thomson-reuters block--home-stock-attr--attribution-block__stock-info-attribution__thomson-reuters--5806 block--77fe6a25-a154-4973-9a7c-67dce62726c4 block--77fe6a25-a154-4973-9a7c-67dce62726c4--5806 block block-nir-attribution-block block-attribution-block__stock-info-attribution__thomson-reuters">
+									<p> Data Provided by Refinitiv. Minimum 15 minutes delayed.</p>
+								</div>
+							</div>
+							<div id="block-stockquote-2" class="block--market-data-block__stock-quote block--market-data-block__stock-quote--5806 block--home-stock--market-data-block__stock-quote block--home-stock--market-data-block__stock-quote--5806 block--2d48569b-d998-446b-b96b-410e7ef8c8ba block--2d48569b-d998-446b-b96b-410e7ef8c8ba--5806 block block-nir-market-data-block block-market-data-block__stock-quote stock-item">
+								<div class="stock-quote stock-quote__short">
+									<div class="quote-wrapper">
+										<div data-component="stock-performance-item" class="stock-performance-item">
+											<div class="descripton"> <span class="heading heading-04"></span> <span class="amount heading-04 theme-color"></span> </div>
+											<div class="change-wrapper"> <span class="type copy-02"></span> <span class="copy-02"> </span> <span class="copy-02"></span> </div>
+										</div>
+										<time></time>
+										<div data-component="stock-performance-item" class="stock-performance-item">
+											<div class="descripton"> <span class="heading heading-04"></span> <span class="amount heading-04 theme-color"></span> </div>
+											<div class="change-wrapper"> <span class="type copy-02"></span> <span class="copy-02"> </span> <span class="copy-02"></span> </div>
+										</div>
+										<time></time>
+									</div>
+								</div>
+							</div>
+							<div id="block-stockquote" class="block--market-data-block__stock-quote block--market-data-block__stock-quote--5806 block--home-stock--market-data-block__stock-quote block--home-stock--market-data-block__stock-quote--5806 block--57d3ce47-0d43-4131-a422-15e21ef04f40 block--57d3ce47-0d43-4131-a422-15e21ef04f40--5806 block block-nir-market-data-block block-market-data-block__stock-quote stock-item">
+								<div class="stock-quote stock-quote__short">
+									<div class="quote-wrapper">
+										<div data-component="stock-performance-item" class="stock-performance-item">
+											<div class="descripton"> <span class="heading heading-04"></span> <span class="amount heading-04 theme-color"></span> </div>
+											<div class="change-wrapper"> <span class="type copy-02"></span> <span class="copy-02"> </span> <span class="copy-02"></span> </div>
+										</div>
+										<time></time>
+										<div data-component="stock-performance-item" class="stock-performance-item">
+											<div class="descripton"> <span class="heading heading-04"></span> <span class="amount heading-04 theme-color"></span> </div>
+											<div class="change-wrapper"> <span class="type copy-02"></span> <span class="copy-02"> </span> <span class="copy-02"></span> </div>
+										</div>
+										<time></time>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section data-component="webcast-and-materials" class="webcast-and-materials" data-scroll-component>
+					<div class="wrapper">
+						<div class="content-wrapper">
+							<div class="component-wrapper">
+								<div class="left">
+									<div id="block-widgeteventsv2" class="block--featured block--nir-events__widget block--nir-events__widget--5806 block--home-webcast-left--nir-events__widget block--home-webcast-left--nir-events__widget--5806 block--8ff1a8c1-b899-42c4-ab6e-e7929ede953f block--8ff1a8c1-b899-42c4-ab6e-e7929ede953f--5806 block block-nir-events block-nir-events__widget">
+										<h2 class="primary-title heading-06">
+    Events
+    <span class="underline theme-color" data-js-underline></span>
+  </h2>
+										<p>No Events Scheduled at this Time.</p>
+									</div>
+								</div>
+								<div class="divider theme-color"></div>
+								<div class="right">
+									<h2 class="primary-title heading-06">
+    Earnings Materials
+    <span class="underline theme-color" data-js-underline></span>
+  </h2>
+									<div data-block-uuid="594b9b21-3fa7-4cfd-b5d8-27cf4f6d35f6">
+										<div class="acc-wrap view view-widget-bundled-content view-id-widget_bundled_content view-display-id-block_1 js-view-dom-id-851cd1941520a7463881b89ec396aa48ffad676e98d517539b93affd2a4dfe54">
+											<div class="view-filters">
+												<form class="views-exposed-form" data-drupal-selector="views-exposed-form-widget-bundled-content-block-1" action="/" method="get" id="views-exposed-form-widget-bundled-content-block-1" accept-charset="UTF-8">
+													<div class="form--inline clearfix"> </div>
+												</form>
+											</div>
+											<div class="view-content">
+												<div data-component="secondary-download" class="secondary-download" data-scroll-component>
+													<ul class="list">
+														<li class="item">
+															<div class=" clearfix">
+																<div class="content">
+																	<div class="field field--name-field-nir-content-ref field--type-entity-reference field--label-hidden field__item"> <a href="static-files/2Q21_ViacomCBS%20Earnings%20Release_FINAL.pdf" type="application/pdf" title="2Q21_ViacomCBS Earnings Release_FINAL.pdf">2nd Quarter '21 Earnings Press Release </a> <span class="filesize copy-02"> 5.6 MB</span> </div>
+																</div>
+															</div>
+														</li>
+														<li class="item">
+															<div class=" clearfix">
+																<div class="content">
+																	<div class="field field--name-field-nir-content-ref field--type-entity-reference field--label-hidden field__item"> <a href="static-files/ViacomCBS%20Trending%20Schedules%20-%20Q2%202021_FINAL.pdf" type="application/pdf" title="ViacomCBS Trending Schedules - Q2 2021_FINAL.pdf">2nd Quarter '21 Trending Schedules </a> <span class="filesize copy-02"> 457.3 KB</span> </div>
+																</div>
+															</div>
+														</li>
+													</ul>
+												</div>
+											</div>
+											<div class="view-footer"> </div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section data-component="investors-menu" class="investors-menu" data-scroll-component>
+					<a id="menu"></a>
+					<div class="wrapper">
+						<ul data-block-uuid="e11227a4-144b-4eb6-9c7b-5cb5cfef77b1" class="list">
+							<li class="item">
+								<div class="background">
+									<div class="theme-color"></div>
+								</div>
+								<a class="link copy-01" href="earnings-materials.html#menu" target=""> <span class="label">Earnings Materials</span> </a>
+							</li>
+							<li class="item">
+								<div class="background">
+									<div class="theme-color"></div>
+								</div>
+								<a class="link copy-01" href="events-webcasts-annual-meetings.html#menu" target=""> <span class="label">Events, Webcasts &amp; Annual Meetings</span> </a>
+							</li>
+							<li class="item">
+								<div class="background">
+									<div class="theme-color"></div>
+								</div>
+								<a class="link copy-01" href="press-releases-bc9f0a11_field_nir_news_category%5Bvalue%5D%5B0%5D=4101.html#menu" target=""> <span class="label">Press Releases</span> </a>
+							</li>
+							<li class="item">
+								<div class="background">
+									<div class="theme-color"></div>
+								</div>
+								<a class="link copy-01" href="sec-filings/viacomcbs.html#menu" target=""> <span class="label">SEC Filings</span> </a>
+							</li>
+							<li class="item">
+								<div class="background">
+									<div class="theme-color"></div>
+								</div>
+								<a class="link copy-01" href="viacomcbs-merger.html#menu" target=""> <span class="label">ViacomCBS Merger</span> </a>
+							</li>
+							<li class="item">
+								<div class="background">
+									<div class="theme-color"></div>
+								</div>
+								<a class="link copy-01" href="stock-information.html#menu" target=""> <span class="label">Stock Performance</span> </a>
+							</li>
+							<li class="item">
+								<div class="background">
+									<div class="theme-color"></div>
+								</div>
+								<a class="link copy-01" href="dividend-history.html#menu" target=""> <span class="label">Dividend Information</span> </a>
+							</li>
+							<li class="item">
+								<div class="background">
+									<div class="theme-color"></div>
+								</div>
+								<a class="link copy-01" href="public-debt.html#menu" target=""> <span class="label">Public Debt</span> </a>
+							</li>
+							<li class="item">
+								<div class="background">
+									<div class="theme-color"></div>
+								</div>
+								<a class="link copy-01" href="shareholder-services.html#menu" target=""> <span class="label">Shareholder Services, Alerts, &amp; FAQs</span> </a>
+							</li>
+							<li class="item">
+								<div class="background">
+									<div class="theme-color"></div>
+								</div>
+								<a class="link copy-01" href="corporate-governance.html#menu" target=""> <span class="label">Corporate Governance &amp; ESG</span> </a>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="quote" data-component="quote" data-scroll-component="">
+					<div class="wrapper">
+						<div class="content-wrapper">
+							<div class="blue-background"> </div>
+							<blockquote class="blockquote">
+								<p class="heading-03 copy"><span>“</span> There’s never been a more important time to provide high-quality media and entertainment.”</p>
+							</blockquote>
+							<footer class="quote-author">
+								<div class="author">
+									<div class="image-wrapper">
+										<div class="responsive-image image" data-component="responsive-image" data-default="/system/files-encrypted/nasdaq_kms/inline-images/bob_1.jpg" data-entity-type="file" data-entity-uuid="af203fa3-6baf-442f-8ad1-c355788df7a3" data-queries="[[&quot;(max-width: 767px)&quot;, &quot;/system/files-encrypted/nasdaq_kms/inline-images/bob_1.jpg&quot;]]"> </div>
+									</div>
+									<div class="description">
+										<h3 class="copy-01 name"><strong>Bob Bakish</strong></h3>
+										<p class="copy-02 role">President and CEO, ViacomCBS</p>
+									</div>
+								</div>
+								<div class="meet-button">
+									<div class="primary-button enable-transitions" data-abstract-button-slot="" data-component="primary-button" data-label="Meet our leadership team" data-link-target="https://www.viacbs.com/about/leadership" data-link-type="" data-scroll-component="" data-title="Meet our leadership team" data-type="ButtonType.LINK"><span class="label">Meet our leadership team</span></div>
+								</div>
+							</footer>
+						</div>
+					</div>
+				</section>
+				<!---
+<section class="quote" data-component="quote" data-scroll-component="">
+<div class="background" data-js-background=""><svg data-js-pattern="" viewbox="0 0 484.03 301.24"> <pattern height="301.24" id="background-pattern" patternunits="userSpaceOnUse" width="484.03" x="0" y="0"> <line class="line" x1="-1318.09" x2="279.47" y1="-138.79" y2="522.94"></line> <line class="line" x1="-1076.27" x2="521.29" y1="-138.88" y2="522.85"></line> <line class="line" x1="-834.46" x2="763.11" y1="-138.97" y2="522.76"></line> <line class="line" x1="-592.64" x2="1004.92" y1="-139.07" y2="522.67"></line> <line class="line" x1="-350.82" x2="1246.74" y1="-139.16" y2="522.57"></line> <line class="line" x1="-109" x2="1488.56" y1="-139.25" y2="522.48"></line> <line class="line" x1="132.81" x2="1730.38" y1="-139.34" y2="522.39"></line> <line class="line" x1="374.63" x2="1972.19" y1="-139.43" y2="522.3"></line> </pattern> <rect fill="url(#background-pattern)" height="100%" width="100%"></rect> </svg></div>
+
+<div class="wrapper">
+<div class="content-wrapper">
+<blockquote class="blockquote">
+<p class="heading-03 copy"><span>“</span>There's never been a more important time to provide high-quality entertainment.”</p>
+</blockquote>
+
+<footer class="quote-author">
+<div class="author">
+<div class="image-wrapper">
+<div class="responsive-image image" data-component="responsive-image" data-default="/system/files-encrypted/nasdaq_kms/inline-images/bob_1.jpg" data-entity-type="file" data-entity-uuid="af203fa3-6baf-442f-8ad1-c355788df7a3" data-queries="[[&quot;(max-width: 767px)&quot;, &quot;/system/files-encrypted/nasdaq_kms/inline-images/bob_1.jpg&quot;]]">&nbsp;</div>
+</div>
+
+<div class="description">
+<h3 class="copy-01 name"><strong>Bob Bakish</strong></h3>
+
+<p class="copy-02 role">President and CEO, ViacomCBS</p>
+</div>
+</div>
+
+<div class="meet-button">
+<div class="primary-button enable-transitions" data-abstract-button-slot="" data-component="primary-button" data-label="Meet our leadership team" data-link-target="https://www.viacbs.com/about/leadership" data-link-type="" data-scroll-component="" data-title="Meet our leadership team" data-type="ButtonType.LINK"><span class="background"></span> <span class="label">Meet our leadership team</span></div>
+</div>
+</footer>
+</div>
+</div>
+</section>
+--->
+				<section class="primary-gallery" data-component="primary-gallery" data-scroll-component="">
+					<div class="wrapper">
+						<div class="content-wrapper">
+							<header class="mission-header">
+								<h2 class="primary-title heading-06">Key Results: Q2 2021<span class="underline theme-color" data-js-underline=""></span></h2> </header>
+							<div class="carousel">
+								<div class="carousel-wrapper js-carousel-wrapper">
+									<!-- Slide 1 -->
+									<div class="slides js-carousel-slider">
+										<div class="slide js-carousel-item">
+											<div class="shadow" data-js-background=""> </div>
+											<div class="content">
+												<div class="responsive-image image background bg-contain abs-fill js-image" data-component="responsive-image" data-default="/static-files/4e975840-2813-4ecb-8f16-2c035df2e39d" data-entity-type="file" data-queries="[[&quot;(max-width: 767px)&quot;, &quot;/static-files/4e975840-2813-4ecb-8f16-2c035df2e39d&quot;]]"> </div>
+											</div>
+										</div>
+										<!-- End Slide 1 -->
+										<!-- Slide 2 -->
+										<div class="slide js-carousel-item">
+											<div class="shadow" data-js-background=""> </div>
+											<div class="content">
+												<div class="responsive-image image background bg-contain abs-fill js-image" data-component="responsive-image" data-default=" /static-files/c53cc00e-9dbb-49fe-b22a-505563a1b457" data-entity-type="file" data-queries="[[&quot;(max-width: 767px)&quot;, &quot;/static-files/c53cc00e-9dbb-49fe-b22a-505563a1b457&quot;]]"> </div>
+											</div>
+										</div>
+										<!-- End Slide 2 -->
+										<!-- Slide 3 -->
+										<div class="slide js-carousel-item">
+											<div class="shadow" data-js-background=""> </div>
+											<div class="content">
+												<div class="responsive-image image background bg-contain abs-fill js-image" data-component="responsive-image" data-default=" /static-files/d6623135-e8ec-4737-99e9-8e2276e5d54a" data-entity-type="file" data-queries="[[&quot;(max-width: 767px)&quot;, &quot;/static-files/d6623135-e8ec-4737-99e9-8e2276e5d54a&quot;]]"> </div>
+											</div>
+										</div>
+										<!-- End Slide 3 -->
+									</div>
+								</div>
+								<div class="navigation">
+									<div class="prev-button nav-button js-button-previous"><span class="icon arrow-small-left" data-component="icon" data-icon="arrow-small-left"></span></div>
+									<div class="next-button nav-button js-button-next"><span class="icon arrow-small-right" data-component="icon" data-icon="arrow-small-right"></span></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section>
+					<div class="wrapper">
+						<div class="content-wrapper">
+							<div id="content-header"></div>
+							<div id="ndq-content" class="ndq-5806 copy-02 copy">
+								<div class="content-block">
+									<div class="region region-content">
+										<div id="block-nir-pid2249-websitenoticeblock" class="block--website-notice-block block--website-notice-block--5806 block--content--website-notice-block block--content--website-notice-block--5806 block--fda90a4e-478b-400a-8c75-61214f8ba9b0 block--fda90a4e-478b-400a-8c75-61214f8ba9b0--5806 block block-nir-website-notices block-website-notice-block"> </div>
+										<div data-drupal-messages-fallback class="hidden"></div>
+										<div id="block-nir-pid2249-content" class="block--system-main-block block--system-main-block--5806 block--content--system-main-block block--content--system-main-block--5806 block--fb4e7e4d-cc87-4c24-914d-ba5cbd3e2bf6 block--fb4e7e4d-cc87-4c24-914d-ba5cbd3e2bf6--5806 block block-system block-system-main-block">
+											<article class="node node--type-nir_landing_page node--view-mode-full clearfix">
+												<div>
+													<div class="panel-display boxton clearfix">
+														<div class="container-fluid">
+															<div class="row">
+																<div class="col-md-12 radix-layouts-content panel-panel">
+																	<div class="panel-panel-inner">
+																		<div class="block-region-contentmain">
+																			<div class="block--recent block--nir-news__widget block--nir-news__widget--5806 block--contentmain--nir-news__widget block--contentmain--nir-news__widget--5806 block--2227efbf-9792-49c3-8d55-ab7ee22c2bd5 block--2227efbf-9792-49c3-8d55-ab7ee22c2bd5--5806 block block-nir-news block-nir-news__widget">
+																				<div data-component="news" class="news theme-color">
+																					<header class="news-header">
+																						<h2 class="primary-title heading-06">
+        Corporate News
+        <span class="underline theme-color" data-js-underline></span>
+      </h2> <span data-component="icon" data-icon="rss" class="icon rss"></span> </header>
+																					<div class="rss-wrapper">
+																						<div class="column">
+																							<h3 class="copy-02 subheading">What is RSS?</h3>
+																							<p class="copy-02 content-copy">Really Simple Syndication (RSS) is a format designed for sharing web content such as headlines. An RSS feed highlights fresh material for you, so you don't have to repeatedly check a site yourself for updates.</p>
+																							<h3 class="copy-02 subheading">How do I use RSS?</h3>
+																							<p class="copy-02">To make use of RSS, you"ll need an RSS reader, or aggregator. An RSS aggregator can be a stand-alone application, or a plug-in for another program you already use, such as <a href="http://www.microsoft.com/office/outlook/" target="_blank">Microsoft Outlook</a>. Some web browsers, such as <a href="http://www.mozilla.org/firefox/" target="_blank">Firefox</a> and <a href="http://www.apple.com/safari/" target="_blank">Safari RSS</a>, have RSS readers built in. There are also online aggregators, websites such as <a href="http://my.yahoo.com/" target="_blank">My Yahoo</a> or <a href="http://www.bloglines.com/" target="_blank">Bloglines</a> that allow you to customize them by adding RSS feeds. <a href="http://www.download.com/RSS-Tools/3150-9227_4-0.html?tag=dir" target="_blank">Find a downloadable RSS aggregator</a>.</p>
+																						</div>
+																						<div class="column">
+																							<h3 class="copy-02 subheading">To view a feed in you RDD aggregator:</h3>
+																							<p class="copy-02">
+																								<ol>
+																									<li class="copy-02">Click on the RSS feed that corresponds to the topic that interests you.</li>
+																									<li class="copy-02">Copy the URL.</li>
+																									<li class="copy-02">Paste the URL into your reader.</li>
+																								</ol>
+																							</p>
+																							<h3 class="copy-02 subheading">RSS Feeds</h3>
+																							<p class="copy-02"> <span data-component="icon" data-icon="rss" class="icon rss"></span> <a href="rss/news-releases.xml.rss" target="_blank">Viacom - Press Releases</a> </p>
+																							<p class="copy-02"> <span data-component="icon" data-icon="rss" class="icon rss"></span> <a href="rss/sec-filings.xml.rss" target="_blank">Viacom - All SEC Filings</a> </p>
+																							<p class="copy-02"> <span data-component="icon" data-icon="rss" class="icon rss"></span> <a href="rss/sec-filings.xml-sub_group=4.rss" target="_blank">Viacom - Form 4 SEC Filings</a> </p>
+																						</div>
+																					</div>
+																					<ol class="list">
+																						<li class="item">
+																							<a data-component="news-item" class="news-item" href="news-releases/news-release-details/viacomcbs-secures-exclusive-domestic-streaming-rights-hit-fbi.html">
+																								<h3 class="copy-01 heading">ViacomCBS Secures Exclusive Domestic Streaming Rights To Hit “FBI” Series From NBCUniversal In Multi-Platform Content Licensing Deal</h3> <span class="copy-03 date">Sep 30, 2021</span> </a>
+																						</li>
+																						<li class="item">
+																							<a data-component="news-item" class="news-item" href="news-releases/news-release-details/viacomcbs-networks-international-completes-acquisition.html">
+																								<h3 class="copy-01 heading">ViacomCBS Networks International Completes Acquisition of Chilevisión</h3> <span class="copy-03 date">Sep 30, 2021</span> </a>
+																						</li>
+																						<li class="item">
+																							<a data-component="news-item" class="news-item" href="news-releases/news-release-details/videoamp-and-viacomcbs-announce-tv-measurement-partnership.html">
+																								<h3 class="copy-01 heading">VideoAmp and ViacomCBS Announce TV Measurement Partnership</h3> <span class="copy-03 date">Sep 28, 2021</span> </a>
+																						</li>
+																					</ol>
+																					<div class="nir-widget--pager"> </div>
+																					<div class="nir-widget--total-results"> </div>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+													<!-- /.boxton -->
+												</div>
+											</article>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<div id="block-globalhomesignup" class="block-content--nir-global-block block-content--nir-global-block--44626 block--block-content32f26da3-1d45-4f8a-817e-148b2081aaaf block--block-content32f26da3-1d45-4f8a-817e-148b2081aaaf--5806 block--home-bottom--block-content--32f26da3-1d45-4f8a-817e-148b2081aaaf block--home-bottom--block-content--32f26da3-1d45-4f8a-817e-148b2081aaaf--5806 block--ae1d4df7-f4c1-4fa9-bcf9-e8f0afdab224 block--ae1d4df7-f4c1-4fa9-bcf9-e8f0afdab224--5806 block block-block-content block-block-content32f26da3-1d45-4f8a-817e-148b2081aaaf">
+					<div class="field field--name-field-nir-global-block-node field--type-entity-reference field--label-hidden field__item">
+						<div class="clearfix text-formatted field field--name-field-nir-global-block-body field--type-text-long field--label-hidden field__item">
+							<section class="newsletter borders" data-component="newsletter" data-scroll-component="">
+								<div class="wrapper">
+									<div class="content-wrapper">
+										<div class="icon-wrapper"><span class="icon email-variant-2" data-component="icon" data-icon="email-variant-2"></span></div>
+										<div class="component-wrapper">
+											<p class="copy-01 copy">Sign up to get ViacomCBS’s latest investor news delivered straight to your inbox</p>
+											<div class="ndq-footer-alerts">
+												<form action="/shareholder-services#alerts" class="ndq-footer-alerts" data-drupal-form-fields="" id="alerts-form">
+													<input aria-label="Request Email Alerts" name="nir_email_alerts_signup_email" placeholder="Email" type="email" />
+													<button class="button button--primary js-form-submit form-submit primary-button theme-color" id="Submit-Alert" title="Submit" type="submit"><span class="icon arrow-small-right" data-component="icon" data-icon="arrow-small-right"><svg viewbox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M0 22.1h29.5v8.5L40 20 29.5 9.5v8.4H0z"></path></svg></span></button>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+							</section>
+						</div>
+					</div>
+				</div>
+				<div id="footerInsert"></div>
+			</div>
+		</div>
+	</div>
+	<script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/","scriptPath":null,"pathPrefix":"","currentPath":"node\/5806","currentPathIsAdmin":false,"isFront":true,"currentLanguage":"en"},"pluralDelimiter":"\u0003","suppressDeprecationErrors":true,"ajaxPageState":{"libraries":"nir_base\/lib,nir_base\/nir_icons,nir_base\/nir_toolbar,nir_base\/sidr,nir_ckeditor_datatables\/datatables,nir_market_data_block\/nir_market_data_block.command,nir_market_data_block\/nir_market_data_block.stockQuote,nir_multimedia\/nir_multimedia,nir_pid2249\/override,nir_website_notices\/nir_website_notices.notices,radix_layouts\/radix_layouts,system\/base,views\/views.module","theme":"nir_pid2249","theme_token":null},"ajaxTrustedUrl":{"\/investor-relations":true},"user":{"uid":0,"permissionsHash":"bf295fdab8890c2a7864f2ac2dc6d0b15971f6072cdc2a15116b8c777e0e77e0"}}</script>
+	<script src="sites/g/files/knoqqb55956/files/js/js_IvwWOH27SNxIUyGYlBE3hfhf2h0sVVZ28wx80XphsBs.js"></script>
+	<script src="https://spt-branding-viacomcbs-prd-cdn-enp.azureedge.net/finalmarkupwithlocalreference/headerFooterMarkup.js"></script>
+	<script src="sites/g/files/knoqqb55956/themes/site/nir_pid2249/dist/js/common-r0bwsa.js"></script>
+	<script src="sites/g/files/knoqqb55956/themes/site/nir_pid2249/dist/js/bundle-r0bwsa.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<script src="sites/g/files/knoqqb55956/files/js/js_BeBx-z2xlKjB6wQOX4rPe7-x5mVhSmGa7H0xDnhGzWU.js"></script>
+	<script type="text/javascript">
+	window.NREUM || (NREUM = {});
+	NREUM.info = {
+		"beacon": "bam-cell.nr-data.net",
+		"licenseKey": "761e715901",
+		"applicationID": "35893545,24276188",
+		"transactionName": "ZlVXYRcAW0ZRW0QKX18fdFYRCFpbH3xCFkBQXGl2ChNQaX1dXhZsdVVTVBANQXhVVkUvWV9bYUcABHhUXlFAFlxQRFpHFkwLVlhdUwhxUlNQRhY=",
+		"queueTime": 0,
+		"applicationTime": 286,
+		"atts": "ShJUF18aSEg=",
+		"errorBeacon": "bam-cell.nr-data.net",
+		"agent": ""
+	}
+	</script>
+</body>
+
+</html>

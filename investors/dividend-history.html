@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" prefix="og: https://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8" /><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={licenseKey:"761e715901",applicationID:"35893545"};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var i=e[n]={exports:{}};t[n][0].call(i.exports,function(e){var i=t[n][1][e];return r(i||e)},i,i.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(t,e,n){function r(){}function i(t,e,n){return function(){return o(t,[u.now()].concat(f(arguments)),e?null:this,n),e?void 0:this}}var o=t("handle"),a=t(8),f=t(9),c=t("ee").get("tracer"),u=t("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(t,e){s[e]=i(p+e,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),e.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(t,e){var n={},r=this,i="function"==typeof e;return o(l+"tracer",[u.now(),t,n],r),function(){if(c.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return e.apply(this,arguments)}catch(t){throw c.emit("fn-err",[arguments,this,t],n),t}finally{c.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){m[e]=i(l+e)}),newrelic.noticeError=function(t,e){"string"==typeof t&&(t=new Error(t)),o("err",[t,u.now(),!1,e])}},{}],2:[function(t,e,n){function r(t){if(NREUM.init){for(var e=NREUM.init,n=t.split("."),r=0;r<n.length-1;r++)if(e=e[n[r]],"object"!=typeof e)return;return e=e[n[n.length-1]]}}e.exports={getConfiguration:r}},{}],3:[function(t,e,n){function r(){return f.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,f=t(10);e.exports=r,e.exports.offset=a,e.exports.getLastTimestamp=i},{}],4:[function(t,e,n){function r(t){return!(!t||!t.protocol||"file:"===t.protocol)}e.exports=r},{}],5:[function(t,e,n){function r(t,e){var n=t.getEntries();n.forEach(function(t){"first-paint"===t.name?d("timing",["fp",Math.floor(t.startTime)]):"first-contentful-paint"===t.name&&d("timing",["fcp",Math.floor(t.startTime)])})}function i(t,e){var n=t.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(t){t.getEntries().forEach(function(t){t.hadRecentInput||d("cls",[t])})}function a(t){if(t instanceof m&&!g){var e=Math.round(t.timeStamp),n={type:t.type};e<=p.now()?n.fid=p.now()-e:e>p.offset&&e<=Date.now()?(e-=p.offset,n.fid=p.now()-e):e=p.now(),g=!0,d("timing",["fi",e,n])}}function f(t){"hidden"===t&&d("pageHide",[p.now()])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var c,u,s,d=t("handle"),p=t("loader"),l=t(7),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){c=new PerformanceObserver(r);try{c.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,h=["click","keydown","mousedown","pointerdown","touchstart"];h.forEach(function(t){document.addEventListener(t,a,!1)})}l(f)}},{}],6:[function(t,e,n){function r(t,e){if(!i)return!1;if(t!==i)return!1;if(!e)return!0;if(!o)return!1;for(var n=o.split("."),r=e.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var f=navigator.userAgent,c=f.match(a);c&&f.indexOf("Chrome")===-1&&f.indexOf("Chromium")===-1&&(i="Safari",o=c[1])}e.exports={agent:i,version:o,match:r}},{}],7:[function(t,e,n){function r(t){function e(){t(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,e,!1)}e.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],8:[function(t,e,n){function r(t,e){var n=[],r="",o=0;for(r in t)i.call(t,r)&&(n[o]=e(r,t[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;e.exports=r},{}],9:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,i=n-e||0,o=Array(i<0?0:i);++r<i;)o[r]=t[e+r];return o}e.exports=r},{}],10:[function(t,e,n){e.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(t,e,n){function r(){}function i(t){function e(t){return t&&t instanceof r?t:t?u(t,c,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){t&&a&&t(n,r,i);for(var f=e(i),c=v(n),u=c.length,s=0;s<u;s++)c[s].apply(f,r);var p=d[w[n]];return p&&p.push([b,n,r,f]),f}}function o(t,e){y[t]=v(t).concat(e)}function m(t,e){var n=y[t];if(n)for(var r=0;r<n.length;r++)n[r]===e&&n.splice(r,1)}function v(t){return y[t]||[]}function g(t){return p[t]=p[t]||i(n)}function h(t,e){l.aborted||s(t,function(t,n){e=e||"feature",w[n]=e,e in d||(d[e]=[])})}var y={},w={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:e,buffer:h,abort:f,aborted:!1};return b}function o(t){return u(t,c,a)}function a(){return new r}function f(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var c="nr@context",u=t("gos"),s=t(8),d={},p={},l=e.exports=i();e.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(t,e,n){function r(t,e,n){if(i.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return t[e]=r,r}var i=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){i.buffer([t],r),i.emit(t,e,n)}var i=t("ee").get("handle");e.exports=r,r.ee=i},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,o,function(){return i++})}var i=1,o="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!R++){var t=M.info=NREUM.info,e=v.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&e))return u.abort();c(E,function(e,n){t[e]||(t[e]=n)});var n=a();f("mark",["onload",n+M.offset],null,"api"),f("timing",["load",n]);var r=v.createElement("script");0===t.agent.indexOf("http://")||0===t.agent.indexOf("https://")?r.src=t.agent:r.src=l+"://"+t.agent,e.parentNode.insertBefore(r,e)}}function i(){"complete"===v.readyState&&o()}function o(){f("mark",["domContent",a()+M.offset],null,"api")}var a=t(3),f=t("handle"),c=t(8),u=t("ee"),s=t(6),d=t(4),p=t(2),l=p.getConfiguration("ssl")===!1?"http":"https",m=window,v=m.document,g="addEventListener",h="attachEvent",y=m.XMLHttpRequest,w=y&&y.prototype,b=!d(m.location);NREUM.o={ST:setTimeout,SI:m.setImmediate,CT:clearTimeout,XHR:y,REQ:m.Request,EV:m.Event,PR:m.Promise,MO:m.MutationObserver};var x=""+location,E={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1210.min.js"},O=y&&w&&w[g]&&!/CriOS/.test(navigator.userAgent),M=e.exports={offset:a.getLastTimestamp(),now:a,origin:x,features:{},xhrWrappable:O,userAgent:s,disabled:b};if(!b){t(1),t(5),v[g]?(v[g]("DOMContentLoaded",o,!1),m[g]("load",r,!1)):(v[h]("onreadystatechange",i),m[h]("onload",r)),f("mark",["firstbyte",a.getLastTimestamp()],null,"api");var R=0}},{}],"wrap-function":[function(t,e,n){function r(t,e){function n(e,n,r,c,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,c],s],t)}f(n+"start",[o,a,c],s,u);try{return p=e.apply(a,o)}catch(m){throw f(n+"err",[o,a,m],s,u),m}finally{f(n+"end",[o,a,p],s,u)}}return a(e)?e:(n||(n=""),nrWrapper[p]=e,o(e,nrWrapper,t),nrWrapper)}function r(t,e,r,i,o){r||(r="");var f,c,u,s="-"===r.charAt(0);for(u=0;u<e.length;u++)c=e[u],f=t[c],a(f)||(t[c]=n(f,s?c+r:r,i,c,o))}function f(n,r,o,a){if(!m||e){var f=m;m=!0;try{t.emit(n,r,o,e,a)}catch(c){i([c,n,r,o],t)}m=f}}return t||(t=s),n.inPlace=r,n.flag=p,n}function i(t,e){e||(e=s);try{e.emit("internal-error",t)}catch(n){}}function o(t,e,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(t);return r.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(o){i([o],n)}for(var a in t)l.call(t,a)&&(e[a]=t[a]);return e}function a(t){return!(t&&t instanceof Function&&t.apply&&!t[p])}function f(t,e){var n=e(t);return n[p]=t,o(t,n,s),n}function c(t,e,n){var r=t[e];t[e]=f(r,n)}function u(){for(var t=arguments.length,e=new Array(t),n=0;n<t;++n)e[n]=arguments[n];return e}var s=t("ee"),d=t(9),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;e.exports=r,e.exports.wrapFunction=f,e.exports.wrapInPlace=c,e.exports.argsToArray=u},{}]},{},["loader"]);</script>
+<link rel="canonical" href="https://ir.viacomcbs.com/dividend-history/" />
+<meta property="og:site_name" content="ViacomCBS Inc." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://ir.viacomcbs.com/dividend-history" />
+<meta property="og:title" content="Dividend Information | ViacomCBS Inc." />
+<meta property="og:description" content="The Investor Relations website contains information about ViacomCBS Inc.&#039;s business for stockholders, potential investors, and financial analysts." />
+<meta name="google-site-verification" content="vi93GKimMTWR_C7xnoOZf7FMZotKZtACN6AhHjM5RnI" />
+<meta name="Generator" content="Drupal 9 (https://www.drupal.org)" />
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="sites/g/files/knoqqb55956/files/favicon_0.png" type="image/png" />
+<link rel="alternate" hreflang="en" href="dividend-history.html" />
+<link rel="revision" href="dividend-history.html" />
+
+    <title>Dividend Information - ViacomCBS Inc.</title>
+    <link rel="stylesheet" media="all" href="sites/g/files/knoqqb55956/files/css/css_4ffzBScAcIj-YpAWRTJH9j-LrdlR0QWXP3PxM_gEjGM.css" />
+<link rel="stylesheet" media="all" href="sites/g/files/knoqqb55956/files/css/css_Oy5Ket5LQbRVNutvnOS-no7RrrhH2dkaMPoVX261ylA.css" />
+<link rel="stylesheet" media="all" href="https://fonts.googleapis.com/css?family=Muli:400,700,800" />
+<link rel="stylesheet" media="all" href="sites/g/files/knoqqb55956/files/css/css_UCz0nlmjFwdQXJtm5P15ImLLjPHN2i7lFGNl6g_Hu7Y.css" />
+<link rel="stylesheet" media="print" href="sites/g/files/knoqqb55956/files/css/css_lRvuFtsDRRPvgUEE4vz-jMEWNGfaVDS4SsALDG4oqLc.css" />
+
+    <script src="/core/assets/vendor/modernizr/modernizr.min.js?v=3.11.7"></script>
+<script src="/core/misc/modernizr-additional-tests.js?v=3.11.7"></script>
+
+    <script>
+!function(n){var o=window,a="cbsoptanon",c="cmd",d="config";o[a]=o[a]?o[a]:{},o[a][c]=o[a][c]?o[a][c]:[],o[a][d]=o[a][d]?o[a][d]:[],["onIframesReady","onFormsReady","onScriptsReady","onAdsReady"].forEach(function(n){o[a][n]=o[a][n]||function(){var d=arguments;o[a][c].push(function(){o[a][n].apply(o[a],d)})}})}();
+</script>
+<script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js"  type="text/javascript" charset="UTF-8" data-domain-script="c3cfaf66-6112-466d-91c0-1624b742f7b4" ></script>
+<script src="https://production-cmp.isgprivacy.cbsi.com/dist/optanon-v1.1.0.js" type="text/javascript" async></script>
+<script src="https://assets.adobedtm.com/9e032218c8de/ac2e9f0f1166/launch-fbff9f9e3712.min.js" async></script>
+  </head>
+  <body class="body-sidebars-none nir-node nir-node--type-nir-landing-page nir-node--5931 path-node page-node-type-nir-landing-page">
+    <div id="skip">
+      <a class="visually-hidden focusable skip-link" href="dividend-history.html#main-menu">
+        Skip to main navigation
+      </a>
+    </div>
+    
+          
+<div id="dataMode" data-mode="live"></div>
+
+<div id="app" data-theme="pink">
+
+  <div data-component="app-root">
+
+    
+    <div id="headerInsert"></div>
+
+    <div class="main-content">
+
+              <section data-component="secondary-header" class="secondary-header" data-scroll-component>
+          <div class="wrapper">
+            <h1 class="heading-02">
+                                                Dividend Information
+                                          </h1>
+                      </div>
+        </section>
+      
+      
+              
+
+              
+
+<section data-component="investors-menu" class="investors-menu" data-scroll-component>
+  <a id="menu"></a>
+  <div class="wrapper">
+        
+                              <ul data-block-uuid="e11227a4-144b-4eb6-9c7b-5cb5cfef77b1" class="list">
+                          <li class="item">
+          <div class="background">
+            <div class="theme-color"></div>
+          </div>
+          <a class="link copy-01" href="earnings-materials.html#menu" target="">
+            <span class="label">Earnings Materials</span>
+          </a>       
+                  </li>
+                      <li class="item">
+          <div class="background">
+            <div class="theme-color"></div>
+          </div>
+          <a class="link copy-01" href="events-webcasts-annual-meetings.html#menu" target="">
+            <span class="label">Events, Webcasts &amp; Annual Meetings</span>
+          </a>       
+                  </li>
+                      <li class="item">
+          <div class="background">
+            <div class="theme-color"></div>
+          </div>
+          <a class="link copy-01" href="press-releases-bc9f0a11_field_nir_news_category[value][0]=4101.html#menu" target="">
+            <span class="label">Press Releases</span>
+          </a>       
+                  </li>
+                      <li class="item">
+          <div class="background">
+            <div class="theme-color"></div>
+          </div>
+          <a class="link copy-01" href="sec-filings/viacomcbs.html#menu" target="">
+            <span class="label">SEC Filings</span>
+          </a>       
+                  </li>
+                      <li class="item">
+          <div class="background">
+            <div class="theme-color"></div>
+          </div>
+          <a class="link copy-01" href="viacomcbs-merger.html#menu" target="">
+            <span class="label">ViacomCBS Merger</span>
+          </a>       
+                  </li>
+                      <li class="item">
+          <div class="background">
+            <div class="theme-color"></div>
+          </div>
+          <a class="link copy-01" href="stock-information.html#menu" target="">
+            <span class="label">Stock Performance</span>
+          </a>       
+                  </li>
+                      <li class="item is-active">
+          <div class="background">
+            <div class="theme-color"></div>
+          </div>
+          <a class="link copy-01" href="dividend-history.html#menu" target="">
+            <span class="label">Dividend Information</span>
+          </a>       
+                  </li>
+                      <li class="item">
+          <div class="background">
+            <div class="theme-color"></div>
+          </div>
+          <a class="link copy-01" href="public-debt.html#menu" target="">
+            <span class="label">Public Debt</span>
+          </a>       
+                  </li>
+                      <li class="item">
+          <div class="background">
+            <div class="theme-color"></div>
+          </div>
+          <a class="link copy-01" href="shareholder-services.html#menu" target="">
+            <span class="label">Shareholder Services, Alerts, &amp; FAQs</span>
+          </a>       
+                  </li>
+                      <li class="item">
+          <div class="background">
+            <div class="theme-color"></div>
+          </div>
+          <a class="link copy-01" href="corporate-governance.html#menu" target="">
+            <span class="label">Corporate Governance &amp; ESG</span>
+          </a>       
+                  </li>
+         
+    </ul>
+  
+
+
+      </div>
+</section>
+      
+      
+      <section>
+        <div class="wrapper">
+          <div class="content-wrapper">
+            <div id="content-header"></div>
+            <div id="ndq-content" class="ndq-5931 copy-02 copy">
+                             <div class="content-block">
+                                    <div class="region region-content">
+    <div id="block-nir-pid2249-websitenoticeblock" class="block--website-notice-block block--website-notice-block--5931 block--content--website-notice-block block--content--website-notice-block--5931 block--fda90a4e-478b-400a-8c75-61214f8ba9b0 block--fda90a4e-478b-400a-8c75-61214f8ba9b0--5931 block block-nir-website-notices block-website-notice-block">
+  
+    
+      
+  </div>
+<div data-drupal-messages-fallback class="hidden"></div>
+<div id="block-nir-pid2249-content" class="block--system-main-block block--system-main-block--5931 block--content--system-main-block block--content--system-main-block--5931 block--fb4e7e4d-cc87-4c24-914d-ba5cbd3e2bf6 block--fb4e7e4d-cc87-4c24-914d-ba5cbd3e2bf6--5931 block block-system block-system-main-block">
+  
+    
+      <article class="node node--type-nir_landing_page node--view-mode-full clearfix">
+
+  <div>
+    
+<div  class="panel-display boxton clearfix">
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 radix-layouts-content panel-panel">
+        <div  class="panel-panel-inner">
+          <div class="block-region-contentmain"><div class="views-element-container block--views-blockwidget-dividends-splits-block-1 block--views-blockwidget-dividends-splits-block-1--5931 block--contentmain--views-block--widget-dividends-splits-block-1 block--contentmain--views-block--widget-dividends-splits-block-1--5931 block--e8d167e5-d30d-4055-a422-793a006ca811 block--e8d167e5-d30d-4055-a422-793a006ca811--5931 block block-views block-views-blockwidget-dividends-splits-block-1">
+  
+      <h2 data-component="primary-title" data-js-heading class="primary-title heading-06" data-scroll-component>
+      Historical Dividends
+      <span class="underline theme-color" data-js-underline></span>
+    </h2>
+    
+        <div data-block-uuid="e8d167e5-d30d-4055-a422-793a006ca811"><div class="view view-widget-dividends-splits view-id-widget_dividends_splits view-display-id-block_1 js-view-dom-id-e991da5b3f4a732ed509fd6227ccf56880521c65c0cd01dcf246409353a78328">
+  
+    
+      
+      <div class="view-content">
+      <table class="nirtable views-table views-view-table cols-6 collapse-table-wide">
+        <thead>
+      <tr>
+                                                  <th id="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date" scope="col">Declared</th>
+                                                  <th id="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date" scope="col">Ex-Date</th>
+                                                  <th id="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date" scope="col">Record</th>
+                                                  <th id="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date" scope="col">Payable</th>
+                                                  <th id="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount" scope="col">Amount</th>
+                                                  <th id="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type" scope="col">Type</th>
+              </tr>
+    </thead>
+    <tbody>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2021-08-02T12:00:00Z" timezone="America/New_York" class="datetime">8/2/2021</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2021-09-14T12:00:00Z" timezone="America/New_York" class="datetime">9/14/2021</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2021-09-15T12:00:00Z" timezone="America/New_York" class="datetime">9/15/2021</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2021-10-01T12:00:00Z" timezone="America/New_York" class="datetime">10/1/2021</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.24          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2021-05-26T12:00:00Z" timezone="America/New_York" class="datetime">5/26/2021</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2021-06-14T12:00:00Z" timezone="America/New_York" class="datetime">6/14/2021</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2021-06-15T12:00:00Z" timezone="America/New_York" class="datetime">6/15/2021</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2021-07-01T12:00:00Z" timezone="America/New_York" class="datetime">7/1/2021</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.24          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2021-02-09T12:00:00Z" timezone="America/New_York" class="datetime">2/9/2021</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2021-03-12T12:00:00Z" timezone="America/New_York" class="datetime">3/12/2021</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2021-03-15T12:00:00Z" timezone="America/New_York" class="datetime">3/15/2021</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2021-04-01T12:00:00Z" timezone="America/New_York" class="datetime">4/1/2021</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.24          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr class="bold-row total-row">
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="desk-absolute views-field views-field-field-nir-div-dec-date">Total dividends in 2021:          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date">          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date">          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date">          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.72          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2020-10-21T12:00:00Z" timezone="America/New_York" class="datetime">10/21/2020</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2020-12-14T12:00:00Z" timezone="America/New_York" class="datetime">12/14/2020</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2020-12-15T12:00:00Z" timezone="America/New_York" class="datetime">12/15/2020</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2021-01-04T12:00:00Z" timezone="America/New_York" class="datetime">1/4/2021</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.24          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2020-08-03T12:00:00Z" timezone="America/New_York" class="datetime">8/3/2020</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2020-09-14T12:00:00Z" timezone="America/New_York" class="datetime">9/14/2020</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2020-09-15T12:00:00Z" timezone="America/New_York" class="datetime">9/15/2020</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2020-10-01T12:00:00Z" timezone="America/New_York" class="datetime">10/1/2020</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.24          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2020-05-19T12:00:00Z" timezone="America/New_York" class="datetime">5/19/2020</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2020-06-12T12:00:00Z" timezone="America/New_York" class="datetime">6/12/2020</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2020-06-15T12:00:00Z" timezone="America/New_York" class="datetime">6/15/2020</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2020-07-01T12:00:00Z" timezone="America/New_York" class="datetime">7/1/2020</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.24          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2020-02-12T12:00:00Z" timezone="America/New_York" class="datetime">2/12/2020</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2020-03-13T12:00:00Z" timezone="America/New_York" class="datetime">3/13/2020</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2020-03-16T12:00:00Z" timezone="America/New_York" class="datetime">3/16/2020</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2020-04-01T12:00:00Z" timezone="America/New_York" class="datetime">4/1/2020</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.24          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr class="bold-row total-row">
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="desk-absolute views-field views-field-field-nir-div-dec-date">Total dividends in 2020:          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date">          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date">          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date">          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.96          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2019-12-19T12:00:00Z" timezone="America/New_York" class="datetime">12/19/2019</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2019-12-27T12:00:00Z" timezone="America/New_York" class="datetime">12/27/2019</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2019-12-30T12:00:00Z" timezone="America/New_York" class="datetime">12/30/2019</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2020-01-10T12:00:00Z" timezone="America/New_York" class="datetime">1/10/2020</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.24          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2019-08-01T12:00:00Z" timezone="America/New_York" class="datetime">8/1/2019</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2019-09-09T12:00:00Z" timezone="America/New_York" class="datetime">9/9/2019</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2019-09-10T12:00:00Z" timezone="America/New_York" class="datetime">9/10/2019</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2019-10-01T12:00:00Z" timezone="America/New_York" class="datetime">10/1/2019</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.18          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2019-05-29T12:00:00Z" timezone="America/New_York" class="datetime">5/29/2019</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2019-06-07T12:00:00Z" timezone="America/New_York" class="datetime">6/7/2019</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2019-06-10T12:00:00Z" timezone="America/New_York" class="datetime">6/10/2019</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2019-07-01T12:00:00Z" timezone="America/New_York" class="datetime">7/1/2019</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.18          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2019-01-31T12:00:00Z" timezone="America/New_York" class="datetime">1/31/2019</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2019-03-08T12:00:00Z" timezone="America/New_York" class="datetime">3/8/2019</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2019-03-11T12:00:00Z" timezone="America/New_York" class="datetime">3/11/2019</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2019-04-01T12:00:00Z" timezone="America/New_York" class="datetime">4/1/2019</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.18          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr class="bold-row total-row">
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="desk-absolute views-field views-field-field-nir-div-dec-date">Total dividends in 2019:          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date">          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date">          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date">          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.78          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2018-11-05T12:00:00Z" timezone="America/New_York" class="datetime">11/5/2018</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2018-12-10T12:00:00Z" timezone="America/New_York" class="datetime">12/10/2018</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2018-12-11T12:00:00Z" timezone="America/New_York" class="datetime">12/11/2018</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2019-01-01T12:00:00Z" timezone="America/New_York" class="datetime">1/1/2019</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.18          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2018-07-30T12:00:00Z" timezone="America/New_York" class="datetime">7/30/2018</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2018-09-07T12:00:00Z" timezone="America/New_York" class="datetime">9/7/2018</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2018-09-10T12:00:00Z" timezone="America/New_York" class="datetime">9/10/2018</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2018-10-01T12:00:00Z" timezone="America/New_York" class="datetime">10/1/2018</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.18          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2018-05-25T12:00:00Z" timezone="America/New_York" class="datetime">5/25/2018</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2018-06-07T12:00:00Z" timezone="America/New_York" class="datetime">6/7/2018</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2018-06-08T12:00:00Z" timezone="America/New_York" class="datetime">6/8/2018</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2018-07-01T12:00:00Z" timezone="America/New_York" class="datetime">7/1/2018</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.18          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2018-02-01T12:00:00Z" timezone="America/New_York" class="datetime">2/1/2018</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2018-03-08T12:00:00Z" timezone="America/New_York" class="datetime">3/8/2018</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2018-03-09T12:00:00Z" timezone="America/New_York" class="datetime">3/9/2018</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2018-04-01T12:00:00Z" timezone="America/New_York" class="datetime">4/1/2018</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.18          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr class="bold-row total-row">
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="desk-absolute views-field views-field-field-nir-div-dec-date">Total dividends in 2018:          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date">          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date">          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date">          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.72          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2017-11-21T12:00:00Z" timezone="America/New_York" class="datetime">11/21/2017</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2017-12-08T12:00:00Z" timezone="America/New_York" class="datetime">12/8/2017</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2017-12-11T12:00:00Z" timezone="America/New_York" class="datetime">12/11/2017</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2018-01-01T12:00:00Z" timezone="America/New_York" class="datetime">1/1/2018</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.18          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2017-07-26T12:00:00Z" timezone="America/New_York" class="datetime">7/26/2017</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2017-09-07T12:00:00Z" timezone="America/New_York" class="datetime">9/7/2017</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2017-09-08T12:00:00Z" timezone="America/New_York" class="datetime">9/8/2017</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2017-10-01T12:00:00Z" timezone="America/New_York" class="datetime">10/1/2017</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.18          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2017-05-19T12:00:00Z" timezone="America/New_York" class="datetime">5/19/2017</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2017-06-07T12:00:00Z" timezone="America/New_York" class="datetime">6/7/2017</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2017-06-09T12:00:00Z" timezone="America/New_York" class="datetime">6/9/2017</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2017-07-01T12:00:00Z" timezone="America/New_York" class="datetime">7/1/2017</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.18          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2017-01-26T12:00:00Z" timezone="America/New_York" class="datetime">1/26/2017</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2017-03-08T12:00:00Z" timezone="America/New_York" class="datetime">3/8/2017</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2017-03-10T12:00:00Z" timezone="America/New_York" class="datetime">3/10/2017</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2017-04-01T12:00:00Z" timezone="America/New_York" class="datetime">4/1/2017</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.18          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr class="bold-row total-row">
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="desk-absolute views-field views-field-field-nir-div-dec-date">Total dividends in 2017:          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date">          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date">          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date">          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.72          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2016-11-22T12:00:00Z" timezone="America/New_York" class="datetime">11/22/2016</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2016-12-07T12:00:00Z" timezone="America/New_York" class="datetime">12/7/2016</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2016-12-09T12:00:00Z" timezone="America/New_York" class="datetime">12/9/2016</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2017-01-01T12:00:00Z" timezone="America/New_York" class="datetime">1/1/2017</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.18          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2016-07-28T12:00:00Z" timezone="America/New_York" class="datetime">7/28/2016</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2016-09-07T12:00:00Z" timezone="America/New_York" class="datetime">9/7/2016</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2016-09-09T12:00:00Z" timezone="America/New_York" class="datetime">9/9/2016</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2016-10-01T12:00:00Z" timezone="America/New_York" class="datetime">10/1/2016</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.18          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2016-05-26T12:00:00Z" timezone="America/New_York" class="datetime">5/26/2016</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2016-06-08T12:00:00Z" timezone="America/New_York" class="datetime">6/8/2016</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2016-06-10T12:00:00Z" timezone="America/New_York" class="datetime">6/10/2016</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2016-07-01T12:00:00Z" timezone="America/New_York" class="datetime">7/1/2016</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.15          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2016-01-28T12:00:00Z" timezone="America/New_York" class="datetime">1/28/2016</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2016-03-09T12:00:00Z" timezone="America/New_York" class="datetime">3/9/2016</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2016-03-11T12:00:00Z" timezone="America/New_York" class="datetime">3/11/2016</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2016-04-01T12:00:00Z" timezone="America/New_York" class="datetime">4/1/2016</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.15          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr class="bold-row total-row">
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="desk-absolute views-field views-field-field-nir-div-dec-date">Total dividends in 2016:          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date">          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date">          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date">          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.66          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2015-11-24T12:00:00Z" timezone="America/New_York" class="datetime">11/24/2015</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2015-12-09T12:00:00Z" timezone="America/New_York" class="datetime">12/9/2015</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2015-12-11T12:00:00Z" timezone="America/New_York" class="datetime">12/11/2015</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2016-01-01T12:00:00Z" timezone="America/New_York" class="datetime">1/1/2016</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.15          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2015-07-28T12:00:00Z" timezone="America/New_York" class="datetime">7/28/2015</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2015-09-08T12:00:00Z" timezone="America/New_York" class="datetime">9/8/2015</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2015-09-10T12:00:00Z" timezone="America/New_York" class="datetime">9/10/2015</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2015-10-01T12:00:00Z" timezone="America/New_York" class="datetime">10/1/2015</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.15          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2015-05-21T12:00:00Z" timezone="America/New_York" class="datetime">5/21/2015</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2015-06-08T12:00:00Z" timezone="America/New_York" class="datetime">6/8/2015</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2015-06-10T12:00:00Z" timezone="America/New_York" class="datetime">6/10/2015</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2015-07-01T12:00:00Z" timezone="America/New_York" class="datetime">7/1/2015</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.15          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2015-01-30T12:00:00Z" timezone="America/New_York" class="datetime">1/30/2015</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2015-03-09T12:00:00Z" timezone="America/New_York" class="datetime">3/9/2015</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2015-03-11T12:00:00Z" timezone="America/New_York" class="datetime">3/11/2015</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2015-04-01T12:00:00Z" timezone="America/New_York" class="datetime">4/1/2015</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.15          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr class="bold-row total-row">
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="desk-absolute views-field views-field-field-nir-div-dec-date">Total dividends in 2015:          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date">          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date">          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date">          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.60          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2014-11-25T12:00:00Z" timezone="America/New_York" class="datetime">11/25/2014</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2014-12-09T12:00:00Z" timezone="America/New_York" class="datetime">12/9/2014</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2014-12-11T12:00:00Z" timezone="America/New_York" class="datetime">12/11/2014</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2015-01-01T12:00:00Z" timezone="America/New_York" class="datetime">1/1/2015</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.15          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2014-08-07T12:00:00Z" timezone="America/New_York" class="datetime">8/7/2014</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2014-09-08T12:00:00Z" timezone="America/New_York" class="datetime">9/8/2014</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2014-09-10T12:00:00Z" timezone="America/New_York" class="datetime">9/10/2014</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2014-10-01T12:00:00Z" timezone="America/New_York" class="datetime">10/1/2014</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.15          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2014-05-22T12:00:00Z" timezone="America/New_York" class="datetime">5/22/2014</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2014-06-06T12:00:00Z" timezone="America/New_York" class="datetime">6/6/2014</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2014-06-10T12:00:00Z" timezone="America/New_York" class="datetime">6/10/2014</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2014-07-01T12:00:00Z" timezone="America/New_York" class="datetime">7/1/2014</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.12          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2014-01-29T12:00:00Z" timezone="America/New_York" class="datetime">1/29/2014</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2014-03-07T12:00:00Z" timezone="America/New_York" class="datetime">3/7/2014</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2014-03-11T12:00:00Z" timezone="America/New_York" class="datetime">3/11/2014</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2014-04-01T12:00:00Z" timezone="America/New_York" class="datetime">4/1/2014</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.12          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr class="bold-row total-row">
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="desk-absolute views-field views-field-field-nir-div-dec-date">Total dividends in 2014:          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date">          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date">          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date">          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.54          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2013-11-26T12:00:00Z" timezone="America/New_York" class="datetime">11/26/2013</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2013-12-09T12:00:00Z" timezone="America/New_York" class="datetime">12/9/2013</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2013-12-11T12:00:00Z" timezone="America/New_York" class="datetime">12/11/2013</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2014-01-01T12:00:00Z" timezone="America/New_York" class="datetime">1/1/2014</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.12          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2013-07-25T12:00:00Z" timezone="America/New_York" class="datetime">7/25/2013</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2013-09-06T12:00:00Z" timezone="America/New_York" class="datetime">9/6/2013</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2013-09-10T12:00:00Z" timezone="America/New_York" class="datetime">9/10/2013</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2013-10-01T12:00:00Z" timezone="America/New_York" class="datetime">10/1/2013</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.12          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2013-05-23T12:00:00Z" timezone="America/New_York" class="datetime">5/23/2013</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2013-06-06T12:00:00Z" timezone="America/New_York" class="datetime">6/6/2013</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2013-06-10T12:00:00Z" timezone="America/New_York" class="datetime">6/10/2013</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2013-07-01T12:00:00Z" timezone="America/New_York" class="datetime">7/1/2013</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.12          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2013-01-29T12:00:00Z" timezone="America/New_York" class="datetime">1/29/2013</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2013-03-07T12:00:00Z" timezone="America/New_York" class="datetime">3/7/2013</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2013-03-11T12:00:00Z" timezone="America/New_York" class="datetime">3/11/2013</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2013-04-01T12:00:00Z" timezone="America/New_York" class="datetime">4/1/2013</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.12          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr class="bold-row total-row">
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="desk-absolute views-field views-field-field-nir-div-dec-date">Total dividends in 2013:          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date">          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date">          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date">          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.48          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2012-11-30T12:00:00Z" timezone="America/New_York" class="datetime">11/30/2012</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2012-12-07T12:00:00Z" timezone="America/New_York" class="datetime">12/7/2012</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2012-12-11T12:00:00Z" timezone="America/New_York" class="datetime">12/11/2012</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2013-01-01T12:00:00Z" timezone="America/New_York" class="datetime">1/1/2013</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.12          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2012-07-26T12:00:00Z" timezone="America/New_York" class="datetime">7/26/2012</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2012-09-06T12:00:00Z" timezone="America/New_York" class="datetime">9/6/2012</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2012-09-10T12:00:00Z" timezone="America/New_York" class="datetime">9/10/2012</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2012-10-01T12:00:00Z" timezone="America/New_York" class="datetime">10/1/2012</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.12          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2012-05-24T12:00:00Z" timezone="America/New_York" class="datetime">5/24/2012</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2012-06-07T12:00:00Z" timezone="America/New_York" class="datetime">6/7/2012</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2012-06-11T12:00:00Z" timezone="America/New_York" class="datetime">6/11/2012</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2012-07-01T12:00:00Z" timezone="America/New_York" class="datetime">7/1/2012</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.10          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2012-02-23T12:00:00Z" timezone="America/New_York" class="datetime">2/23/2012</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2012-03-08T12:00:00Z" timezone="America/New_York" class="datetime">3/8/2012</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2012-03-12T12:00:00Z" timezone="America/New_York" class="datetime">3/12/2012</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2012-04-01T12:00:00Z" timezone="America/New_York" class="datetime">4/1/2012</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.10          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr class="bold-row total-row">
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="desk-absolute views-field views-field-field-nir-div-dec-date">Total dividends in 2012:          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date">          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date">          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date">          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.44          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2011-11-22T12:00:00Z" timezone="America/New_York" class="datetime">11/22/2011</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2011-12-07T12:00:00Z" timezone="America/New_York" class="datetime">12/7/2011</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2011-12-09T12:00:00Z" timezone="America/New_York" class="datetime">12/9/2011</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2012-01-01T12:00:00Z" timezone="America/New_York" class="datetime">1/1/2012</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.10          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2011-08-09T12:00:00Z" timezone="America/New_York" class="datetime">8/9/2011</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2011-09-07T12:00:00Z" timezone="America/New_York" class="datetime">9/7/2011</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2011-09-09T12:00:00Z" timezone="America/New_York" class="datetime">9/9/2011</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2011-10-01T12:00:00Z" timezone="America/New_York" class="datetime">10/1/2011</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.10          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2011-05-03T12:00:00Z" timezone="America/New_York" class="datetime">5/3/2011</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2011-06-08T12:00:00Z" timezone="America/New_York" class="datetime">6/8/2011</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2011-06-10T12:00:00Z" timezone="America/New_York" class="datetime">6/10/2011</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2011-07-01T12:00:00Z" timezone="America/New_York" class="datetime">7/1/2011</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.10          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2011-02-23T12:00:00Z" timezone="America/New_York" class="datetime">2/23/2011</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2011-03-09T12:00:00Z" timezone="America/New_York" class="datetime">3/9/2011</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2011-03-11T12:00:00Z" timezone="America/New_York" class="datetime">3/11/2011</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2011-04-01T12:00:00Z" timezone="America/New_York" class="datetime">4/1/2011</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.05          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr class="bold-row total-row">
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="desk-absolute views-field views-field-field-nir-div-dec-date">Total dividends in 2011:          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date">          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date">          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date">          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.35          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2010-11-18T12:00:00Z" timezone="America/New_York" class="datetime">11/18/2010</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2010-12-08T12:00:00Z" timezone="America/New_York" class="datetime">12/8/2010</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2010-12-10T12:00:00Z" timezone="America/New_York" class="datetime">12/10/2010</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2011-01-01T12:00:00Z" timezone="America/New_York" class="datetime">1/1/2011</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.05          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2010-08-20T12:00:00Z" timezone="America/New_York" class="datetime">8/20/2010</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2010-09-08T12:00:00Z" timezone="America/New_York" class="datetime">9/8/2010</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2010-09-10T12:00:00Z" timezone="America/New_York" class="datetime">9/10/2010</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2010-10-01T12:00:00Z" timezone="America/New_York" class="datetime">10/1/2010</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.05          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2010-05-26T12:00:00Z" timezone="America/New_York" class="datetime">5/26/2010</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2010-06-08T12:00:00Z" timezone="America/New_York" class="datetime">6/8/2010</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2010-06-10T12:00:00Z" timezone="America/New_York" class="datetime">6/10/2010</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2010-07-01T12:00:00Z" timezone="America/New_York" class="datetime">7/1/2010</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.05          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2010-02-23T12:00:00Z" timezone="America/New_York" class="datetime">2/23/2010</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2010-03-09T12:00:00Z" timezone="America/New_York" class="datetime">3/9/2010</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2010-03-11T12:00:00Z" timezone="America/New_York" class="datetime">3/11/2010</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2010-04-01T12:00:00Z" timezone="America/New_York" class="datetime">4/1/2010</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.05          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr class="bold-row total-row">
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="desk-absolute views-field views-field-field-nir-div-dec-date">Total dividends in 2010:          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date">          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date">          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date">          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.20          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2009-11-16T12:00:00Z" timezone="America/New_York" class="datetime">11/16/2009</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2009-12-09T12:00:00Z" timezone="America/New_York" class="datetime">12/9/2009</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2009-12-11T12:00:00Z" timezone="America/New_York" class="datetime">12/11/2009</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2010-01-01T12:00:00Z" timezone="America/New_York" class="datetime">1/1/2010</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.05          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2009-07-29T12:00:00Z" timezone="America/New_York" class="datetime">7/29/2009</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2009-09-08T12:00:00Z" timezone="America/New_York" class="datetime">9/8/2009</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2009-09-10T12:00:00Z" timezone="America/New_York" class="datetime">9/10/2009</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2009-10-01T12:00:00Z" timezone="America/New_York" class="datetime">10/1/2009</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.05          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2009-04-07T12:00:00Z" timezone="America/New_York" class="datetime">4/7/2009</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2009-06-08T12:00:00Z" timezone="America/New_York" class="datetime">6/8/2009</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2009-06-10T12:00:00Z" timezone="America/New_York" class="datetime">6/10/2009</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2009-07-01T12:00:00Z" timezone="America/New_York" class="datetime">7/1/2009</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.05          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2009-02-18T12:00:00Z" timezone="America/New_York" class="datetime">2/18/2009</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2009-03-09T12:00:00Z" timezone="America/New_York" class="datetime">3/9/2009</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2009-03-11T12:00:00Z" timezone="America/New_York" class="datetime">3/11/2009</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2009-04-01T12:00:00Z" timezone="America/New_York" class="datetime">4/1/2009</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.05          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr class="bold-row total-row">
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="desk-absolute views-field views-field-field-nir-div-dec-date">Total dividends in 2009:          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date">          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date">          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date">          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.20          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2008-11-13T12:00:00Z" timezone="America/New_York" class="datetime">11/13/2008</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2008-12-02T12:00:00Z" timezone="America/New_York" class="datetime">12/2/2008</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2008-12-04T12:00:00Z" timezone="America/New_York" class="datetime">12/4/2008</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2009-01-01T12:00:00Z" timezone="America/New_York" class="datetime">1/1/2009</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.27          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2008-08-11T12:00:00Z" timezone="America/New_York" class="datetime">8/11/2008</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2008-08-29T12:00:00Z" timezone="America/New_York" class="datetime">8/29/2008</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2008-09-03T12:00:00Z" timezone="America/New_York" class="datetime">9/3/2008</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2008-10-01T12:00:00Z" timezone="America/New_York" class="datetime">10/1/2008</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.27          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2008-04-29T12:00:00Z" timezone="America/New_York" class="datetime">4/29/2008</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2008-05-30T12:00:00Z" timezone="America/New_York" class="datetime">5/30/2008</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2008-06-03T12:00:00Z" timezone="America/New_York" class="datetime">6/3/2008</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2008-07-01T12:00:00Z" timezone="America/New_York" class="datetime">7/1/2008</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.27          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2008-05-29T12:00:00Z" timezone="America/New_York" class="datetime">5/29/2008</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2008-05-30T12:00:00Z" timezone="America/New_York" class="datetime">5/30/2008</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2008-06-03T12:00:00Z" timezone="America/New_York" class="datetime">6/3/2008</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2008-07-01T12:00:00Z" timezone="America/New_York" class="datetime">7/1/2008</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.27          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2008-02-21T12:00:00Z" timezone="America/New_York" class="datetime">2/21/2008</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2008-02-29T12:00:00Z" timezone="America/New_York" class="datetime">2/29/2008</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2008-03-04T12:00:00Z" timezone="America/New_York" class="datetime">3/4/2008</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2008-04-01T12:00:00Z" timezone="America/New_York" class="datetime">4/1/2008</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.25          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr class="bold-row total-row">
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="desk-absolute views-field views-field-field-nir-div-dec-date">Total dividends in 2008:          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date">          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date">          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date">          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">1.33          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2007-11-01T12:00:00Z" timezone="America/New_York" class="datetime">11/1/2007</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2007-11-28T12:00:00Z" timezone="America/New_York" class="datetime">11/28/2007</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2007-11-30T12:00:00Z" timezone="America/New_York" class="datetime">11/30/2007</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2008-01-01T12:00:00Z" timezone="America/New_York" class="datetime">1/1/2008</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.25          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2007-09-04T12:00:00Z" timezone="America/New_York" class="datetime">9/4/2007</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2007-09-12T12:00:00Z" timezone="America/New_York" class="datetime">9/12/2007</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2007-09-14T12:00:00Z" timezone="America/New_York" class="datetime">9/14/2007</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2007-10-01T12:00:00Z" timezone="America/New_York" class="datetime">10/1/2007</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.25          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2007-05-24T12:00:00Z" timezone="America/New_York" class="datetime">5/24/2007</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2007-05-31T12:00:00Z" timezone="America/New_York" class="datetime">5/31/2007</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2007-06-04T12:00:00Z" timezone="America/New_York" class="datetime">6/4/2007</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2007-07-01T12:00:00Z" timezone="America/New_York" class="datetime">7/1/2007</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.22          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2007-02-27T12:00:00Z" timezone="America/New_York" class="datetime">2/27/2007</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2007-03-05T12:00:00Z" timezone="America/New_York" class="datetime">3/5/2007</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2007-03-07T12:00:00Z" timezone="America/New_York" class="datetime">3/7/2007</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2007-04-01T12:00:00Z" timezone="America/New_York" class="datetime">4/1/2007</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.22          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr class="bold-row total-row">
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="desk-absolute views-field views-field-field-nir-div-dec-date">Total dividends in 2007:          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date">          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date">          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date">          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.94          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2006-10-20T12:00:00Z" timezone="America/New_York" class="datetime">10/20/2006</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2006-11-28T12:00:00Z" timezone="America/New_York" class="datetime">11/28/2006</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2006-11-30T12:00:00Z" timezone="America/New_York" class="datetime">11/30/2006</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2007-01-01T12:00:00Z" timezone="America/New_York" class="datetime">1/1/2007</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.20          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2006-08-14T12:00:00Z" timezone="America/New_York" class="datetime">8/14/2006</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2006-08-29T12:00:00Z" timezone="America/New_York" class="datetime">8/29/2006</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2006-08-31T12:00:00Z" timezone="America/New_York" class="datetime">8/31/2006</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2006-10-01T12:00:00Z" timezone="America/New_York" class="datetime">10/1/2006</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.20          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2006-05-25T12:00:00Z" timezone="America/New_York" class="datetime">5/25/2006</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2006-06-01T12:00:00Z" timezone="America/New_York" class="datetime">6/1/2006</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2006-06-05T12:00:00Z" timezone="America/New_York" class="datetime">6/5/2006</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2006-07-01T12:00:00Z" timezone="America/New_York" class="datetime">7/1/2006</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.18          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2006-02-02T12:00:00Z" timezone="America/New_York" class="datetime">2/2/2006</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2006-02-24T12:00:00Z" timezone="America/New_York" class="datetime">2/24/2006</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2006-02-28T12:00:00Z" timezone="America/New_York" class="datetime">2/28/2006</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2006-04-01T12:00:00Z" timezone="America/New_York" class="datetime">4/1/2006</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.16          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr>
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="views-field views-field-field-nir-div-dec-date"><time datetime="2006-01-25T12:00:00Z" timezone="America/New_York" class="datetime">1/25/2006</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date"><time datetime="2006-02-24T12:00:00Z" timezone="America/New_York" class="datetime">2/24/2006</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date"><time datetime="2006-02-28T12:00:00Z" timezone="America/New_York" class="datetime">2/28/2006</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date"><time datetime="2006-04-01T12:00:00Z" timezone="America/New_York" class="datetime">4/1/2006</time>
+          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.16          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">U.S. Currency          </td>
+              </tr>
+          <tr class="bold-row total-row">
+                                                                                        <td headers="view-field-nir-div-dec-date-table-column" class="desk-absolute views-field views-field-field-nir-div-dec-date">Total dividends in 2006:          </td>
+                                                                                        <td headers="view-field-nir-div-ex-date-table-column" class="views-field views-field-field-nir-div-ex-date">          </td>
+                                                                                        <td headers="view-field-nir-div-rec-date-table-column" class="views-field views-field-field-nir-div-rec-date">          </td>
+                                                                                        <td headers="view-field-nir-div-pay-date-table-column" class="views-field views-field-field-nir-div-pay-date">          </td>
+                                                                                        <td headers="view-field-nir-div-amount-table-column" class="views-field views-field-field-nir-div-amount">0.90          </td>
+                                                                                        <td headers="view-field-nir-div-type-table-column" class="views-field views-field-field-nir-div-type">          </td>
+              </tr>
+      </tbody>
+</table>
+
+    </div>
+  
+  
+          <div class="view-footer">
+          
+        </div>
+    </div>
+</div>
+
+  </div>
+<div class="block-content--nir-global-block block-content--nir-global-block--6036 block--block-content02ca42e7-2569-47f6-8ef0-c867058e9ca6 block--block-content02ca42e7-2569-47f6-8ef0-c867058e9ca6--5931 block--contentmain--block-content--02ca42e7-2569-47f6-8ef0-c867058e9ca6 block--contentmain--block-content--02ca42e7-2569-47f6-8ef0-c867058e9ca6--5931 block--0ba5600c-c93e-4b31-b32b-49fb95bdde2b block--0ba5600c-c93e-4b31-b32b-49fb95bdde2b--5931 block block-block-content block-block-content02ca42e7-2569-47f6-8ef0-c867058e9ca6">
+  
+    
+      
+            <div class="field field--name-field-nir-global-block-node field--type-entity-reference field--label-hidden field__item">  
+            <div class="clearfix text-formatted field field--name-field-nir-global-block-body field--type-text-long field--label-hidden field__item"><p>Please <a href="shareholder-services.html#menu">call</a> Investor Relations for historical dividend information.</p></div>
+      
+</div>
+      
+  </div>
+<div class="block--attribution-block__dividends-attribution__mergent block--attribution-block__dividends-attribution__mergent--5931 block--contentmain--attribution-block__dividends-attribution__mergent block--contentmain--attribution-block__dividends-attribution__mergent--5931 block--1ddfde8b-89cc-4d1a-b751-f24a5b6b7bec block--1ddfde8b-89cc-4d1a-b751-f24a5b6b7bec--5931 block block-nir-attribution-block block-attribution-block__dividends-attribution__mergent">
+  
+    
+      <p>
+  The historical dividend information provided is for informational purposes
+    only, and is not intended for trading purposes. The historical dividend
+    information is provided by Mergent, a third party service, and Notified
+    does not maintain or provide information directly to this service. Total
+    dividends per year is based on the dividend ex-date.</p>
+
+  </div>
+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /.boxton -->
+
+  </div>
+</article>
+
+  </div>
+
+  </div>
+</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
+      <div id="footerInsert"></div>
+
+      
+
+    </div>
+
+  </div>
+</div>
+
+  
+    
+        <script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/","scriptPath":null,"pathPrefix":"","currentPath":"node\/5931","currentPathIsAdmin":false,"isFront":false,"currentLanguage":"en"},"pluralDelimiter":"\u0003","suppressDeprecationErrors":true,"ajaxPageState":{"libraries":"nir_base\/lib,nir_base\/nir_icons,nir_base\/nir_toolbar,nir_base\/sidr,nir_ckeditor_datatables\/datatables,nir_multimedia\/nir_multimedia,nir_pid2249\/override,nir_website_notices\/nir_website_notices.notices,radix_layouts\/radix_layouts,system\/base,views\/views.module","theme":"nir_pid2249","theme_token":null},"ajaxTrustedUrl":[],"user":{"uid":0,"permissionsHash":"bf295fdab8890c2a7864f2ac2dc6d0b15971f6072cdc2a15116b8c777e0e77e0"}}</script>
+<script src="https://ir.viacomcbs.com/sites/g/files/knoqqb55956/files/js/js_jJJmNY9EK_UViBN3pG8BW-wnjj_x5Udc7pWGfbhQoBA.js"></script>
+<script src="https://spt-branding-viacomcbs-prd-cdn-enp.azureedge.net/finalmarkupwithlocalreference/headerFooterMarkup.js"></script>
+<script src="sites/g/files/knoqqb55956/themes/site/nir_pid2249/dist/js/common-r0bwsa.js"></script>
+<script src="sites/g/files/knoqqb55956/themes/site/nir_pid2249/dist/js/bundle-r0bwsa.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://ir.viacomcbs.com/sites/g/files/knoqqb55956/files/js/js_C4xKdmpZ9zrlzNDOoGggVMQ12FtGqAHFL-h4O6HK9bE.js"></script>
+
+    
+  <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam-cell.nr-data.net","licenseKey":"761e715901","applicationID":"35893545,24276188","transactionName":"ZlVXYRcAW0ZRW0QKX18fdFYRCFpbH3xCFkBQXGlbCgVQaXNXXhdCXlxZUBc9e1pUXWYKVUZzWlsRE1pZXF1CTg5HWVBC","queueTime":0,"applicationTime":511,"atts":"ShJUF18aSEg=","errorBeacon":"bam-cell.nr-data.net","agent":""}</script></body>
+</html>

@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" prefix="og: https://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8" /><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={licenseKey:"761e715901",applicationID:"35893545"};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var i=e[n]={exports:{}};t[n][0].call(i.exports,function(e){var i=t[n][1][e];return r(i||e)},i,i.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(t,e,n){function r(){}function i(t,e,n){return function(){return o(t,[u.now()].concat(f(arguments)),e?null:this,n),e?void 0:this}}var o=t("handle"),a=t(8),f=t(9),c=t("ee").get("tracer"),u=t("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(t,e){s[e]=i(p+e,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),e.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(t,e){var n={},r=this,i="function"==typeof e;return o(l+"tracer",[u.now(),t,n],r),function(){if(c.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return e.apply(this,arguments)}catch(t){throw c.emit("fn-err",[arguments,this,t],n),t}finally{c.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){m[e]=i(l+e)}),newrelic.noticeError=function(t,e){"string"==typeof t&&(t=new Error(t)),o("err",[t,u.now(),!1,e])}},{}],2:[function(t,e,n){function r(t){if(NREUM.init){for(var e=NREUM.init,n=t.split("."),r=0;r<n.length-1;r++)if(e=e[n[r]],"object"!=typeof e)return;return e=e[n[n.length-1]]}}e.exports={getConfiguration:r}},{}],3:[function(t,e,n){function r(){return f.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,f=t(10);e.exports=r,e.exports.offset=a,e.exports.getLastTimestamp=i},{}],4:[function(t,e,n){function r(t){return!(!t||!t.protocol||"file:"===t.protocol)}e.exports=r},{}],5:[function(t,e,n){function r(t,e){var n=t.getEntries();n.forEach(function(t){"first-paint"===t.name?d("timing",["fp",Math.floor(t.startTime)]):"first-contentful-paint"===t.name&&d("timing",["fcp",Math.floor(t.startTime)])})}function i(t,e){var n=t.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(t){t.getEntries().forEach(function(t){t.hadRecentInput||d("cls",[t])})}function a(t){if(t instanceof m&&!g){var e=Math.round(t.timeStamp),n={type:t.type};e<=p.now()?n.fid=p.now()-e:e>p.offset&&e<=Date.now()?(e-=p.offset,n.fid=p.now()-e):e=p.now(),g=!0,d("timing",["fi",e,n])}}function f(t){"hidden"===t&&d("pageHide",[p.now()])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var c,u,s,d=t("handle"),p=t("loader"),l=t(7),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){c=new PerformanceObserver(r);try{c.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,h=["click","keydown","mousedown","pointerdown","touchstart"];h.forEach(function(t){document.addEventListener(t,a,!1)})}l(f)}},{}],6:[function(t,e,n){function r(t,e){if(!i)return!1;if(t!==i)return!1;if(!e)return!0;if(!o)return!1;for(var n=o.split("."),r=e.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var f=navigator.userAgent,c=f.match(a);c&&f.indexOf("Chrome")===-1&&f.indexOf("Chromium")===-1&&(i="Safari",o=c[1])}e.exports={agent:i,version:o,match:r}},{}],7:[function(t,e,n){function r(t){function e(){t(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,e,!1)}e.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],8:[function(t,e,n){function r(t,e){var n=[],r="",o=0;for(r in t)i.call(t,r)&&(n[o]=e(r,t[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;e.exports=r},{}],9:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,i=n-e||0,o=Array(i<0?0:i);++r<i;)o[r]=t[e+r];return o}e.exports=r},{}],10:[function(t,e,n){e.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(t,e,n){function r(){}function i(t){function e(t){return t&&t instanceof r?t:t?u(t,c,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){t&&a&&t(n,r,i);for(var f=e(i),c=v(n),u=c.length,s=0;s<u;s++)c[s].apply(f,r);var p=d[w[n]];return p&&p.push([b,n,r,f]),f}}function o(t,e){y[t]=v(t).concat(e)}function m(t,e){var n=y[t];if(n)for(var r=0;r<n.length;r++)n[r]===e&&n.splice(r,1)}function v(t){return y[t]||[]}function g(t){return p[t]=p[t]||i(n)}function h(t,e){l.aborted||s(t,function(t,n){e=e||"feature",w[n]=e,e in d||(d[e]=[])})}var y={},w={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:e,buffer:h,abort:f,aborted:!1};return b}function o(t){return u(t,c,a)}function a(){return new r}function f(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var c="nr@context",u=t("gos"),s=t(8),d={},p={},l=e.exports=i();e.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(t,e,n){function r(t,e,n){if(i.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return t[e]=r,r}var i=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){i.buffer([t],r),i.emit(t,e,n)}var i=t("ee").get("handle");e.exports=r,r.ee=i},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,o,function(){return i++})}var i=1,o="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!R++){var t=M.info=NREUM.info,e=v.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&e))return u.abort();c(E,function(e,n){t[e]||(t[e]=n)});var n=a();f("mark",["onload",n+M.offset],null,"api"),f("timing",["load",n]);var r=v.createElement("script");0===t.agent.indexOf("http://")||0===t.agent.indexOf("https://")?r.src=t.agent:r.src=l+"://"+t.agent,e.parentNode.insertBefore(r,e)}}function i(){"complete"===v.readyState&&o()}function o(){f("mark",["domContent",a()+M.offset],null,"api")}var a=t(3),f=t("handle"),c=t(8),u=t("ee"),s=t(6),d=t(4),p=t(2),l=p.getConfiguration("ssl")===!1?"http":"https",m=window,v=m.document,g="addEventListener",h="attachEvent",y=m.XMLHttpRequest,w=y&&y.prototype,b=!d(m.location);NREUM.o={ST:setTimeout,SI:m.setImmediate,CT:clearTimeout,XHR:y,REQ:m.Request,EV:m.Event,PR:m.Promise,MO:m.MutationObserver};var x=""+location,E={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1210.min.js"},O=y&&w&&w[g]&&!/CriOS/.test(navigator.userAgent),M=e.exports={offset:a.getLastTimestamp(),now:a,origin:x,features:{},xhrWrappable:O,userAgent:s,disabled:b};if(!b){t(1),t(5),v[g]?(v[g]("DOMContentLoaded",o,!1),m[g]("load",r,!1)):(v[h]("onreadystatechange",i),m[h]("onload",r)),f("mark",["firstbyte",a.getLastTimestamp()],null,"api");var R=0}},{}],"wrap-function":[function(t,e,n){function r(t,e){function n(e,n,r,c,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,c],s],t)}f(n+"start",[o,a,c],s,u);try{return p=e.apply(a,o)}catch(m){throw f(n+"err",[o,a,m],s,u),m}finally{f(n+"end",[o,a,p],s,u)}}return a(e)?e:(n||(n=""),nrWrapper[p]=e,o(e,nrWrapper,t),nrWrapper)}function r(t,e,r,i,o){r||(r="");var f,c,u,s="-"===r.charAt(0);for(u=0;u<e.length;u++)c=e[u],f=t[c],a(f)||(t[c]=n(f,s?c+r:r,i,c,o))}function f(n,r,o,a){if(!m||e){var f=m;m=!0;try{t.emit(n,r,o,e,a)}catch(c){i([c,n,r,o],t)}m=f}}return t||(t=s),n.inPlace=r,n.flag=p,n}function i(t,e){e||(e=s);try{e.emit("internal-error",t)}catch(n){}}function o(t,e,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(t);return r.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(o){i([o],n)}for(var a in t)l.call(t,a)&&(e[a]=t[a]);return e}function a(t){return!(t&&t instanceof Function&&t.apply&&!t[p])}function f(t,e){var n=e(t);return n[p]=t,o(t,n,s),n}function c(t,e,n){var r=t[e];t[e]=f(r,n)}function u(){for(var t=arguments.length,e=new Array(t),n=0;n<t;++n)e[n]=arguments[n];return e}var s=t("ee"),d=t(9),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;e.exports=r,e.exports.wrapFunction=f,e.exports.wrapInPlace=c,e.exports.argsToArray=u},{}]},{},["loader"]);</script>
+<link rel="canonical" href="https://ir.viacomcbs.com/shareholder-services/" />
+<meta property="og:site_name" content="ViacomCBS Inc." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://ir.viacomcbs.com/shareholder-services" />
+<meta property="og:title" content="Shareholder Services, Alerts, &amp; FAQs | ViacomCBS Inc." />
+<meta property="og:description" content="The Investor Relations website contains information about ViacomCBS Inc.&#039;s business for stockholders, potential investors, and financial analysts." />
+<meta name="google-site-verification" content="vi93GKimMTWR_C7xnoOZf7FMZotKZtACN6AhHjM5RnI" />
+<meta name="Generator" content="Drupal 9 (https://www.drupal.org)" />
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script src="https://www.recaptcha.net/recaptcha/api.js?hl=en" async defer></script>
+<link rel="shortcut icon" href="sites/g/files/knoqqb55956/files/favicon_0.png" type="image/png" />
+<link rel="alternate" hreflang="en" href="shareholder-services.html" />
+<link rel="revision" href="shareholder-services.html" />
+
+    <title>Shareholder Services, Alerts, &amp; FAQs - ViacomCBS Inc.</title>
+    <link rel="stylesheet" media="all" href="https://ir.viacomcbs.com/sites/g/files/knoqqb55956/files/css/css_N4Y9Wq-sYyZP-FcJBKUsJqBqvRjW6ovMe6T8alWqF2U.css" />
+<link rel="stylesheet" media="all" href="https://ir.viacomcbs.com/sites/g/files/knoqqb55956/files/css/css_g3sBZIAwWaZoic73GwHtQZKPRygsNFokxg-xeVAzjTo.css" />
+<link rel="stylesheet" media="all" href="https://fonts.googleapis.com/css?family=Muli:400,700,800" />
+<link rel="stylesheet" media="all" href="sites/g/files/knoqqb55956/files/css/css_UCz0nlmjFwdQXJtm5P15ImLLjPHN2i7lFGNl6g_Hu7Y.css" />
+<link rel="stylesheet" media="print" href="sites/g/files/knoqqb55956/files/css/css_lRvuFtsDRRPvgUEE4vz-jMEWNGfaVDS4SsALDG4oqLc.css" />
+
+    <script src="/core/assets/vendor/modernizr/modernizr.min.js?v=3.11.7"></script>
+<script src="/core/misc/modernizr-additional-tests.js?v=3.11.7"></script>
+
+    <script>
+!function(n){var o=window,a="cbsoptanon",c="cmd",d="config";o[a]=o[a]?o[a]:{},o[a][c]=o[a][c]?o[a][c]:[],o[a][d]=o[a][d]?o[a][d]:[],["onIframesReady","onFormsReady","onScriptsReady","onAdsReady"].forEach(function(n){o[a][n]=o[a][n]||function(){var d=arguments;o[a][c].push(function(){o[a][n].apply(o[a],d)})}})}();
+</script>
+<script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js"  type="text/javascript" charset="UTF-8" data-domain-script="c3cfaf66-6112-466d-91c0-1624b742f7b4" ></script>
+<script src="https://production-cmp.isgprivacy.cbsi.com/dist/optanon-v1.1.0.js" type="text/javascript" async></script>
+<script src="https://assets.adobedtm.com/9e032218c8de/ac2e9f0f1166/launch-fbff9f9e3712.min.js" async></script>
+  
+                    <script>var w=window;if(w.performance||w.mozPerformance||w.msPerformance||w.webkitPerformance){var d=document;AKSB=w.AKSB||{},AKSB.q=AKSB.q||[],AKSB.mark=AKSB.mark||function(e,_){AKSB.q.push(["mark",e,_||(new Date).getTime()])},AKSB.measure=AKSB.measure||function(e,_,t){AKSB.q.push(["measure",e,_,t||(new Date).getTime()])},AKSB.done=AKSB.done||function(e){AKSB.q.push(["done",e])},AKSB.mark("firstbyte",(new Date).getTime()),AKSB.prof={custid:"543865",ustr:"",originlat:"0",clientrtt:"43",ghostip:"49.44.115.205",ipv6:true,pct:"10",clientip:"2405:201:a806:e816:40e6:781f:c81a:9938",requestid:"6a63d049",region:"30531",protocol:"",blver:14,akM:"dsca",akN:"ae",akTT:"O",akTX:"1",akTI:"6a63d049",ai:"647080",ra:"false",pmgn:"",pmgi:"",pmp:"",qc:""},function(e){var _=d.createElement("script");_.async="async",_.src=e;var t=d.getElementsByTagName("script"),t=t[t.length-1];t.parentNode.insertBefore(_,t)}(("https:"===d.location.protocol?"https:":"http:")+"//ds-aksb-a.akamaihd.net/aksb.min.js")}</script>
+                    </head>
+  <body class="body-sidebars-none nir-node nir-node--type-nir-landing-page nir-node--5936 path-node page-node-type-nir-landing-page">
+    <div id="skip">
+      <a class="visually-hidden focusable skip-link" href="shareholder-services.html#main-menu">
+        Skip to main navigation
+      </a>
+    </div>
+    
+          
+<div id="dataMode" data-mode="live"></div>
+
+<div id="app" data-theme="pink">
+
+  <div data-component="app-root">
+
+    
+    <div id="headerInsert"></div>
+
+    <div class="main-content">
+
+              <section data-component="secondary-header" class="secondary-header" data-scroll-component>
+          <div class="wrapper">
+            <h1 class="heading-02">
+                                                Shareholder Services, Alerts, & FAQs
+                                          </h1>
+                      </div>
+        </section>
+      
+      
+              
+
+              
+
+<section data-component="investors-menu" class="investors-menu" data-scroll-component>
+  <a id="menu"></a>
+  <div class="wrapper">
+        
+                              <ul data-block-uuid="e11227a4-144b-4eb6-9c7b-5cb5cfef77b1" class="list">
+                          <li class="item">
+          <div class="background">
+            <div class="theme-color"></div>
+          </div>
+          <a class="link copy-01" href="earnings-materials.html#menu" target="">
+            <span class="label">Earnings Materials</span>
+          </a>       
+                  </li>
+                      <li class="item">
+          <div class="background">
+            <div class="theme-color"></div>
+          </div>
+          <a class="link copy-01" href="events-webcasts-annual-meetings.html#menu" target="">
+            <span class="label">Events, Webcasts &amp; Annual Meetings</span>
+          </a>       
+                  </li>
+                      <li class="item">
+          <div class="background">
+            <div class="theme-color"></div>
+          </div>
+          <a class="link copy-01" href="press-releases-bc9f0a11_field_nir_news_category[value][0]=4101.html#menu" target="">
+            <span class="label">Press Releases</span>
+          </a>       
+                  </li>
+                      <li class="item">
+          <div class="background">
+            <div class="theme-color"></div>
+          </div>
+          <a class="link copy-01" href="sec-filings/viacomcbs.html#menu" target="">
+            <span class="label">SEC Filings</span>
+          </a>       
+                  </li>
+                      <li class="item">
+          <div class="background">
+            <div class="theme-color"></div>
+          </div>
+          <a class="link copy-01" href="viacomcbs-merger.html#menu" target="">
+            <span class="label">ViacomCBS Merger</span>
+          </a>       
+                  </li>
+                      <li class="item">
+          <div class="background">
+            <div class="theme-color"></div>
+          </div>
+          <a class="link copy-01" href="stock-information.html#menu" target="">
+            <span class="label">Stock Performance</span>
+          </a>       
+                  </li>
+                      <li class="item">
+          <div class="background">
+            <div class="theme-color"></div>
+          </div>
+          <a class="link copy-01" href="dividend-history.html#menu" target="">
+            <span class="label">Dividend Information</span>
+          </a>       
+                  </li>
+                      <li class="item">
+          <div class="background">
+            <div class="theme-color"></div>
+          </div>
+          <a class="link copy-01" href="public-debt.html#menu" target="">
+            <span class="label">Public Debt</span>
+          </a>       
+                  </li>
+                      <li class="item is-active">
+          <div class="background">
+            <div class="theme-color"></div>
+          </div>
+          <a class="link copy-01" href="shareholder-services.html#menu" target="">
+            <span class="label">Shareholder Services, Alerts, &amp; FAQs</span>
+          </a>       
+                  </li>
+                      <li class="item">
+          <div class="background">
+            <div class="theme-color"></div>
+          </div>
+          <a class="link copy-01" href="corporate-governance.html#menu" target="">
+            <span class="label">Corporate Governance &amp; ESG</span>
+          </a>       
+                  </li>
+         
+    </ul>
+  
+
+
+      </div>
+</section>
+      
+      
+      <section>
+        <div class="wrapper">
+          <div class="content-wrapper">
+            <div id="content-header"></div>
+            <div id="ndq-content" class="ndq-5936 copy-02 copy">
+                             <div class="content-block">
+                                    <div class="region region-content">
+    <div id="block-nir-pid2249-websitenoticeblock" class="block--website-notice-block block--website-notice-block--5936 block--content--website-notice-block block--content--website-notice-block--5936 block--fda90a4e-478b-400a-8c75-61214f8ba9b0 block--fda90a4e-478b-400a-8c75-61214f8ba9b0--5936 block block-nir-website-notices block-website-notice-block">
+  
+    
+      
+  </div>
+<div data-drupal-messages-fallback class="hidden"></div>
+<div id="block-nir-pid2249-content" class="block--system-main-block block--system-main-block--5936 block--content--system-main-block block--content--system-main-block--5936 block--fb4e7e4d-cc87-4c24-914d-ba5cbd3e2bf6 block--fb4e7e4d-cc87-4c24-914d-ba5cbd3e2bf6--5936 block block-system block-system-main-block">
+  
+    
+      <article class="node node--type-nir_landing_page node--view-mode-full clearfix">
+
+  <div>
+    
+<div  class="panel-display boxton clearfix">
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 radix-layouts-content panel-panel">
+        <div  class="panel-panel-inner">
+          <div class="block-region-contentmain"><div class="block--nir-faq__widget block--nir-faq__widget--5936 block--contentmain--nir-faq__widget block--contentmain--nir-faq__widget--5936 block--ab0eccb8-de37-4b32-bf3f-c818c74d1872 block--ab0eccb8-de37-4b32-bf3f-c818c74d1872--5936 block block-nir-faq block-nir-faq__widget">
+  
+    
+      <div data-component="faq" class="faq" data-scroll-component>
+      <h2 data-component="primary-title" data-js-heading class="primary-title heading-06" data-scroll-component>
+      Frequently Asked Questions
+      <span class="underline theme-color" data-js-underline></span>
+    </h2>
+    <div class="nir-widget--content">
+        <div class="nir-widget--list">
+              
+<article role="article" class="clearfix node node--nir-faq--nir-faq-widget-list-accordion node--type-nir-faq node--view-mode-nir-faq-widget-list-accordion">
+
+    
+        
+
+    <div class="item-list">
+              <div class="column">
+          <div class="item theme-color">
+        <div class="item-label" data-js-label="faqfield_field_nir_faq_field_node_6391">
+          <span class="copy-01 label">Q: How can I invest in ViacomCBS?</span>
+          <span data-component="collapse-button" class="collapse-button">
+            <div class="line-wrapper" data-js-line-wrapper>
+              <span class="line horizontal" data-js-line-horizontal></span>
+              <span class="line vertical" data-js-line-vertical></span>
+            </div>
+          </span>
+        </div>
+        <div class="item-content" data-js-content>
+          <div data-js-inner>
+            <div class="copy-02 copy"><p>You may purchase shares of ViacomCBS by contacting a stockbroker of your choice or by utilizing our Direct Purchase Plan, Shareowner Service Plus Plans(sm), which is sponsored and administered by our transfer agent, EQ Shareowner Services. To obtain the Plan brochure and enrollment information, please contact them at <a href="tel:18665951717">1-866-595-1717</a>.</p></div>
+          </div>
+        </div>
+        <div class="background top" data-js-background-top></div>
+        <div class="background bottom" data-js-background-bottom></div>
+      </div>
+                <div class="item theme-color">
+        <div class="item-label" data-js-label="faqfield_field_nir_faq_field_node_6391">
+          <span class="copy-01 label">Q: What is the ticker symbol for ViacomCBS’ stock and where is it traded?</span>
+          <span data-component="collapse-button" class="collapse-button">
+            <div class="line-wrapper" data-js-line-wrapper>
+              <span class="line horizontal" data-js-line-horizontal></span>
+              <span class="line vertical" data-js-line-vertical></span>
+            </div>
+          </span>
+        </div>
+        <div class="item-content" data-js-content>
+          <div data-js-inner>
+            <div class="copy-02 copy"><p>ViacomCBS is listed on NASDAQ and trades under the symbols “VIACA” for Class A common stock and “VIAC” for Class B common stock. (Class A is voting stock, and Class B is non-voting stock.)</p></div>
+          </div>
+        </div>
+        <div class="background top" data-js-background-top></div>
+        <div class="background bottom" data-js-background-bottom></div>
+      </div>
+                <div class="item theme-color">
+        <div class="item-label" data-js-label="faqfield_field_nir_faq_field_node_6391">
+          <span class="copy-01 label">Q: What is the difference between ViacomCBS’ two classes of common stock?</span>
+          <span data-component="collapse-button" class="collapse-button">
+            <div class="line-wrapper" data-js-line-wrapper>
+              <span class="line horizontal" data-js-line-horizontal></span>
+              <span class="line vertical" data-js-line-vertical></span>
+            </div>
+          </span>
+        </div>
+        <div class="item-content" data-js-content>
+          <div data-js-inner>
+            <div class="copy-02 copy"><p>Class A common stock is voting stock, and Class B is non-voting stock. There is no difference between the two classes except for voting rights. There are, however, far more shares of Class B outstanding, so most of the trading occurs in that class.</p></div>
+          </div>
+        </div>
+        <div class="background top" data-js-background-top></div>
+        <div class="background bottom" data-js-background-bottom></div>
+      </div>
+                <div class="item theme-color">
+        <div class="item-label" data-js-label="faqfield_field_nir_faq_field_node_6391">
+          <span class="copy-01 label">Q: What are the CUSIP numbers for ViacomCBS?</span>
+          <span data-component="collapse-button" class="collapse-button">
+            <div class="line-wrapper" data-js-line-wrapper>
+              <span class="line horizontal" data-js-line-horizontal></span>
+              <span class="line vertical" data-js-line-vertical></span>
+            </div>
+          </span>
+        </div>
+        <div class="item-content" data-js-content>
+          <div data-js-inner>
+            <div class="copy-02 copy"><p>The CUSIP for ViacomCBS Class A common stock is 92556H 107.</p>
+
+<p>The CUSIP for ViacomCBS Class B common stock is 92556H 206.</p></div>
+          </div>
+        </div>
+        <div class="background top" data-js-background-top></div>
+        <div class="background bottom" data-js-background-bottom></div>
+      </div>
+                <div class="item theme-color">
+        <div class="item-label" data-js-label="faqfield_field_nir_faq_field_node_6391">
+          <span class="copy-01 label">Q: Can I convert one class of ViacomCBS common stock into the other?</span>
+          <span data-component="collapse-button" class="collapse-button">
+            <div class="line-wrapper" data-js-line-wrapper>
+              <span class="line horizontal" data-js-line-horizontal></span>
+              <span class="line vertical" data-js-line-vertical></span>
+            </div>
+          </span>
+        </div>
+        <div class="item-content" data-js-content>
+          <div data-js-inner>
+            <div class="copy-02 copy"><p>You can convert shares of ViacomCBS Class A common stock into shares of Class B common stock on a one-for-one basis, but you cannot convert ViacomCBS Class B common stock into Class A common stock. Please contact EQ Shareowner Services at <a href="tel:18665951717">1-866-595-1717</a> for more information.</p></div>
+          </div>
+        </div>
+        <div class="background top" data-js-background-top></div>
+        <div class="background bottom" data-js-background-bottom></div>
+      </div>
+                <div class="item theme-color">
+        <div class="item-label" data-js-label="faqfield_field_nir_faq_field_node_6391">
+          <span class="copy-01 label">Q: Who is the Transfer Agent for ViacomCBS stock?</span>
+          <span data-component="collapse-button" class="collapse-button">
+            <div class="line-wrapper" data-js-line-wrapper>
+              <span class="line horizontal" data-js-line-horizontal></span>
+              <span class="line vertical" data-js-line-vertical></span>
+            </div>
+          </span>
+        </div>
+        <div class="item-content" data-js-content>
+          <div data-js-inner>
+            <div class="copy-02 copy"><p>The transfer agent is EQ Shareowner Services.</p>
+
+<p><strong>Mail</strong><br />
+EQ Shareowner Services<br />
+PO Box 64874<br />
+St Paul MN 55164-0874</p>
+
+<p><strong>Overnight Mail</strong><br />
+EQ Shareowner Services<br />
+1110 Centre Pointe Curve, Suite 101<br />
+Mendota Heights MN 55120-4100</p>
+
+<p><strong>Website</strong>:<br /><a href="https://shareowneronline.equiniti.com/" target="_blank">www.shareowneronline.com</a></p></div>
+          </div>
+        </div>
+        <div class="background top" data-js-background-top></div>
+        <div class="background bottom" data-js-background-bottom></div>
+      </div>
+          </div>
+                <div class="column">
+          <div class="item theme-color">
+        <div class="item-label" data-js-label="faqfield_field_nir_faq_field_node_6391">
+          <span class="copy-01 label">Q:  How do I contact ViacomCBS Investor Relations?</span>
+          <span data-component="collapse-button" class="collapse-button">
+            <div class="line-wrapper" data-js-line-wrapper>
+              <span class="line horizontal" data-js-line-horizontal></span>
+              <span class="line vertical" data-js-line-vertical></span>
+            </div>
+          </span>
+        </div>
+        <div class="item-content" data-js-content>
+          <div data-js-inner>
+            <div class="copy-02 copy"><p>Investor Relations<br />
+ViacomCBS Inc.<br />
+1515 Broadway<br />
+New York, NY 10036<br /><a href="tel:12128460787">1-212-846-0787</a><br /><a href="tel:18772270787">1-877-227-0787</a><br /><a href="mailto:investorrelations@viacbs.com">investorrelations@viacbs.com</a></p></div>
+          </div>
+        </div>
+        <div class="background top" data-js-background-top></div>
+        <div class="background bottom" data-js-background-bottom></div>
+      </div>
+                <div class="item theme-color">
+        <div class="item-label" data-js-label="faqfield_field_nir_faq_field_node_6391">
+          <span class="copy-01 label">How do I calculate the tax basis of the shares I received in exchange for Viacom shares as a result of the merger of CBS and Viacom in December 2019?</span>
+          <span data-component="collapse-button" class="collapse-button">
+            <div class="line-wrapper" data-js-line-wrapper>
+              <span class="line horizontal" data-js-line-horizontal></span>
+              <span class="line vertical" data-js-line-vertical></span>
+            </div>
+          </span>
+        </div>
+        <div class="item-content" data-js-content>
+          <div data-js-inner>
+            <div class="copy-02 copy"><a href="https://ir.viacomcbs.com/static-files/34ab7b0c-ec7b-4ef0-b06f-558218afa8e2">Click Here</a></div>
+          </div>
+        </div>
+        <div class="background top" data-js-background-top></div>
+        <div class="background bottom" data-js-background-bottom></div>
+      </div>
+                <div class="item theme-color">
+        <div class="item-label" data-js-label="faqfield_field_nir_faq_field_node_6391">
+          <span class="copy-01 label">How do I calculate the tax basis of the shares I received in the CBS Radio stock exchange of November 2017?</span>
+          <span data-component="collapse-button" class="collapse-button">
+            <div class="line-wrapper" data-js-line-wrapper>
+              <span class="line horizontal" data-js-line-horizontal></span>
+              <span class="line vertical" data-js-line-vertical></span>
+            </div>
+          </span>
+        </div>
+        <div class="item-content" data-js-content>
+          <div data-js-inner>
+            <div class="copy-02 copy"><a href="https://ir.viacomcbs.com/static-files/ff8648e1-becb-4e7c-8f84-112354acf320">Click Here</a></div>
+          </div>
+        </div>
+        <div class="background top" data-js-background-top></div>
+        <div class="background bottom" data-js-background-bottom></div>
+      </div>
+                <div class="item theme-color">
+        <div class="item-label" data-js-label="faqfield_field_nir_faq_field_node_6391">
+          <span class="copy-01 label">How do I calculate the tax basis of the shares I received in the CBS Outdoor stock exchange of July 2014?</span>
+          <span data-component="collapse-button" class="collapse-button">
+            <div class="line-wrapper" data-js-line-wrapper>
+              <span class="line horizontal" data-js-line-horizontal></span>
+              <span class="line vertical" data-js-line-vertical></span>
+            </div>
+          </span>
+        </div>
+        <div class="item-content" data-js-content>
+          <div data-js-inner>
+            <div class="copy-02 copy"><p><a href="https://ir.viacomcbs.com/static-files/f6903299-34d5-48e7-b8b0-15008954490a">Click Here</a></p></div>
+          </div>
+        </div>
+        <div class="background top" data-js-background-top></div>
+        <div class="background bottom" data-js-background-bottom></div>
+      </div>
+                <div class="item theme-color">
+        <div class="item-label" data-js-label="faqfield_field_nir_faq_field_node_6391">
+          <span class="copy-01 label">How do I calculate the tax basis of the shares I received in January 2006 as a result of the Separation of CBS and Viacom?</span>
+          <span data-component="collapse-button" class="collapse-button">
+            <div class="line-wrapper" data-js-line-wrapper>
+              <span class="line horizontal" data-js-line-horizontal></span>
+              <span class="line vertical" data-js-line-vertical></span>
+            </div>
+          </span>
+        </div>
+        <div class="item-content" data-js-content>
+          <div data-js-inner>
+            <div class="copy-02 copy"><a href="https://ir.viacomcbs.com/static-files/2b31d7ee-3445-4375-9e25-07f5d1b8a426">Click Here</a></div>
+          </div>
+        </div>
+        <div class="background top" data-js-background-top></div>
+        <div class="background bottom" data-js-background-bottom></div>
+      </div>
+          </div>
+      </div>
+
+
+    
+</article>
+
+          </div>
+    <div class="nir-widget--pager">
+      
+    </div>
+    <div class="nir-widget--total-results">
+      
+    </div>
+  </div>
+</div>
+  </div>
+<div class="block--nir-email-alerts-signup-block block--nir-email-alerts-signup-block--5936 block--contentmain--nir-email-alerts-signup-block block--contentmain--nir-email-alerts-signup-block--5936 block--16e39ff1-ccce-4dc0-89e0-7341a109f9f9 block--16e39ff1-ccce-4dc0-89e0-7341a109f9f9--5936 block block-nir-email-alerts block-nir-email-alerts-signup-block email-alerts" id="alerts">
+  <div class="component-wrapper">
+    <div class="column">
+      
+              <h2 data-component="primary-title" data-js-heading class="primary-title heading-06" data-scroll-component>
+          Email Alerts
+          <span class="underline theme-color" data-js-underline></span>
+        </h2>
+            <p class="copy-02 copy">You may automatically receive ViacomCBS Inc. financial information by email. Please enter your preferences for email notifications below and click "Submit".</p>
+      <p class="copy-02 copy"><a href="https://ir.viacomcbs.com/unsubscribe">Unsubscribe from Investor Relations email alerts</a></p>
+      <p class="copy-02 copy">Our email alerts provide automated opt-out methods as well as complete contact information.</p>    
+      
+    </div>
+    <div class="column">
+              <form class="nir-email-alerts-signup-form" data-drupal-selector="nir-email-alerts-signup-form" action="/shareholder-services" method="post" id="nir-email-alerts-signup-form" accept-charset="UTF-8">
+  <div class="form-item">Required fields denoted by an asterisk (<span class="asterisk"></span>).</div><table data-drupal-selector="edit-nir-email-alerts-signup-alerts" id="edit-nir-email-alerts-signup-alerts" class="responsive-enabled nirtable" data-striping="1">
+  
+  
+      <thead>
+      <tr>
+                            <th>Alert type</th>
+              </tr>
+    </thead>
+  
+      <tbody>
+                      <tr data-drupal-selector="edit-nir-email-alerts-signup-alerts-10644" class="odd">
+                      <td><div class="js-form-item form-item js-form-type-checkbox form-item-nir-email-alerts-signup-alerts-10644-en js-form-item-nir-email-alerts-signup-alerts-10644-en">
+        <input data-drupal-selector="edit-nir-email-alerts-signup-alerts-10644-en" type="checkbox" id="edit-nir-email-alerts-signup-alerts-10644-en" name="nir_email_alerts_signup_alerts[10644][en]" value="1" class="form-checkbox" />
+
+        <label for="edit-nir-email-alerts-signup-alerts-10644-en" class="option">All SEC Filings</label>
+      </div>
+</td>
+                  </tr>
+                      <tr data-drupal-selector="edit-nir-email-alerts-signup-alerts-10645" class="even">
+                      <td><div class="js-form-item form-item js-form-type-checkbox form-item-nir-email-alerts-signup-alerts-10645-en js-form-item-nir-email-alerts-signup-alerts-10645-en">
+        <input data-drupal-selector="edit-nir-email-alerts-signup-alerts-10645-en" type="checkbox" id="edit-nir-email-alerts-signup-alerts-10645-en" name="nir_email_alerts_signup_alerts[10645][en]" value="1" class="form-checkbox" />
+
+        <label for="edit-nir-email-alerts-signup-alerts-10645-en" class="option">Quarterly and Annual Reports</label>
+      </div>
+</td>
+                  </tr>
+                      <tr data-drupal-selector="edit-nir-email-alerts-signup-alerts-10646" class="odd">
+                      <td><div class="js-form-item form-item js-form-type-checkbox form-item-nir-email-alerts-signup-alerts-10646-en js-form-item-nir-email-alerts-signup-alerts-10646-en">
+        <input data-drupal-selector="edit-nir-email-alerts-signup-alerts-10646-en" type="checkbox" id="edit-nir-email-alerts-signup-alerts-10646-en" name="nir_email_alerts_signup_alerts[10646][en]" value="1" class="form-checkbox" />
+
+        <label for="edit-nir-email-alerts-signup-alerts-10646-en" class="option">Insider Transactions</label>
+      </div>
+</td>
+                  </tr>
+                      <tr data-drupal-selector="edit-nir-email-alerts-signup-alerts-10643" class="even">
+                      <td><div class="js-form-item form-item js-form-type-checkbox form-item-nir-email-alerts-signup-alerts-10643-en js-form-item-nir-email-alerts-signup-alerts-10643-en">
+        <input data-drupal-selector="edit-nir-email-alerts-signup-alerts-10643-en" type="checkbox" id="edit-nir-email-alerts-signup-alerts-10643-en" name="nir_email_alerts_signup_alerts[10643][en]" value="1" class="form-checkbox" />
+
+        <label for="edit-nir-email-alerts-signup-alerts-10643-en" class="option">Calendar Events</label>
+      </div>
+</td>
+                  </tr>
+                      <tr data-drupal-selector="edit-nir-email-alerts-signup-alerts-10647" class="odd">
+                      <td><div class="js-form-item form-item js-form-type-checkbox form-item-nir-email-alerts-signup-alerts-10647-en js-form-item-nir-email-alerts-signup-alerts-10647-en">
+        <input data-drupal-selector="edit-nir-email-alerts-signup-alerts-10647-en" type="checkbox" id="edit-nir-email-alerts-signup-alerts-10647-en" name="nir_email_alerts_signup_alerts[10647][en]" value="1" class="form-checkbox" />
+
+        <label for="edit-nir-email-alerts-signup-alerts-10647-en" class="option">All News Releases</label>
+      </div>
+</td>
+                  </tr>
+          </tbody>
+    </table>
+<div class="js-form-item form-item js-form-type-email form-item-nir-email-alerts-signup-email js-form-item-nir-email-alerts-signup-email">
+      <label for="edit-nir-email-alerts-signup-email" class="js-form-required form-required">Email</label>
+        <input data-drupal-selector="edit-nir-email-alerts-signup-email" type="email" id="edit-nir-email-alerts-signup-email" name="nir_email_alerts_signup_email" value="" size="60" maxlength="254" class="form-email required" required="required" aria-required="true" />
+
+        </div>
+    <div  data-drupal-selector="edit-captcha" class="captcha"><input data-drupal-selector="edit-captcha-sid" type="hidden" name="captcha_sid" value="20951" />
+<input data-drupal-selector="edit-captcha-token" type="hidden" name="captcha_token" value="NWM-yEFh0LvGdhPUS4IO_HNU6eDhkYRl_MQihb7i520" />
+<input data-drupal-selector="edit-captcha-response" type="hidden" name="captcha_response" value="Google no captcha" />
+<div class="g-recaptcha" data-sitekey="6LdbJjMUAAAAAMufy66zzj8SH1No5rzzDrBBQkdb" data-theme="light" data-type="image"></div><input data-drupal-selector="edit-captcha-cacheable" type="hidden" name="captcha_cacheable" value="1" />
+</div>
+<button title="Submit"  data-drupal-selector="edit-submit" type="submit" id="edit-submit" name="op" class="button button--primary js-form-submit form-submit primary-button theme-color">
+    <span class="label">Submit</span>
+</button>
+
+<input autocomplete="off" data-drupal-selector="form-6dmfatplmbrvoznbyeqa5hknnzrkvz-0dqwf-hpuj-e" type="hidden" name="form_build_id" value="form-6dMFatPLMbRVOzNBYEQA5hKnnzRKVZ_0dqwf_hpUj_E" />
+<input data-drupal-selector="edit-nir-email-alerts-signup-form" type="hidden" name="form_id" value="nir_email_alerts_signup_form" />
+<div class="url-textfield js-form-wrapper form-wrapper" style="display: none !important;"><div class="js-form-item form-item js-form-type-textfield form-item-url js-form-item-url">
+      <label for="edit-url">Leave this field blank</label>
+        <input autocomplete="off" data-drupal-selector="edit-url" type="text" id="edit-url" name="url" value="" size="20" maxlength="128" class="form-text" />
+
+        </div>
+</div>
+
+</form>
+
+          </div>
+  </div>
+</div>
+<div class="block-content--nir-lp-block block-content--nir-lp-block--44486 block--block-content18042459-0208-4ba1-8449-e057c1965387 block--block-content18042459-0208-4ba1-8449-e057c1965387--5936 block--contentmain--block-content--18042459-0208-4ba1-8449-e057c1965387 block--contentmain--block-content--18042459-0208-4ba1-8449-e057c1965387--5936 block--20e45b61-be02-4506-94b9-5a3213451075 block--20e45b61-be02-4506-94b9-5a3213451075--5936 block block-block-content block-block-content18042459-0208-4ba1-8449-e057c1965387">
+  
+      <h2 data-component="primary-title" data-js-heading class="primary-title heading-06" data-scroll-component>
+      Contact Information
+      <span class="underline theme-color" data-js-underline></span>
+    </h2>
+    
+      
+            <div class="field field--name-field-nir-lp-block-node field--type-entity-reference field--label-hidden field__item">  
+            <div class="clearfix text-formatted field field--name-field-nir-lp-block-body field--type-text-long field--label-hidden field__item"><div class="contact">
+<div class="component-wrapper">
+<div class="block">
+<h3 class="secondary-title copy-01 theme-color" data-component="secondary-title" data-js-heading="">ViacomCBS Investor Relations</h3>
+
+<div class="row" style="flex-direction:column">
+<p>1515 Broadway<br />
+New York, NY 10036</p>
+
+<p class="copy-02 copy"><a href="tel:2128460787">+1-212-846-0787</a></p>
+
+<p class="copy-02 copy"><a href="tel:18772270787">+1-877-227-0787</a></p>
+
+<p><a class="copy-02" href="mailto:investorrelations@viacbs.com">investorrelations@viacbs.com</a></p>
+</div>
+
+<h3 class="secondary-title copy-01 theme-color" data-component="secondary-title" data-js-heading="">ViacomCBS's Non-Management Directors</h3>
+
+<div class="row">
+<p>If you would like to contact ViacomCBS's non-management directors, you may e-mail to: <a class="copy-02" href="mailto:nonmanagementdirectors@viacomcbs.com">nonmanagementdirectors@viacomcbs.com</a></p>
+
+<p>or write to:<br />
+ViacomCBS Inc. (f/k/a CBS Corporation)<br />
+1515 Broadway<br />
+New York, NY 10036<br />
+Attention: Non-Management Directors - 52nd Floor</p>
+</div>
+
+<h3 class="secondary-title copy-01 theme-color" data-component="secondary-title" data-js-heading="">EQ Shareowner Services (Transfer Agent)</h3>
+
+<div class="row">
+<p class="copy-02 copy">Via USPS<br />
+P.O. Box 64874<br />
+St. Paul, MN 55164-0874</p>
+</div>
+
+<div class="row">
+<p class="copy-02 copy">Via Overnight or Express Mail Services<br />
+1110 Centre Pointe Curve, Suite 101<br />
+Mendota Heights, MN 55120-4100</p>
+</div>
+
+<div class="row">
+<p class="copy-02 copy" style="width:100%;"><a href="tel:8665951717">+1 866-595-1717</a></p>
+
+<p class="copy-02 copy" style="width:100%;"><a href="mailto:investorrelations@cbs.com">investorrelations@cbs.com</a> (with Authentication ID)</p>
+
+<p class="copy-02 copy" style="width:100%;"><a href="https://shareowneronline.equiniti.com/" target="_blank">www.shareowneronline.com</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+      
+</div>
+      
+  </div>
+<div class="block-content--nir-lp-block block-content--nir-lp-block--44501 block--block-contentb91d7c8c-c6d6-4e7c-9ac7-0df5e4231f9c block--block-contentb91d7c8c-c6d6-4e7c-9ac7-0df5e4231f9c--5936 block--contentmain--block-content--b91d7c8c-c6d6-4e7c-9ac7-0df5e4231f9c block--contentmain--block-content--b91d7c8c-c6d6-4e7c-9ac7-0df5e4231f9c--5936 block--86211f8e-c7dd-4c5f-8e30-07a7724026ff block--86211f8e-c7dd-4c5f-8e30-07a7724026ff--5936 block block-block-content block-block-contentb91d7c8c-c6d6-4e7c-9ac7-0df5e4231f9c">
+  
+      <h2 data-component="primary-title" data-js-heading class="primary-title heading-06" data-scroll-component>
+      Investor Materials
+      <span class="underline theme-color" data-js-underline></span>
+    </h2>
+    
+      
+            <div class="field field--name-field-nir-lp-block-node field--type-entity-reference field--label-hidden field__item">  
+            <div class="clearfix text-formatted field field--name-field-nir-lp-block-body field--type-text-long field--label-hidden field__item"><div class="contact">
+<div class="component-wrapper">
+<div class="block">
+<h3 class="secondary-title copy-01 theme-color" data-component="secondary-title" data-js-heading="">Order Investor Materials</h3>
+
+<div class="row">
+<p class="copy-02 copy">ViacomCBS Investor Relations<br />
+51 West 52nd Street<br />
+New York, NY 10019, USA</p>
+
+<p class="copy-02 copy" style="width:100%;"><a href="tel:12129754321">+1-212-975-4321</a> or <a href="tel:18772270787">+1-877-227-0787</a></p>
+<a class="copy-02" href="mailto:investorrelations@cbs.com">investorrelations@cbs.com</a></div>
+</div>
+
+<div class="block">
+<h3 class="secondary-title copy-01 theme-color" data-component="secondary-title" data-js-heading="">Electronic Delivery</h3>
+
+<div class="row">
+<p class="copy-02 copy" style="width:100%;">To sign up for electronic delivery of stockholder materials, visit</p>
+
+<p class="copy-02 copy" style="width:100%;"><a href="http://www.icsdelivery.com/viacom" target="_blank">www.icsdelivery.com/viacom</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+      
+</div>
+      
+  </div>
+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /.boxton -->
+
+  </div>
+</article>
+
+  </div>
+
+  </div>
+</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
+      <div id="footerInsert"></div>
+
+      
+
+    </div>
+
+  </div>
+</div>
+
+  
+    
+        <script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/","scriptPath":null,"pathPrefix":"","currentPath":"node\/5936","currentPathIsAdmin":false,"isFront":false,"currentLanguage":"en"},"pluralDelimiter":"\u0003","suppressDeprecationErrors":true,"ajaxPageState":{"libraries":"captcha\/base,classy\/node,core\/drupal.tableresponsive,nir_base\/lib,nir_base\/nir_icons,nir_base\/nir_toolbar,nir_base\/sidr,nir_ckeditor_datatables\/datatables,nir_faq\/nir_faq_accordion,nir_multimedia\/nir_multimedia,nir_pid2249\/override,nir_website_notices\/nir_website_notices.notices,radix_layouts\/radix_layouts,system\/base","theme":"nir_pid2249","theme_token":null},"ajaxTrustedUrl":{"form_action_p_pvdeGsVG5zNF_XLGPTvYSKCf43t8qZYSwcfZl2uzM":true},"user":{"uid":0,"permissionsHash":"bf295fdab8890c2a7864f2ac2dc6d0b15971f6072cdc2a15116b8c777e0e77e0"}}</script>
+<script src="https://ir.viacomcbs.com/sites/g/files/knoqqb55956/files/js/js_JmDjdzTxLAGAz_2NcJKednmcP5lB9I_TRHdljeDcCiM.js"></script>
+<script src="https://spt-branding-viacomcbs-prd-cdn-enp.azureedge.net/finalmarkupwithlocalreference/headerFooterMarkup.js"></script>
+<script src="sites/g/files/knoqqb55956/themes/site/nir_pid2249/dist/js/common-r0bwsa.js"></script>
+<script src="sites/g/files/knoqqb55956/themes/site/nir_pid2249/dist/js/bundle-r0bwsa.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://ir.viacomcbs.com/sites/g/files/knoqqb55956/files/js/js_uUN3aeGfOW7AoV0J2QP0khljdNEzEdrRDkNR23U5Zh0.js"></script>
+
+    
+  <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam-cell.nr-data.net","licenseKey":"761e715901","applicationID":"35893545,24276188","transactionName":"ZlVXYRcAW0ZRW0QKX18fdFYRCFpbH3xCFkBQXGlbCgVQaXNXXhdCXlxZUBc9e1pUXWYKVUZzWlsRE1pZXF1CTg5HWVBC","queueTime":0,"applicationTime":541,"atts":"ShJUF18aSEg=","errorBeacon":"bam-cell.nr-data.net","agent":""}</script></body>
+</html>
