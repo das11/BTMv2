@@ -12003,13 +12003,13 @@ footer .footer-top .footer-box.sibling-hovred~.footer-list ul li a {
 }
 
 .brand-list .text-section h2 {
-	text-transform: uppercase;
+	/* text-transform: uppercase; */
 	max-width: 670px;
 	letter-spacing: -0.08px;
 }
 
 .brand-list .text-section h2 span {
-	color: #7feaed;
+	color: #ffffff;
 }
 
 @media (max-width:991px) {
@@ -12801,7 +12801,7 @@ a.job-ct {
 .leadership .section-heading {
 	font-size: 6.25vw;
 	letter-spacing: -0.8px;
-	text-transform: uppercase;
+	/* text-transform: uppercase; */
 	line-height: 1;
 	padding-right: 5vw;
 	margin: 1.875vw 0 6.25vw;
@@ -12817,7 +12817,7 @@ a.job-ct {
 }
 
 .leadership .section-heading span {
-	color: #7feaed;
+	color: #ffffff;
 }
 
 .leadership .link-button {
@@ -13568,7 +13568,7 @@ a.job-ct {
 }
 
 .main-banner .slider .slide .slide-content .section-heading span {
-	color: #7feaed;
+	color: #fd1c27;
 }
 
 .main-banner .slider .slide .slide-content .section-heading-medium {
@@ -29045,7 +29045,7 @@ p:last-child {
 }
 
 .news .text-section h2 span {
-	color: #7feaed;
+	color: #ffffff;
 }
 
 .news .text-section .section-heading {
