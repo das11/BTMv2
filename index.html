@@ -34,6 +34,8 @@
 	<link rel="stylesheet" media="all" href="sites/g/files/dxjhpe226/files/cohesion/styles/theme/viacom-stylesheet.min-qyesr4.css" />
 	<link rel="stylesheet" media="all" href="sites/g/files/dxjhpe226/files/css/css_AQ8bR365Oz0lS8KKmmjGaQqD7dV2x9Rs3rqwx-RPifI.css" />
 	<link rel="stylesheet" media="all" href="sites/g/files/dxjhpe226/files/css/css_wj1R-FrOUCQS0mljc-DgFYLzYtksbSxkMEbrFRHR8BY.css" />
+	<link rel="stylesheet" media="all" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" />
+	
 	<style>
 	/* Generated on Wed, 25 Aug 2021 18:43:10 GMT */
 	</style>
@@ -326,7 +328,7 @@
 																		<li class="coh-list-item">
 																			<article role="article" about="/brand/bet">
 																				<div class="coh-container brand-box" data-video="/sites/g/files/dxjhpe226/files/2021-03/Instabooth_With_DJ_Khaled_XXXTentacion_Big_Shaq_u0026_more_Freestyle_Cypher_BET_Hip_Hop_Awards_2_1080p_veryslow_crf_33_96k.mp4" data-banner-image="">
-																					<a href="brand/bet.html" class="coh-link" target="_self" data-api-name="BET" data-api-url=""> <img class="coh-image coh-image-responsive-xl coh-image-responsive-xs" src="assets/clients/MTV_Logo.svg.png" alt="" /> </a>
+																					<a href="brand/bet.html" class="coh-link" target="_self" data-api-name="BET" data-api-url=""> <img class="coh-image coh-image-responsive-xl coh-image-responsive-xs" src="assets/clients/MTV_Logo.svg.jpg" alt="" /> </a>
 																				</div>
 																			</article>
 																			<article role="article" about="/brand/cbs-entertainment">
@@ -461,11 +463,6 @@
 																					<a href="brand/bellator.html" class="coh-link" target="_self" data-api-name="" data-api-url=""> <img class="coh-image coh-image-responsive-xl coh-image-responsive-xs" src="assets/clients/a_bindass.jpg" alt="" /> </a>
 																				</div>
 																			</article>
-																			<article role="article" about="/brand/bet">
-																				<div class="coh-container brand-box" data-video="/sites/g/files/dxjhpe226/files/2021-03/Instabooth_With_DJ_Khaled_XXXTentacion_Big_Shaq_u0026_more_Freestyle_Cypher_BET_Hip_Hop_Awards_2_1080p_veryslow_crf_33_96k.mp4" data-banner-image="">
-																					<a href="brand/bet.html" class="coh-link" target="_self" data-api-name="BET" data-api-url=""> <img class="coh-image coh-image-responsive-xl coh-image-responsive-xs" src="assets/clients/a_M_tv.jpg" alt="" /> </a>
-																				</div>
-																			</article>
 																		</li>
 																		<li class="coh-list-item">
 																			<article role="article" about="/brand/cbs-entertainment">
@@ -553,6 +550,44 @@
 									</div>
 								</div>
 								
+
+
+
+								<!-- start count stats -->
+
+<section id="counter-stats" class="wow fadeInRight" data-wow-duration="1.4s">
+	<div class="container">
+		<div class="row">
+
+			<div class="col-lg-3 stats">
+				<i class="fa fa-television" aria-hidden="true" style="color: white; width: 100px;"></i>
+				<div class="counting" data-count="30"></div>
+				<h5>Shows</h5>
+			</div>
+
+			<div class="col-lg-3 stats">
+				<i class="fa fa-hourglass" aria-hidden="true" style="color: white;"></i>
+				<div class="counting" data-count="1500">0</div>
+				<h5>Hours of Content</h5>
+			</div>
+
+			<div class="col-lg-3 stats">
+				<i class="fa fa-bullhorn" aria-hidden="true" style="color: white;"></i>
+				<div class="counting" data-count="10">0</div>
+				<h5>Major Broadcasters</h5>
+			</div>
+
+		</div>
+		<!-- end row -->
+	</div>
+	<!-- end container -->
+
+</section>
+
+<!-- end cont stats -->
+
+
+
 								
 								<!-- Work -->
 								<div class="coh-container coh-component coh-component-instance-db5c8c71-aef9-4ae3-b56f-5d7ffe43e8d0 contextual-component news-carousel-container coh-instance-2905034202 coh-ce-cpt_news_carousel-afde3375" id="work">
@@ -975,6 +1010,33 @@
 		"errorBeacon": "bam-cell.nr-data.net",
 		"agent": ""
 	}
+	</script>
+	<script type="text/javascript">
+		// number count for stats, using jQuery animate
+
+		$('.counting').each(function() {
+		var $this = $(this),
+			countTo = $this.attr('data-count');
+		
+		$({ countNum: $this.text()}).animate({
+			countNum: countTo
+		},
+		{
+
+			duration: 3000,
+			easing:'linear',
+			step: function() {
+			$this.text(Math.floor(this.countNum));
+			},
+			complete: function() {
+			$this.text(this.countNum + " + ");
+			//alert('finished');
+			}
+
+		});  
+		
+
+		});
 	</script>
 </body>
 
