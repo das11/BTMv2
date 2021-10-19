@@ -54,7 +54,7 @@ html {
 
 /*/ start count stats /*/
 
-section#counter-stats {
+/* section#counter-stats {
 	display: flex;
 	justify-content: center;
 	margin-top: 100px;
@@ -70,7 +70,15 @@ section#counter-stats {
 .stats .fa {
   color: #008080;
   font-size: 60px;
-}
+} */
+
+
+
+
+
+
+
+/* ##################### */
 
 article,
 aside,
@@ -10881,7 +10889,7 @@ p {
 }
 
 .main-header .navbar img {
-	height: 90px;
+	height: 110px;
 }
 
 .main-header .navbar button {
@@ -12027,7 +12035,7 @@ footer .footer-top .footer-box.sibling-hovred~.footer-list ul li a {
 
 .brand-list .text-section h2 {
 	/* text-transform: uppercase; */
-	max-width: 670px;
+	/* max-width: 670px; */
 	letter-spacing: -0.08px;
 }
 
