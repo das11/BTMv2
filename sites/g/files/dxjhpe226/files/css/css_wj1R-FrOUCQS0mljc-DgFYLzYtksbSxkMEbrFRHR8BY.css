@@ -20892,7 +20892,7 @@ video::-webkit-media-controls-panel {
 @media(min-width:992px) {
 	.playable-video-banner .banner.video-background .banner-heading-button {
 		margin-top: -5px;
-		max-width: 650px;
+		max-width: 100%;
 	}
 }
 
